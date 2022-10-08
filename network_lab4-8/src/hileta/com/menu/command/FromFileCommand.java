@@ -16,6 +16,6 @@ public class FromFileCommand implements MenuCommand {
     }
 
     public String getCommandInfo() {
-        return this.COMMAND_INFO;
+        return COMMAND_INFO;
     }
 }

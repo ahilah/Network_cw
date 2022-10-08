@@ -3,9 +3,11 @@ package hileta.com.network;
 import hileta.com.Tariff.BaseTariff;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Network {
+
     private String companyName;
     private String companyNumber;
     private String companyEmail;
@@ -14,6 +16,10 @@ public class Network {
     private List<Customer> operatorCustomers;
     private List<MobileNumber> operatorNumbers;
     private List<Abroad> operatorListAbroad;
+
+    public Network() {
+        operatorCustomers = new ArrayList<>();
+    }
 
     public void addTariff(BaseTariff tariff) {
         operatorAvailableTariffs.add(tariff);
@@ -27,7 +33,6 @@ public class Network {
         for(int i = 0, j = i; i < this.operatorAvailableTariffs.size(); ++i, ++j) {
             System.out.println(String.valueOf(j) + this.operatorAvailableTariffs.get(i));
         }
-
     }
 
     public void deleteTariff(int numberOfTariff) {
@@ -37,7 +42,8 @@ public class Network {
     public void addNumber() {
     }
 
-    public void addCustomer() {
+    public void addCustomer(Customer customer) {
+        operatorCustomers.add(customer);
     }
 
     public void addAbroad() {
