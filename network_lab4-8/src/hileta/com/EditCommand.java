@@ -1,5 +1,7 @@
 package hileta.com;
 
+import hileta.com.commandable.MenuCommand;
+
 public class EditCommand implements MenuCommand {
     private String COMMAND_INFO = "edit object";
     private Network network;
