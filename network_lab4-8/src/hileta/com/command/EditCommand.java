@@ -1,6 +1,6 @@
-package hileta.com;
+package hileta.com.command;
 
-import hileta.com.commandable.MenuCommand;
+import hileta.com.command.commandable.MenuCommand;
 
 public class EditCommand implements MenuCommand {
     private String COMMAND_INFO = "edit object";

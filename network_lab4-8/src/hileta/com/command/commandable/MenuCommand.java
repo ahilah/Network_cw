@@ -1,4 +1,4 @@
-package hileta.com.commandable;
+package hileta.com.command.commandable;
 
 public interface MenuCommand {
     void execute();
