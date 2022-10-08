@@ -1,5 +1,7 @@
 package hileta.com;
 
+import hileta.com.commandable.MenuCommand;
+
 public class AddCommand implements MenuCommand {
     private String COMMAND_INFO = "add new object";
     private Network network;
