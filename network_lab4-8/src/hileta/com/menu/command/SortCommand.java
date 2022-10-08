@@ -1,6 +1,7 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.network.Network;
 
 public class SortCommand implements MenuCommand {
     private String COMMAND_INFO = "sort tariffs of their price";
@@ -12,10 +13,10 @@ public class SortCommand implements MenuCommand {
 
     public void execute() {
         System.out.println("sort");
-        this.network.sortTariffs();
+        network.sortTariffs();
     }
 
     public String getCommandInfo() {
-        return this.COMMAND_INFO;
+        return COMMAND_INFO;
     }
 }

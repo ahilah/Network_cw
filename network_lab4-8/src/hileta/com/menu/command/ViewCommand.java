@@ -1,6 +1,7 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.network.Network;
 
 public class ViewCommand implements MenuCommand {
     private String COMMAND_INFO = "view object";
@@ -17,6 +18,6 @@ public class ViewCommand implements MenuCommand {
     }
 
     public String getCommandInfo() {
-        return this.COMMAND_INFO;
+        return COMMAND_INFO;
     }
 }

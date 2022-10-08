@@ -20,7 +20,6 @@ public class SuperTariff extends BaseTariff {
     }
 
     public String toString() {
-        String var10000 = super.toString();
-        return "Super Tariff (" + var10000 + " number of minutes on other network: " + this.numberMinutesOtherNetwork + ", number of minutes on other countries: " + this.numberMinutesOtherCountries + ")";
+        return "Super Tariff (" + super.toString() + " number of minutes on other network: " + this.numberMinutesOtherNetwork + ", number of minutes on other countries: " + this.numberMinutesOtherCountries + ")";
     }
 }

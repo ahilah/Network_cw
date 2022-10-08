@@ -1,6 +1,7 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.network.Network;
 
 import java.util.Scanner;
 
@@ -15,14 +16,14 @@ public class DeleteCommand implements MenuCommand {
     }
 
     public void execute() {
-        this.network.deleteTariff(this.getNumberOfTariff());
-        System.out.println("\u001b[32mTariff was successfully deleted!\u001b[0m");
+        network.deleteTariff(getNumberOfTariff());
+        System.out.println(ANSI_GREEN + "Tariff was successfully deleted!" + ANSI_RESET);
     }
 
     private int getNumberOfTariff() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\t There are available commands: ");
-        this.network.showTariffs();
+        network.showTariffs();
         System.out.print("Type number of tariff here: ");
         int numberOfTariff = scanner.nextInt();
         --numberOfTariff;
@@ -30,7 +31,7 @@ public class DeleteCommand implements MenuCommand {
     }
 
     public String getCommandInfo() {
-        return this.COMMAND_INFO;
+        return COMMAND_INFO;
     }
 }
 

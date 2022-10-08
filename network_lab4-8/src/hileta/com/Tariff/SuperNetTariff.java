@@ -13,7 +13,6 @@ public class SuperNetTariff extends BaseTariff {
     }
 
     public String toString() {
-        String var10000 = super.toString();
-        return "Super Net Tariff (" + var10000 + " number of minutes on other network: " + this.numberMinutesOtherNetwork + ", number of minutes on other countries: " + this.numberMinutesOtherCountries + ", GB of mobile Internet: " + this.mobileInternet + ")";
+        return "Super Net Tariff (" + super.toString() + " number of minutes on other network: " + this.numberMinutesOtherNetwork + ", number of minutes on other countries: " + this.numberMinutesOtherCountries + ", GB of mobile Internet: " + this.mobileInternet + ")";
     }
 }

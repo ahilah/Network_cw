@@ -1,5 +1,7 @@
 package hileta.com.network;
 
+import hileta.com.Tariff.BaseTariff;
+
 public class MobileNumber {
     String number;
     BaseTariff tariff;
@@ -14,7 +16,7 @@ public class MobileNumber {
     }
 
     public String toString() {
-        return "MobileNumber{number='" + this.number + "', tariff=" + this.tariff + ", user=" + this.user + "}";
+        return "Mobile Number: " + this.number + ", tariff: " + this.tariff.toString() + ", user: " + this.user;
     }
 
     public void setTariff(BaseTariff tariff) {

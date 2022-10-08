@@ -7,9 +7,6 @@ public class ExitCommand implements MenuCommand {
     private static final String ANSI_PURPLE = "\u001b[35m";
     public static final String ANSI_RESET = "\u001b[0m";
 
-    public ExitCommand() {
-    }
-
     public void execute() {
         System.out.println(ANSI_PURPLE + "\n\n\t Program is ended." + ANSI_RESET);
         System.exit(0);

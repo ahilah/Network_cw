@@ -1,6 +1,7 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.network.Network;
 
 public class FromFileCommand implements MenuCommand {
     private String COMMAND_INFO = "input from file";

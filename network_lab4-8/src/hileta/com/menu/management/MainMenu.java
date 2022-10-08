@@ -9,8 +9,8 @@ public class MainMenu {
     public MainCommand mainCommand;
 
     public MainMenu() {
-        this.scanner = new Scanner(System.in);
-        this.mainCommand = new MainCommand();
+       scanner = new Scanner(System.in);
+       mainCommand = new MainCommand();
     }
 
     public void StartMainMenu() {
@@ -18,9 +18,8 @@ public class MainMenu {
             System.out.println("\nAvailable commands: ");
             this.mainCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
-            int command = this.scanner.nextInt();
-            --command;
-            this.mainCommand.execute(command);
+            int command = scanner.nextInt();
+            mainCommand.execute(--command);
         }
     }
 }

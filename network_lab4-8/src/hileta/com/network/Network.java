@@ -1,6 +1,8 @@
 package hileta.com.network;
 
-import java.io.PrintStream;
+import hileta.com.Tariff.BaseTariff;
+
+
 import java.util.List;
 
 public class Network {
@@ -13,31 +15,23 @@ public class Network {
     private List<MobileNumber> operatorNumbers;
     private List<Abroad> operatorListAbroad;
 
-    public Network() {
-    }
-
     public void addTariff(BaseTariff tariff) {
-        this.operatorAvailableTariffs.add(tariff);
+        operatorAvailableTariffs.add(tariff);
     }
 
     public void archiveTariff(BaseTariff tariff) {
-        this.operatorArchivedTariffs.add(tariff);
+        operatorArchivedTariffs.add(tariff);
     }
 
     public void showTariffs() {
-        int i = 0;
-
-        for(int j = i; i < this.operatorAvailableTariffs.size(); ++j) {
-            PrintStream var10000 = System.out;
-            String var10001 = String.valueOf(j);
-            var10000.println(var10001 + this.operatorAvailableTariffs.get(i));
-            ++i;
+        for(int i = 0, j = i; i < this.operatorAvailableTariffs.size(); ++i, ++j) {
+            System.out.println(String.valueOf(j) + this.operatorAvailableTariffs.get(i));
         }
 
     }
 
     public void deleteTariff(int numberOfTariff) {
-        this.operatorAvailableTariffs.remove(numberOfTariff);
+        operatorAvailableTariffs.remove(numberOfTariff);
     }
 
     public void addNumber() {
@@ -59,23 +53,23 @@ public class Network {
     }
 
     public BaseTariff getTariff(int numberOfTariff) {
-        return (BaseTariff)this.operatorAvailableTariffs.get(numberOfTariff);
+        return operatorAvailableTariffs.get(numberOfTariff);
     }
 
     public BaseTariff getTariffFromArchive(int numberOfTariff) {
-        return (BaseTariff)this.operatorArchivedTariffs.get(numberOfTariff);
+        return operatorArchivedTariffs.get(numberOfTariff);
     }
 
     public int getNumberAvailableTariffs() {
-        return this.operatorAvailableTariffs.size();
+        return operatorAvailableTariffs.size();
     }
 
     public int getNumberArchivedTariffs() {
-        return this.operatorArchivedTariffs.size();
+        return operatorArchivedTariffs.size();
     }
 
     public List<BaseTariff> getOperatorAvailableTariffs() {
-        return this.operatorAvailableTariffs;
+        return operatorAvailableTariffs;
     }
 }
 
