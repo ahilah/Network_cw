@@ -1,4 +1,4 @@
-package hileta;
+package hileta.com;
 
 public class AddCommand implements MenuCommand {
     private String COMMAND_INFO = "add new object";
