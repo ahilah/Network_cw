@@ -1,7 +1,8 @@
-package hileta.com.management;
+package hileta.com.menu.management;
 
-import hileta.com.command.*;
-import hileta.com.command.commandable.*;
+import hileta.com.menu.command.*;
+import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.management.command.commandable.*;
 
 import java.util.ArrayList;
 import java.util.List;

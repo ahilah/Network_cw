@@ -1,4 +1,6 @@
-package hileta.com.management;
+package hileta.com.menu.management;
+
+import hileta.com.menu.management.MainCommand;
 
 import java.util.Scanner;
 

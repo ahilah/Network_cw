@@ -1,6 +1,6 @@
-package hileta.com.command;
+package hileta.com.menu.command;
 
-import hileta.com.command.commandable.MenuCommand;
+import hileta.com.menu.command.commandable.MenuCommand;
 
 public class ExitCommand implements MenuCommand {
     private String COMMAND_INFO = "exit";
