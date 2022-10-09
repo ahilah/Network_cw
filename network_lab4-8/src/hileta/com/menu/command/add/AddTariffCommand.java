@@ -1,5 +1,6 @@
 package hileta.com.menu.command.add;
 
+import hileta.com.Tariff.BaseTariff;
 import hileta.com.Tariff.StartTariff;
 import hileta.com.Tariff.SuperNetTariff;
 import hileta.com.Tariff.SuperTariff;
@@ -10,79 +11,68 @@ import java.util.Scanner;
 
 public class AddTariffCommand implements MenuCommand  {
 
-    private final String COMMAND_INFO = "add new tariff";
     Scanner scanner;
-    private Network network;
-
+    private final Network network;
     private static final String ANSI_RED = "\u001b[31m";
-    private static final String ANSI_PURPLE = "\u001b[35m";
     public static final String ANSI_RESET = "\u001b[0m";
 
-    public AddTariffCommand() {
-        this.network = new Network("111", "222", "333");
+    public AddTariffCommand(Network network) {
+        this.network = network;
         scanner = new Scanner(System.in);
-        //fileCommand = new FromFileCommand(network);
     }
 
     @Override
     public void execute() {
+        String commandExample1 = "Run command with parameters like: customer tariff name--" +
+                "smsNumber--numberMinutesThisOperator--price--ID";
+        String commandExample2 = "--numberMinutesOtherOperator--NumberMinutesAbroad";
+        String commandExample3 = "--GBMobileInternet";
+        String[] tariffInfo;
+
+        int commandTariff = getTariffKind();
+        switch (commandTariff) {
+            case 1 -> {
+                System.out.print(commandExample1);
+                tariffInfo = getInputTariffInfo();
+                network.addTariff(getNewStartTariff(tariffInfo));
+            }
+            case 2 -> {
+                System.out.println(new StringBuilder().append(commandExample1)
+                        .append(commandExample2).toString());
+                tariffInfo = getInputTariffInfo();
+                network.addTariff(getNewSuperTariff(tariffInfo));
+            }
+            case 3 -> {
+                System.out.println(new StringBuilder().append(commandExample1)
+                        .append(commandExample2).append(commandExample3).toString());
+                tariffInfo = getInputTariffInfo();
+                network.addTariff(getNewSuperNetTariff(tariffInfo));
+            }
+            /* default: {
+                System.out.println("u lox");
+                return;
+            }*/
+        }
+    }
+
+    private int getTariffKind() {
         System.out.println("Type " + ANSI_RED + "@" + ANSI_RESET + " for unlimited parameter.\nPress to add");
         System.out.print("""
                     1 - for start tariff
                     2 - for super tariff
                     3 - for super net tariff""".indent(0));
         System.out.print("Type here: ");
-        int commandTariff = Integer.parseInt(scanner.nextLine());
-        String commandExample1 = "Run command with parameters like: customer tariff name--" +
-                "smsNumber--numberMinutesThisOperator--price--ID";
-        String commandExample2 = "--numberMinutesOtherOperator--NumberMinutesAbroad";
-        String commandExample3 = "--GBMobileInternet";
-        switch(commandTariff) {
-            case 1: {
-                System.out.print(commandExample1 + "\n");
-                String tariffInputInfo = scanner.nextLine();
-                String[] tariffInfo = splitString(tariffInputInfo);
-                StartTariff startTariff = new StartTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
-                        Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4]);
-                network.addTariff(startTariff);
-                System.out.println(network.getTariff(0));
-                break;
-            }
-            case 2: {
-                System.out.println(new StringBuilder().append(commandExample1)
-                        .append(commandExample2).toString());
-                String tariffInputInfo = scanner.nextLine();
-                String[] tariffInfo = splitString(tariffInputInfo);
-                searchUnlimitedParameters(tariffInfo);
-                SuperTariff superTariff = new SuperTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
-                        Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
-                        Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]));
-                network.addTariff(superTariff);
-                break;
-            }
-            case 3: {
-                System.out.println(new StringBuilder().append(commandExample1)
-                        .append(commandExample2).append(commandExample3).toString());
-                String tariffInputInfo = scanner.nextLine();
-                String[] tariffInfo = splitString(tariffInputInfo);
-                searchUnlimitedParameters(tariffInfo);
-                SuperNetTariff superNetTariff = new SuperNetTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
-                        Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
-                        Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]),
-                        Double.parseDouble(tariffInfo[7]));
-                network.addTariff(superNetTariff);
-                break;
-            }
-            default: {
-                System.out.println("u lox");
-                return;
-            }
-        }
+        return Integer.parseInt(scanner.nextLine());
     }
 
-    @Override
-    public String getCommandInfo() {
-        return COMMAND_INFO;
+    private String[] getInputTariffInfo() {
+        String tariffInputInfo = scanner.nextLine();
+        return splitString(tariffInputInfo);
+    }
+
+    private String[] splitString(String inputString) {
+        String delims = "[-.,?!]+";
+        return inputString.split(delims);
     }
 
     private void searchUnlimitedParameters(String[] inputInfo) {
@@ -92,8 +82,29 @@ public class AddTariffCommand implements MenuCommand  {
         }
     }
 
-    private String[] splitString(String inputString) {
-        String delims = "[-.,?!]+";
-        return inputString.split(delims);
+    private BaseTariff getNewStartTariff(String[] tariffInfo) {
+        return new StartTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
+                Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4]);
+    }
+
+    private BaseTariff getNewSuperTariff(String[] tariffInfo) {
+        searchUnlimitedParameters(tariffInfo);
+        return new SuperTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
+                Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
+                Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]));
+    }
+
+    private BaseTariff getNewSuperNetTariff(String[] tariffInfo) {
+        searchUnlimitedParameters(tariffInfo);
+        return new SuperNetTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
+                Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
+                Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]),
+                Double.parseDouble(tariffInfo[7]));
+    }
+
+    @Override
+    public String getCommandInfo() {
+        String COMMAND_INFO = "add new tariff";
+        return COMMAND_INFO;
     }
 }

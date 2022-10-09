@@ -8,14 +8,14 @@ import java.util.List;
 
 public class Network {
 
-    private String companyName;
-    private String companyNumber;
-    private String companyEmail;
-    private List<BaseTariff> operatorAvailableTariffs;
-    private List<BaseTariff> operatorArchivedTariffs;
-    private List<Customer> operatorCustomers;
-    private List<MobileNumber> operatorNumbers;
-    private List<Abroad> operatorListAbroad;
+    private final String companyName;
+    private final String companyNumber;
+    private final String companyEmail;
+    private List<BaseTariff> AvailableTariffs;
+    private List<BaseTariff> ArchivedTariffs;
+    private List<Customer> Customers;
+    private List<MobileNumber> ListMobileNumbers;
+    private List<Abroad> ListAbroad;
 
     public Network(String companyName, String companyNumber, String companyEmail) {
         this.companyName = companyName;
@@ -25,44 +25,35 @@ public class Network {
     }
 
     private void CreateLists() {
-        operatorAvailableTariffs = new ArrayList<>();
-        operatorArchivedTariffs = new ArrayList<>();
-        operatorCustomers = new ArrayList<>();
-        operatorNumbers = new ArrayList<>();
-        operatorListAbroad = new ArrayList<>();
+        AvailableTariffs = new ArrayList<>();
+        ArchivedTariffs = new ArrayList<>();
+        Customers = new ArrayList<>();
+        ListMobileNumbers = new ArrayList<>();
+        ListAbroad = new ArrayList<>();
     }
 
     public void addTariff(BaseTariff tariff) {
-        operatorAvailableTariffs.add(tariff);
+        AvailableTariffs.add(tariff);
     }
 
     public void archiveTariff(BaseTariff tariff) {
-        operatorArchivedTariffs.add(tariff);
-    }
-
-    public void showTariffs() {
-        for(int i = 0, j = i; i < this.operatorAvailableTariffs.size(); ++i, ++j) {
-            System.out.println(String.valueOf(j) + this.operatorAvailableTariffs.get(i));
-        }
+        ArchivedTariffs.add(tariff);
     }
 
     public void deleteTariff(int numberOfTariff) {
-        operatorAvailableTariffs.remove(numberOfTariff);
+        AvailableTariffs.remove(numberOfTariff);
     }
 
     public void addNumber(MobileNumber mobileNumber) {
-        operatorNumbers.add(mobileNumber);
+        ListMobileNumbers.add(mobileNumber);
     }
 
     public void addCustomer(Customer customer) {
-        operatorCustomers.add(customer);
+        Customers.add(customer);
     }
 
     public void addAbroad(Abroad abroad) {
-        operatorListAbroad.add(abroad);
-    }
-
-    public void showAbroad() {
+        ListAbroad.add(abroad);
     }
 
     public void numberCustomers() {
@@ -72,41 +63,53 @@ public class Network {
     }
 
     public BaseTariff getTariff(int numberOfTariff) {
-        return operatorAvailableTariffs.get(numberOfTariff);
+        return AvailableTariffs.get(numberOfTariff);
     }
 
     public BaseTariff getTariffFromArchive(int numberOfTariff) {
-        return operatorArchivedTariffs.get(numberOfTariff);
+        return ArchivedTariffs.get(numberOfTariff);
     }
 
     public Customer getCustomer(int numberCustomer) {
-        return operatorCustomers.get(numberCustomer);
+        return Customers.get(numberCustomer);
     }
 
     public int getNumberAvailableTariffs() {
-        return operatorAvailableTariffs.size();
+        return AvailableTariffs.size();
     }
 
     public int getNumberArchivedTariffs() {
-        return operatorArchivedTariffs.size();
+        return ArchivedTariffs.size();
     }
 
     public boolean isListTariffsEmpty() {
-        return operatorAvailableTariffs.isEmpty();
+        return AvailableTariffs.isEmpty();
     }
 
     public boolean isListCustomersEmpty() {
-        return operatorCustomers.isEmpty();
+        return Customers.isEmpty();
     }
 
-    public void showCustomers() {
-        for(int i = 0, j = i; i < operatorCustomers.size(); ++i, ++j) {
-            System.out.println(String.valueOf(j) + operatorCustomers.get(i));
+    public void showTariffs() {
+        for(int i = 0, j = i + 1; i < this.AvailableTariffs.size(); ++i, ++j) {
+            System.out.println(j + "." + this.AvailableTariffs.get(i));
         }
     }
 
-    public List<BaseTariff> getOperatorAvailableTariffs() {
-        return operatorAvailableTariffs;
+    public void showCustomers() {
+        for(int i = 0, j = i; i < Customers.size(); ++i, ++j) {
+            System.out.println(j + "." + Customers.get(i));
+        }
+    }
+
+    public void showAbroad() {
+        for(int i = 0, j = i; i < ListAbroad.size(); ++i, ++j) {
+            System.out.println(j + "." + ListAbroad.get(i));
+        }
+    }
+
+    public List<BaseTariff> getAvailableTariffs() {
+        return AvailableTariffs;
     }
 }
 

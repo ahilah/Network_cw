@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 
 public class AddCommand implements MenuCommand {
-
     private final String COMMAND_INFO = "add new object";
     Scanner scanner;
     private Network network;
     private final FromFileCommand fileCommand;
+    AddTariffCommand addTariffCommand;
     private static final String ANSI_RED = "\u001b[31m";
     private static final String ANSI_PURPLE = "\u001b[35m";
     public static final String ANSI_RESET = "\u001b[0m";
@@ -25,59 +25,55 @@ public class AddCommand implements MenuCommand {
         this.network = network;
         scanner = new Scanner(System.in);
         fileCommand = new FromFileCommand(network);
+        addTariffCommand = new AddTariffCommand(network);
     }
 
     public void execute() {
+        if (isInputFromFile()) {
+            fileCommand.execute();
+            return;
+        }
         while (true) {
-            System.out.print("\nPress to read data from:\n1 - file\n0 - console\nType here: ");
-            int userFlag = scanner.nextInt();
-            boolean inputFile = false;
-            if (userFlag == 1) {
-                inputFile = true;
-                fileCommand.execute();
-                return;
-            }
-
-            int command = getUserDecisionObject();
-            switch(command) {
-                case 0: {
+            //int command = getUserDecisionObject();
+            switch (getUserDecisionObject()) {
+                case 0 -> {
                     System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
                     return;
                 }
-                case 1: {
-
-
+                case 1 -> {
+                    addTariffCommand.execute();
+                    network.showTariffs();
                 }
-                case 2: {
+                case 2 -> {
                     Customer customer = getNewCustomer();
                     network.addCustomer(customer);
-                    break;
-                    }
-                case 3: {
+                    network.showCustomers();
+                }
+                case 3 -> {
                     if (network.isListCustomersEmpty() || network.isListTariffsEmpty()) {
                         System.out.println(ANSI_RED +
                                 "List of tariffs or customers is empty. Create at least one object of both!"
-                        + ANSI_RESET);
+                                + ANSI_RESET);
                         break;
                     }
                     MobileNumber mobileNumber = getNewMobileNumber();
                     network.addNumber(mobileNumber);
-                    break;
                 }
-                case 4: {
+                case 4 -> {
                     Abroad abroad = getNewAbroad();
                     network.addAbroad(abroad);
-                    break;
+                    network.showAbroad();
                 }
-                default: {
+                default -> {
                     System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
-                    break;
                 }
             }
-
         }
+    }
 
-
+    private boolean isInputFromFile() {
+        System.out.print("\nPress to read data from:\n1 - file\n0 - console\nType here: ");
+        return Integer.parseInt(scanner.nextLine()) == 1;
     }
 
     private int getUserDecisionObject() {
@@ -128,7 +124,7 @@ public class AddCommand implements MenuCommand {
         return new Abroad(country, pricePerMinute);
     }
 
-
+    @Override
     public String getCommandInfo() {
         return this.COMMAND_INFO;
     }
