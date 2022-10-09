@@ -17,8 +17,19 @@ public class Network {
     private List<MobileNumber> operatorNumbers;
     private List<Abroad> operatorListAbroad;
 
-    public Network() {
+    public Network(String companyName, String companyNumber, String companyEmail) {
+        this.companyName = companyName;
+        this.companyNumber = companyNumber;
+        this.companyEmail = companyEmail;
+        CreateLists();
+    }
+
+    private void CreateLists() {
+        operatorAvailableTariffs = new ArrayList<>();
+        operatorArchivedTariffs = new ArrayList<>();
         operatorCustomers = new ArrayList<>();
+        operatorNumbers = new ArrayList<>();
+        operatorListAbroad = new ArrayList<>();
     }
 
     public void addTariff(BaseTariff tariff) {
@@ -39,7 +50,8 @@ public class Network {
         operatorAvailableTariffs.remove(numberOfTariff);
     }
 
-    public void addNumber() {
+    public void addNumber(MobileNumber mobileNumber) {
+        operatorNumbers.add(mobileNumber);
     }
 
     public void addCustomer(Customer customer) {
@@ -66,12 +78,30 @@ public class Network {
         return operatorArchivedTariffs.get(numberOfTariff);
     }
 
+    public Customer getCustomer(int numberCustomer) {
+        return operatorCustomers.get(numberCustomer);
+    }
+
     public int getNumberAvailableTariffs() {
         return operatorAvailableTariffs.size();
     }
 
     public int getNumberArchivedTariffs() {
         return operatorArchivedTariffs.size();
+    }
+
+    public boolean isListTariffsEmpty() {
+        return operatorAvailableTariffs.isEmpty();
+    }
+
+    public boolean isListCustomersEmpty() {
+        return operatorCustomers.isEmpty();
+    }
+
+    public void showCustomers() {
+        for(int i = 0, j = i; i < operatorCustomers.size(); ++i, ++j) {
+            System.out.println(String.valueOf(j) + operatorCustomers.get(i));
+        }
     }
 
     public List<BaseTariff> getOperatorAvailableTariffs() {
