@@ -1,7 +1,6 @@
 package hileta.com.main;
 
-import hileta.com.menu.command.AddTariffCommand;
-import hileta.com.menu.management.MainMenu;
+import hileta.com.menu.command.add.AddTariffCommand;
 
 import java.io.IOException;
 import java.sql.SQLException;

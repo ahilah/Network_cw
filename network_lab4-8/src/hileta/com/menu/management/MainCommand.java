@@ -1,6 +1,7 @@
 package hileta.com.menu.management;
 
 import hileta.com.menu.command.*;
+import hileta.com.menu.command.add.AddCommand;
 import hileta.com.menu.command.commandable.MenuCommand;
 
 import hileta.com.network.Network;

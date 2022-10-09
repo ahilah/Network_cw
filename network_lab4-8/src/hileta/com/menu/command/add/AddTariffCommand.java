@@ -1,4 +1,4 @@
-package hileta.com.menu.command;
+package hileta.com.menu.command.add;
 
 import hileta.com.Tariff.StartTariff;
 import hileta.com.Tariff.SuperNetTariff;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class AddTariffCommand implements MenuCommand  {
 
-    private final String COMMAND_INFO = "add new object";
+    private final String COMMAND_INFO = "add new tariff";
     Scanner scanner;
     private Network network;
 
@@ -82,7 +82,7 @@ public class AddTariffCommand implements MenuCommand  {
 
     @Override
     public String getCommandInfo() {
-        return null;
+        return COMMAND_INFO;
     }
 
     private void searchUnlimitedParameters(String[] inputInfo) {

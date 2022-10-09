@@ -1,8 +1,6 @@
-package hileta.com.menu.command;
+package hileta.com.menu.command.add;
 
-import hileta.com.Tariff.StartTariff;
-import hileta.com.Tariff.SuperNetTariff;
-import hileta.com.Tariff.SuperTariff;
+import hileta.com.menu.command.FromFileCommand;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Abroad;
 import hileta.com.network.Customer;
@@ -39,15 +37,8 @@ public class AddCommand implements MenuCommand {
                 fileCommand.execute();
                 return;
             }
-            System.out.println("Press to add");
-            System.out.print("""
-                    1 - for new tariff
-                    2 - for new customer
-                    3 - for new mobile number
-                    4 - for new abroad
-                    0 - to exit.""".indent(0));
-            System.out.print("Type here: ");
-            int command = scanner.nextInt();
+
+            int command = getUserDecisionObject();
             switch(command) {
                 case 0: {
                     System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
@@ -58,12 +49,7 @@ public class AddCommand implements MenuCommand {
 
                 }
                 case 2: {
-                    System.out.print("Type customer name: ");
-                    scanner.next();
-                    String customerName = scanner.nextLine();
-                    System.out.print("Type customer ID: ");
-                    String customerID = scanner.next().replaceAll("\\s","");
-                    Customer customer = new Customer(customerName, customerID);
+                    Customer customer = getCustomerInfo();
                     network.addCustomer(customer);
                     break;
                     }
@@ -75,7 +61,7 @@ public class AddCommand implements MenuCommand {
                         break;
                     }
                     System.out.print("Type mobile number: ");
-                    scanner.next();
+                    //scanner.next();
                     String mobileNumber = scanner.nextLine().replaceAll("\\s","");
                     System.out.print("Choose tariff: ");
                     network.showTariffs();
@@ -94,7 +80,7 @@ public class AddCommand implements MenuCommand {
                 }
                 case 4: {
                     System.out.print("Type country: ");
-                    scanner.next();
+                    //scanner.next();
                     String country = scanner.nextLine();
                     System.out.print("Type price per minute in hryvnias: ");
                     double pricePerMinute = scanner.nextDouble();
@@ -103,7 +89,7 @@ public class AddCommand implements MenuCommand {
                     break;
                 }
                 default: {
-                    System.out.println(ANSI_RED + "2222222222Incorrect command! Try again." + ANSI_RESET);
+                    System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
                     break;
                 }
             }
@@ -113,7 +99,27 @@ public class AddCommand implements MenuCommand {
 
     }
 
+    private int getUserDecisionObject() {
+        System.out.println("Press to add");
+        System.out.print("""
+                    1 - for new tariff
+                    2 - for new customer
+                    3 - for new mobile number
+                    4 - for new abroad
+                    0 - to exit.""".indent(0));
+        System.out.print("Type here: ");
+        return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
+    }
 
+    private Customer getCustomerInfo() {
+        System.out.print("Type customer name: ");
+        //scanner.next();
+        String customerName = scanner.nextLine();
+        System.out.print("Type customer ID: ");
+        String customerID = scanner.next().replaceAll("\\s","");
+        Customer customer = new Customer(customerName, customerID);
+        return customer;
+    }
 
 
     public String getCommandInfo() {
