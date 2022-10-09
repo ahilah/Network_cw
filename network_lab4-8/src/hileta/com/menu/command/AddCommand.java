@@ -1,6 +1,10 @@
 package hileta.com.menu.command;
 
+import hileta.com.Tariff.StartTariff;
+import hileta.com.Tariff.SuperNetTariff;
+import hileta.com.Tariff.SuperTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.network.Abroad;
 import hileta.com.network.Customer;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
@@ -11,10 +15,10 @@ import java.util.Scanner;
 
 public class AddCommand implements MenuCommand {
 
-    private String COMMAND_INFO = "add new object";
+    private final String COMMAND_INFO = "add new object";
     Scanner scanner;
     private Network network;
-    private FromFileCommand fileCommand;
+    private final FromFileCommand fileCommand;
     private static final String ANSI_RED = "\u001b[31m";
     private static final String ANSI_PURPLE = "\u001b[35m";
     public static final String ANSI_RESET = "\u001b[0m";
@@ -33,7 +37,7 @@ public class AddCommand implements MenuCommand {
             if (userFlag == 1) {
                 inputFile = true;
                 fileCommand.execute();
-                break;
+                return;
             }
             System.out.println("Press to add");
             System.out.print("""
@@ -45,11 +49,15 @@ public class AddCommand implements MenuCommand {
             System.out.print("Type here: ");
             int command = scanner.nextInt();
             switch(command) {
+                case 0: {
+                    System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
+                    return;
+                }
                 case 1: {
-                    // TODO
+
+
                 }
                 case 2: {
-                    //System.out.println("Run command with parameters like: customer full name-----customerID");
                     System.out.print("Type customer name: ");
                     scanner.next();
                     String customerName = scanner.nextLine();
@@ -84,12 +92,18 @@ public class AddCommand implements MenuCommand {
                     network.addNumber(mobileNumberCust);
                     break;
                 }
-                case 0: {
-                    System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
-                    return;
+                case 4: {
+                    System.out.print("Type country: ");
+                    scanner.next();
+                    String country = scanner.nextLine();
+                    System.out.print("Type price per minute in hryvnias: ");
+                    double pricePerMinute = scanner.nextDouble();
+                    Abroad abroad = new Abroad(country, pricePerMinute);
+                    network.addAbroad(abroad);
+                    break;
                 }
                 default: {
-                    System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
+                    System.out.println(ANSI_RED + "2222222222Incorrect command! Try again." + ANSI_RESET);
                     break;
                 }
             }
@@ -110,7 +124,8 @@ public class AddCommand implements MenuCommand {
     String ss = "input --price --data";
 
         List<String> s = convertArrayToList(s1);
-
+        String delims = "[-.,?!]+";
+                String[] s1 = ss.split(delims);
         for(int i = 0; i < s.size(); ++i) {
             System.out.println((String)s.get(i));
         }

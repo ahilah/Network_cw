@@ -58,7 +58,8 @@ public class Network {
         operatorCustomers.add(customer);
     }
 
-    public void addAbroad() {
+    public void addAbroad(Abroad abroad) {
+        operatorListAbroad.add(abroad);
     }
 
     public void showAbroad() {

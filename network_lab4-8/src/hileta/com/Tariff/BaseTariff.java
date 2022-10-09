@@ -10,6 +10,7 @@ public abstract class BaseTariff {
 
     BaseTariff(String nameTariff, int SMSNumber, double numberMinutesThisOperator, int priceTariff, String tariffID) {
         this.nameTariff = nameTariff;
+        this.SMSNumber = SMSNumber;
         this.numberMinutesThisOperator = numberMinutesThisOperator;
         this.priceTariff = priceTariff;
         this.tariffID = tariffID;
@@ -44,6 +45,10 @@ public abstract class BaseTariff {
     }
 
     public String toString() {
-        return "tariff name: " + this.nameTariff + ", number of SMS: " + this.SMSNumber + ", number of minutes on this operator: " + this.numberMinutesThisOperator + ", price of tariff in hryvnias: " + this.priceTariff + ", tariff ID: " + this.tariffID + ", general number of tariff users: " + this.numberOfUsers;
+        return "tariff name: " + this.nameTariff + ",\n\t\t\tnumber of SMS: " + this.SMSNumber +
+                ",\n\t\t\tnumber of minutes on this operator: " + this.numberMinutesThisOperator +
+                ",\n\t\t\tprice of tariff in hryvnias: " + this.priceTariff +
+                ",\n\t\t\ttariff ID: " + this.tariffID +
+                ",\n\t\t\tgeneral number of tariff users: " + this.numberOfUsers;
     }
 }
