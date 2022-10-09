@@ -49,7 +49,7 @@ public class AddCommand implements MenuCommand {
 
                 }
                 case 2: {
-                    Customer customer = getCustomerInfo();
+                    Customer customer = getNewCustomer();
                     network.addCustomer(customer);
                     break;
                     }
@@ -60,31 +60,12 @@ public class AddCommand implements MenuCommand {
                         + ANSI_RESET);
                         break;
                     }
-                    System.out.print("Type mobile number: ");
-                    //scanner.next();
-                    String mobileNumber = scanner.nextLine().replaceAll("\\s","");
-                    System.out.print("Choose tariff: ");
-                    network.showTariffs();
-                    System.out.println("Type here: ");
-                    int numberTariff = scanner.nextInt();
-                    System.out.print("Choose customer: ");
-                    network.showCustomers();
-                    System.out.println("Type here: ");
-                    int numberCustomer = scanner.nextInt();
-                    System.out.print("Type number balance (in hryvnias): ");
-                    double balance = scanner.nextDouble();
-                    MobileNumber mobileNumberCust = new MobileNumber(mobileNumber,
-                            network.getTariff(--numberTariff), network.getCustomer(--numberCustomer), balance);
-                    network.addNumber(mobileNumberCust);
+                    MobileNumber mobileNumber = getNewMobileNumber();
+                    network.addNumber(mobileNumber);
                     break;
                 }
                 case 4: {
-                    System.out.print("Type country: ");
-                    //scanner.next();
-                    String country = scanner.nextLine();
-                    System.out.print("Type price per minute in hryvnias: ");
-                    double pricePerMinute = scanner.nextDouble();
-                    Abroad abroad = new Abroad(country, pricePerMinute);
+                    Abroad abroad = getNewAbroad();
                     network.addAbroad(abroad);
                     break;
                 }
@@ -111,14 +92,40 @@ public class AddCommand implements MenuCommand {
         return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
     }
 
-    private Customer getCustomerInfo() {
+    private Customer getNewCustomer() {
         System.out.print("Type customer name: ");
         //scanner.next();
         String customerName = scanner.nextLine();
         System.out.print("Type customer ID: ");
         String customerID = scanner.next().replaceAll("\\s","");
-        Customer customer = new Customer(customerName, customerID);
-        return customer;
+        return new Customer(customerName, customerID);
+    }
+
+    private MobileNumber getNewMobileNumber() {
+        System.out.print("Type mobile number: ");
+        //scanner.next();
+        String mobileNumber = scanner.nextLine().replaceAll("\\s","");
+        System.out.print("Choose tariff: ");
+        network.showTariffs();
+        System.out.println("Type here: ");
+        int numberTariff = scanner.nextInt();
+        System.out.print("Choose customer: ");
+        network.showCustomers();
+        System.out.println("Type here: ");
+        int numberCustomer = scanner.nextInt();
+        System.out.print("Type number balance (in hryvnias): ");
+        double balance = scanner.nextDouble();
+        return new MobileNumber(mobileNumber, network.getTariff(--numberTariff).getTariffID(),
+                network.getCustomer(--numberCustomer).getCustomerID(), balance);
+    }
+
+    private Abroad getNewAbroad() {
+        System.out.print("Type country: ");
+        //scanner.next();
+        String country = scanner.nextLine();
+        System.out.print("Type price per minute in hryvnias: ");
+        double pricePerMinute = scanner.nextDouble();
+        return new Abroad(country, pricePerMinute);
     }
 
 

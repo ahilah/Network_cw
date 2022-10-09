@@ -20,6 +20,10 @@ public abstract class BaseTariff {
         return this.numberOfUsers;
     }
 
+    public String getTariffID() {
+        return tariffID;
+    }
+
     public void setNameTariff(String nameTariff) {
         this.nameTariff = nameTariff;
     }

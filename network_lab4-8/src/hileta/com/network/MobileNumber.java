@@ -1,30 +1,28 @@
 package hileta.com.network;
 
-import hileta.com.Tariff.BaseTariff;
-
 public class MobileNumber {
     String number;
-    BaseTariff tariff;
-    Customer user;
+    String tariffID;
+    String userID;
     double balance;
 
-    public MobileNumber(String number, BaseTariff tariff, Customer user, double balance) {
+    public MobileNumber(String number, String tariffID, String userID, double balance) {
         this.number = number;
-        this.tariff = tariff;
-        this.user = user;
+        this.tariffID = tariffID;
+        this.userID = userID;
         this.balance = balance;
     }
 
     public String toString() {
-        return "Mobile Number: " + this.number + ", tariff: " + this.tariff.toString() + ", user: " + this.user;
+        return "Mobile Number: " + this.number + ", tariff: " + this.tariffID.toString() + ", user: " + this.userID;
     }
 
-    public void setTariff(BaseTariff tariff) {
-        this.tariff = tariff;
+    public void setTariffID(String tariffID) {
+        this.tariffID = tariffID;
     }
 
-    public void setUser(Customer user) {
-        this.user = user;
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public void setBalance(double balance) {

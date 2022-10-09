@@ -9,6 +9,10 @@ public class Customer {
         this.CustomerID = CustomerID;
     }
 
+    public String getCustomerID() {
+        return CustomerID;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
