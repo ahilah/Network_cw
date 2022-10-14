@@ -32,7 +32,7 @@ public class AddTariffCommand implements MenuCommand  {
         int commandTariff = getTariffKind();
         switch (commandTariff) {
             case 1 -> {
-                System.out.print(commandExample1);
+                System.out.print(commandExample1 + "\n");
                 tariffInfo = getInputTariffInfo();
                 baseTariff = getNewStartTariff(tariffInfo);
                 network.addTariff(baseTariff);
@@ -56,22 +56,22 @@ public class AddTariffCommand implements MenuCommand  {
                 return;
             }
         }
-        System.out.println("\tYour added tariff:");
+        System.out.println("\n\tYour added tariff:");
         System.out.println(baseTariff);
     }
 
     private int getTariffKind() {
-        System.out.println("Type " + ANSI_RED + "@" + ANSI_RESET + " for unlimited parameter.\nPress to add");
+        System.out.println("\tType " + ANSI_RED + "@" + ANSI_RESET + " for unlimited parameter!\nPress to add");
         System.out.print("""
                     1 - for start tariff
                     2 - for super tariff
                     3 - for super net tariff""".indent(0));
-        System.out.print("Type here: ");
+        System.out.print("Type number here: ");
         return Integer.parseInt(scanner.nextLine());
     }
 
     private String[] getInputTariffInfo() {
-        System.out.print("\nType: ");
+        System.out.print("Type: ");
         String tariffInputInfo = scanner.nextLine();
         return splitString(tariffInputInfo);
     }
@@ -108,7 +108,7 @@ public class AddTariffCommand implements MenuCommand  {
                 Double.parseDouble(tariffInfo[7]));
     }
 
-    @Override
+
     public String getCommandInfo() {
         String COMMAND_INFO = "add new tariff";
         return COMMAND_INFO;

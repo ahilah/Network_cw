@@ -47,7 +47,7 @@ public class AddCommand implements MenuCommand {
                 case 2 -> {
                     Customer customer = getNewCustomer();
                     network.addCustomer(customer);
-                    System.out.println("\tYour added customer: ");
+                    System.out.println("\n\tYour added customer: ");
                     System.out.println(customer);
                     //network.showCustomers();
                 }
@@ -60,13 +60,13 @@ public class AddCommand implements MenuCommand {
                     }
                     MobileNumber mobileNumber = getNewMobileNumber();
                     network.addNumber(mobileNumber);
-                    System.out.println("\tYour added mobile number: ");
+                    System.out.println("\n\tYour added mobile number: ");
                     System.out.println(mobileNumber);
                 }
                 case 4 -> {
                     Abroad abroad = getNewAbroad();
                     network.addAbroad(abroad);
-                    System.out.println("\tYour added abroad:");
+                    System.out.println("\n\tYour added abroad:");
                     System.out.println(abroad);
                     //network.showAbroad();
                 }
@@ -105,18 +105,47 @@ public class AddCommand implements MenuCommand {
         System.out.print("Type mobile number: ");
         //scanner.next();
         String mobileNumber = scanner.nextLine().replaceAll("\\s","");
-        System.out.print("Choose tariff: ");
-        network.showTariffs();
-        System.out.println("Type here: ");
-        int numberTariff = Integer.parseInt(scanner.nextLine());
-        System.out.print("Choose customer: ");
-        network.showCustomers();
-        System.out.println("Type here: ");
-        int numberCustomer = Integer.parseInt(scanner.nextLine());
-        System.out.print("Type number balance (in hryvnias): ");
-        double balance = Double.parseDouble(scanner.nextLine());
+        int numberTariff = getCheckedNoTariff();
+        int numberCustomer = getCheckedNoCustomer();
+        double balance = getCheckedBalance();
+        network.getTariff(numberTariff).setNumberOfUsers(network.getTariff(numberTariff).getNumberOfUsers() + 1);
         return new MobileNumber(mobileNumber, network.getTariff(--numberTariff).getTariffID(),
                 network.getCustomer(--numberCustomer).getCustomerID(), balance);
+    }
+
+    private int getCheckedNoCustomer() {
+        System.out.print("Choose customer: ");
+        network.showCustomers();
+        System.out.println("Type number here: ");
+        int numberCustomer = Integer.parseInt(scanner.nextLine());
+        if (numberCustomer < 0 || numberCustomer > network.getNumberCustomers()) {
+            System.out.println(ANSI_RED + "\nWrong number of customer." +
+                    " Set default first customer in list." + ANSI_RESET);
+            numberCustomer = 0;
+        }
+        return numberCustomer;
+    }
+
+    private int getCheckedNoTariff() {
+        System.out.print("Choose tariff: ");
+        network.showTariffs();
+        System.out.println("Type number here: ");
+        int numberTariff = Integer.parseInt(scanner.nextLine());
+        if (numberTariff < 0 || numberTariff > network.getNumberAvailableTariffs()) {
+            System.out.println(ANSI_RED + "\nWrong number of tariff. Set default first tariff in list." + ANSI_RESET);
+            numberTariff = 0;
+        }
+        return numberTariff;
+    }
+
+    private double getCheckedBalance() {
+        System.out.print("Type number balance (in hryvnias): ");
+        double balance = Double.parseDouble(scanner.nextLine());
+        if (balance < 0) {
+            System.out.println(ANSI_RED + "\tBalance can't be less than 0! Set balance 0." + ANSI_RESET);
+            balance = 0;
+        }
+        return balance;
     }
 
     private Abroad getNewAbroad() {

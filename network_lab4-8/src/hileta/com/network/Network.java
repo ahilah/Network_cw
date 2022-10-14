@@ -82,6 +82,10 @@ public class Network {
         return ArchivedTariffs.size();
     }
 
+    public int getNumberCustomers() {
+        return Customers.size();
+    }
+
     public boolean isListTariffsEmpty() {
         return AvailableTariffs.isEmpty();
     }

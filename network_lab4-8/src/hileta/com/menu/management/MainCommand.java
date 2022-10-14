@@ -39,7 +39,7 @@ public class MainCommand {
     }
 
     public void execute(int numberOfCommand) {
-        int position = 0;
+        int position = 1;
         for(Map.Entry<String, MenuCommand> command : menuItems.entrySet()) {
             if(numberOfCommand == position) {
                 command.getValue().execute();

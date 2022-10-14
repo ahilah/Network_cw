@@ -13,7 +13,7 @@ public class CreateNetworkCommand implements MenuCommand {
     @Override
     public void execute() {
         scanner = new Scanner(System.in);
-        System.out.println(getCommandInfo());
+        System.out.println(COMMAND_INFO);
     }
 
     public Network networkCompanyInfo() {
@@ -26,8 +26,8 @@ public class CreateNetworkCommand implements MenuCommand {
         return new Network(companyName, companyMobileNumber, companyEmail);
     }
 
-    @Override
+    /*@Override
     public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }
