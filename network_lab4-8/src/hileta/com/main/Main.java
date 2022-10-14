@@ -17,5 +17,6 @@ public class Main {
 
         FromFile fromFileCommand = new FromFile(new Network("1", "2", "3"));
         fromFileCommand.execute();
+        // D:\test6.txt
     }
 }
