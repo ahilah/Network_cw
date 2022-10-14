@@ -3,16 +3,17 @@ package hileta.com.menu.command;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
-public class FromFileCommand implements MenuCommand {
-    private String COMMAND_INFO = "input from file";
-    private final Network network;
+public class Sort implements MenuCommand {
+    //private String COMMAND_INFO = "sort tariffs of their price";
+    private Network network;
 
-    public FromFileCommand(Network network) {
+    public Sort(Network network) {
         this.network = network;
     }
 
     public void execute() {
-        System.out.println("from file.");
+        System.out.println("sort");
+        network.sortTariffs();
     }
 
     /*public String getCommandInfo() {

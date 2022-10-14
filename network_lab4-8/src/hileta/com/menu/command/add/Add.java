@@ -1,6 +1,6 @@
 package hileta.com.menu.command.add;
 
-import hileta.com.menu.command.FromFileCommand;
+import hileta.com.menu.command.FromFile;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Abroad;
 import hileta.com.network.Customer;
@@ -9,23 +9,23 @@ import hileta.com.network.Network;
 
 import java.util.Scanner;
 
+import static hileta.com.menu.management.MainCommand.ANSI_RED;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 
-public class AddCommand implements MenuCommand {
+public class Add implements MenuCommand {
     // private final String COMMAND_INFO = "add new object";
     Scanner scanner;
     private Network network;
-    private final FromFileCommand fileCommand;
-    AddTariffCommand addTariffCommand;
-    private static final String ANSI_RED = "\u001b[31m";
-    private static final String ANSI_PURPLE = "\u001b[35m";
-    public static final String ANSI_RESET = "\u001b[0m";
+    private final FromFile fileCommand;
+    AddTariff addTariffCommand;
+    public static final String ANSI_PURPLE = "\u001b[35m";
 
-    public AddCommand(Network network) {
+    public Add(Network network) {
         this.network = network;
         scanner = new Scanner(System.in);
-        fileCommand = new FromFileCommand(network);
-        addTariffCommand = new AddTariffCommand(network);
+        fileCommand = new FromFile(network);
+        addTariffCommand = new AddTariff(network);
     }
 
     public void execute() {

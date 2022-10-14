@@ -5,24 +5,26 @@ import hileta.com.network.Network;
 
 import java.util.Scanner;
 
-public class DeleteCommand implements MenuCommand {
-    private static final String ANSI_GREEN = "\u001b[32m";
-    public static final String ANSI_RESET = "\u001b[0m";
-    //private String COMMAND_INFO = "delete tariff";
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+
+public class Archive implements MenuCommand {
+    public static final String ANSI_GREEN = "\u001b[32m";
+
+    //private String COMMAND_INFO = "archive tariff";
     private Network network;
 
-    public DeleteCommand(Network network) {
+    public Archive(Network network) {
         this.network = network;
     }
 
     public void execute() {
-        network.deleteTariff(getNumberOfTariff());
-        System.out.println(ANSI_GREEN + "Tariff was successfully deleted!" + ANSI_RESET);
+        network.archiveTariff(network.getTariff(getNumberOfTariff()));
+        System.out.println(ANSI_GREEN + "Tariff was successfully archived!" + ANSI_RESET);
     }
 
     private int getNumberOfTariff() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n\t There are available tariffs: ");
+        System.out.println("\n\t There are available commands: ");
         network.showTariffs();
         System.out.print("Type number of tariff here: ");
         int numberOfTariff = Integer.parseInt(scanner.nextLine());

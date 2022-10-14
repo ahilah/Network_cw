@@ -9,14 +9,15 @@ import hileta.com.network.Network;
 
 import java.util.Scanner;
 
-public class AddTariffCommand implements MenuCommand  {
+import static hileta.com.menu.management.MainCommand.ANSI_RED;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+
+public class AddTariff implements MenuCommand  {
 
     Scanner scanner;
     private final Network network;
-    private static final String ANSI_RED = "\u001b[31m";
-    public static final String ANSI_RESET = "\u001b[0m";
 
-    public AddTariffCommand(Network network) {
+    public AddTariff(Network network) {
         this.network = network;
         scanner = new Scanner(System.in);
     }
@@ -109,8 +110,8 @@ public class AddTariffCommand implements MenuCommand  {
     }
 
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         String COMMAND_INFO = "add new tariff";
         return COMMAND_INFO;
-    }
+    }*/
 }

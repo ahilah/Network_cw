@@ -2,10 +2,11 @@ package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
 
-public class ExitCommand implements MenuCommand {
+import static hileta.com.menu.command.add.Add.ANSI_PURPLE;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+
+public class Exit implements MenuCommand {
     //private String COMMAND_INFO = "exit";
-    private static final String ANSI_PURPLE = "\u001b[35m";
-    public static final String ANSI_RESET = "\u001b[0m";
 
     public void execute() {
         System.out.println(ANSI_PURPLE + "\n\n\t Program is ended." + ANSI_RESET);

@@ -1,7 +1,7 @@
 package hileta.com.menu.management;
 
 import hileta.com.menu.command.*;
-import hileta.com.menu.command.add.AddCommand;
+import hileta.com.menu.command.add.Add;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
@@ -11,9 +11,9 @@ import java.util.Map;
 public class MainCommand {
 
     private final Map<String, MenuCommand> menuItems;
-    private final Network operatorNetwork;
-    private static final String ANSI_RED = "\u001b[31m";
-    private static final String ANSI_RESET = "\u001b[0m";
+    public final Network operatorNetwork;
+    public static final String ANSI_RED = "\u001b[31m";
+    public static final String ANSI_RESET = "\u001b[0m";
 
     public MainCommand() {
         operatorNetwork = executeNewNetwork();
@@ -22,20 +22,20 @@ public class MainCommand {
     }
 
     private Network executeNewNetwork() {
-        CreateNetworkCommand createNetworkCommand = new CreateNetworkCommand();
+        CreateNetwork createNetworkCommand = new CreateNetwork();
         createNetworkCommand.execute();
         return createNetworkCommand.networkCompanyInfo();
     }
 
     private void FillMenuItems() {
-        menuItems.put("Add new object.", new AddCommand(operatorNetwork));
-        menuItems.put("Edit object.", new EditCommand(operatorNetwork));
-        menuItems.put("View object.", new ViewCommand(operatorNetwork));
-        menuItems.put("Sort tariffs of their price.", new SortCommand(operatorNetwork));
-        menuItems.put("Delete tariff.", new DeleteCommand(operatorNetwork));
-        menuItems.put("Archive tariff.", new ArchiveCommand(operatorNetwork));
-        menuItems.put("Calculate general number of customers.", new NumberCustomersCommand(operatorNetwork));
-        menuItems.put("Exit.", new ExitCommand());
+        menuItems.put("Add new object.", new Add(operatorNetwork));
+        menuItems.put("Edit object.", new Edit(operatorNetwork));
+        menuItems.put("View object.", new View(operatorNetwork));
+        menuItems.put("Sort tariffs of their price.", new Sort(operatorNetwork));
+        menuItems.put("Delete tariff.", new Delete(operatorNetwork));
+        menuItems.put("Archive tariff.", new Archive(operatorNetwork));
+        menuItems.put("Calculate general number of customers.", new NumberCustomers(operatorNetwork));
+        menuItems.put("Exit.", new Exit());
     }
 
     public void execute(int numberOfCommand) {
@@ -66,14 +66,14 @@ public class MainCommand {
     private List<MenuCommand> menuItems;
     menuItems = new ArrayList<>();
 
-        menuItems.add(new AddCommand(operatorNetwork));
-        menuItems.add(new EditCommand(operatorNetwork));
-        menuItems.add(new ViewCommand(operatorNetwork));
-        menuItems.add(new SortCommand(operatorNetwork));
-        menuItems.add(new DeleteCommand(operatorNetwork));
-        menuItems.add(new ArchiveCommand(operatorNetwork));
-        menuItems.add(new NumberCustomersCommand(operatorNetwork));
-        menuItems.add(new ExitCommand());
+        menuItems.add(new Add(operatorNetwork));
+        menuItems.add(new Edit(operatorNetwork));
+        menuItems.add(new View(operatorNetwork));
+        menuItems.add(new Sort(operatorNetwork));
+        menuItems.add(new Delete(operatorNetwork));
+        menuItems.add(new Archive(operatorNetwork));
+        menuItems.add(new NumberCustomers(operatorNetwork));
+        menuItems.add(new Exit());
 
         try {
             menuItems.get(numberOfCommand).execute();
