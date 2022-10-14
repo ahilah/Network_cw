@@ -1,7 +1,5 @@
 package hileta.com.menu.management;
 
-import hileta.com.menu.management.MainCommand;
-
 import java.util.Scanner;
 
 public class MainMenu {
@@ -9,8 +7,8 @@ public class MainMenu {
     public MainCommand mainCommand;
 
     public MainMenu() {
-       scanner = new Scanner(System.in);
-       mainCommand = new MainCommand();
+        scanner = new Scanner(System.in);
+        mainCommand = new MainCommand();
     }
 
     public void StartMainMenu() {

@@ -23,36 +23,41 @@ public class AddTariffCommand implements MenuCommand  {
 
     @Override
     public void execute() {
-        String commandExample1 = "Run command with parameters like: customer tariff name--" +
+        String commandExample1 = "Run command with parameters like: tariff name--" +
                 "smsNumber--numberMinutesThisOperator--price--ID";
         String commandExample2 = "--numberMinutesOtherOperator--NumberMinutesAbroad";
         String commandExample3 = "--GBMobileInternet";
         String[] tariffInfo;
-
+        BaseTariff baseTariff;
         int commandTariff = getTariffKind();
         switch (commandTariff) {
             case 1 -> {
                 System.out.print(commandExample1);
                 tariffInfo = getInputTariffInfo();
-                network.addTariff(getNewStartTariff(tariffInfo));
+                baseTariff = getNewStartTariff(tariffInfo);
+                network.addTariff(baseTariff);
             }
             case 2 -> {
                 System.out.println(new StringBuilder().append(commandExample1)
                         .append(commandExample2).toString());
                 tariffInfo = getInputTariffInfo();
-                network.addTariff(getNewSuperTariff(tariffInfo));
+                baseTariff = getNewSuperTariff(tariffInfo);
+                network.addTariff(baseTariff);
             }
             case 3 -> {
                 System.out.println(new StringBuilder().append(commandExample1)
                         .append(commandExample2).append(commandExample3).toString());
                 tariffInfo = getInputTariffInfo();
-                network.addTariff(getNewSuperNetTariff(tariffInfo));
+                baseTariff = getNewSuperNetTariff(tariffInfo);
+                network.addTariff(baseTariff);
             }
-            /* default: {
-                System.out.println("u lox");
+            default -> {
+                System.out.println(ANSI_RED + "\tWrong command!" + ANSI_RESET);
                 return;
-            }*/
+            }
         }
+        System.out.println("\tYour added tariff:");
+        System.out.println(baseTariff);
     }
 
     private int getTariffKind() {
@@ -66,6 +71,7 @@ public class AddTariffCommand implements MenuCommand  {
     }
 
     private String[] getInputTariffInfo() {
+        System.out.print("\nType: ");
         String tariffInputInfo = scanner.nextLine();
         return splitString(tariffInputInfo);
     }

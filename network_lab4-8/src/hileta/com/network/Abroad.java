@@ -1,6 +1,7 @@
 package hileta.com.network;
 
 public class Abroad {
+
     private String country;
     private double pricePerMinute;
 

@@ -42,12 +42,12 @@ public class AddCommand implements MenuCommand {
                 }
                 case 1 -> {
                     addTariffCommand.execute();
-                    network.showTariffs();
+                    //network.showTariffs();
                 }
                 case 2 -> {
                     Customer customer = getNewCustomer();
                     network.addCustomer(customer);
-                    network.showCustomers();
+                    //network.showCustomers();
                 }
                 case 3 -> {
                     if (network.isListCustomersEmpty() || network.isListTariffsEmpty()) {
@@ -93,7 +93,7 @@ public class AddCommand implements MenuCommand {
         //scanner.next();
         String customerName = scanner.nextLine();
         System.out.print("Type customer ID: ");
-        String customerID = scanner.next().replaceAll("\\s","");
+        String customerID = scanner.nextLine().replaceAll("\\s","");
         return new Customer(customerName, customerID);
     }
 
@@ -104,13 +104,13 @@ public class AddCommand implements MenuCommand {
         System.out.print("Choose tariff: ");
         network.showTariffs();
         System.out.println("Type here: ");
-        int numberTariff = scanner.nextInt();
+        int numberTariff = Integer.parseInt(scanner.nextLine());
         System.out.print("Choose customer: ");
         network.showCustomers();
         System.out.println("Type here: ");
-        int numberCustomer = scanner.nextInt();
+        int numberCustomer = Integer.parseInt(scanner.nextLine());
         System.out.print("Type number balance (in hryvnias): ");
-        double balance = scanner.nextDouble();
+        double balance = Double.parseDouble(scanner.nextLine());
         return new MobileNumber(mobileNumber, network.getTariff(--numberTariff).getTariffID(),
                 network.getCustomer(--numberCustomer).getCustomerID(), balance);
     }
@@ -120,7 +120,7 @@ public class AddCommand implements MenuCommand {
         //scanner.next();
         String country = scanner.nextLine();
         System.out.print("Type price per minute in hryvnias: ");
-        double pricePerMinute = scanner.nextDouble();
+        double pricePerMinute = Double.parseDouble(scanner.nextLine());
         return new Abroad(country, pricePerMinute);
     }
 
