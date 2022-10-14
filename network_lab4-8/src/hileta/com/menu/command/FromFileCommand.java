@@ -5,7 +5,7 @@ import hileta.com.network.Network;
 
 public class FromFileCommand implements MenuCommand {
     private String COMMAND_INFO = "input from file";
-    private Network network;
+    private final Network network;
 
     public FromFileCommand(Network network) {
         this.network = network;
@@ -15,7 +15,7 @@ public class FromFileCommand implements MenuCommand {
         System.out.println("from file.");
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }

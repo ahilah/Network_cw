@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ArchiveCommand implements MenuCommand {
     private static final String ANSI_GREEN = "\u001b[32m";
     private static final String ANSI_RESET = "\u001b[0m";
-    private String COMMAND_INFO = "archive tariff";
+    //private String COMMAND_INFO = "archive tariff";
     private Network network;
 
     public ArchiveCommand(Network network) {
@@ -25,13 +25,13 @@ public class ArchiveCommand implements MenuCommand {
         System.out.println("\n\t There are available commands: ");
         network.showTariffs();
         System.out.print("Type number of tariff here: ");
-        int numberOfTariff = scanner.nextInt();
+        int numberOfTariff = Integer.parseInt(scanner.nextLine());
         --numberOfTariff;
         return numberOfTariff;
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }
 

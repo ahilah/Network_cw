@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 
 public class AddCommand implements MenuCommand {
-    private final String COMMAND_INFO = "add new object";
+    // private final String COMMAND_INFO = "add new object";
     Scanner scanner;
     private Network network;
     private final FromFileCommand fileCommand;
@@ -47,6 +47,8 @@ public class AddCommand implements MenuCommand {
                 case 2 -> {
                     Customer customer = getNewCustomer();
                     network.addCustomer(customer);
+                    System.out.println("\tYour added customer: ");
+                    System.out.println(customer);
                     //network.showCustomers();
                 }
                 case 3 -> {
@@ -58,15 +60,17 @@ public class AddCommand implements MenuCommand {
                     }
                     MobileNumber mobileNumber = getNewMobileNumber();
                     network.addNumber(mobileNumber);
+                    System.out.println("\tYour added mobile number: ");
+                    System.out.println(mobileNumber);
                 }
                 case 4 -> {
                     Abroad abroad = getNewAbroad();
                     network.addAbroad(abroad);
-                    network.showAbroad();
+                    System.out.println("\tYour added abroad:");
+                    System.out.println(abroad);
+                    //network.showAbroad();
                 }
-                default -> {
-                    System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
-                }
+                default -> System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
             }
         }
     }
@@ -77,7 +81,7 @@ public class AddCommand implements MenuCommand {
     }
 
     private int getUserDecisionObject() {
-        System.out.println("Press to add");
+        System.out.println("\nPress to add");
         System.out.print("""
                     1 - for new tariff
                     2 - for new customer
@@ -117,17 +121,16 @@ public class AddCommand implements MenuCommand {
 
     private Abroad getNewAbroad() {
         System.out.print("Type country: ");
-        //scanner.next();
         String country = scanner.nextLine();
         System.out.print("Type price per minute in hryvnias: ");
         double pricePerMinute = Double.parseDouble(scanner.nextLine());
         return new Abroad(country, pricePerMinute);
     }
 
-    @Override
+    /*@Override
     public String getCommandInfo() {
         return this.COMMAND_INFO;
-    }
+    }*/
 
     /*
     String ss = "input --price --data";

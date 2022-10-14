@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class DeleteCommand implements MenuCommand {
     private static final String ANSI_GREEN = "\u001b[32m";
     public static final String ANSI_RESET = "\u001b[0m";
-    private String COMMAND_INFO = "delete tariff";
+    //private String COMMAND_INFO = "delete tariff";
     private Network network;
 
     public DeleteCommand(Network network) {
@@ -22,16 +22,16 @@ public class DeleteCommand implements MenuCommand {
 
     private int getNumberOfTariff() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n\t There are available commands: ");
+        System.out.println("\n\t There are available tariffs: ");
         network.showTariffs();
         System.out.print("Type number of tariff here: ");
-        int numberOfTariff = scanner.nextInt();
+        int numberOfTariff = Integer.parseInt(scanner.nextLine());
         --numberOfTariff;
         return numberOfTariff;
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }
 

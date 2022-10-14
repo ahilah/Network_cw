@@ -4,7 +4,7 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
 public class EditCommand implements MenuCommand {
-    private String COMMAND_INFO = "edit object";
+    //private String COMMAND_INFO = "edit object";
     private Network network;
 
     public EditCommand(Network network) {
@@ -15,7 +15,7 @@ public class EditCommand implements MenuCommand {
         System.out.println("edit");
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }

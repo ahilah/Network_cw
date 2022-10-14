@@ -4,7 +4,7 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
 public class SortCommand implements MenuCommand {
-    private String COMMAND_INFO = "sort tariffs of their price";
+    //private String COMMAND_INFO = "sort tariffs of their price";
     private Network network;
 
     public SortCommand(Network network) {
@@ -16,7 +16,7 @@ public class SortCommand implements MenuCommand {
         network.sortTariffs();
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }

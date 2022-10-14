@@ -3,7 +3,7 @@ package hileta.com.menu.command;
 import hileta.com.menu.command.commandable.MenuCommand;
 
 public class ExitCommand implements MenuCommand {
-    private String COMMAND_INFO = "exit";
+    //private String COMMAND_INFO = "exit";
     private static final String ANSI_PURPLE = "\u001b[35m";
     public static final String ANSI_RESET = "\u001b[0m";
 
@@ -12,7 +12,7 @@ public class ExitCommand implements MenuCommand {
         System.exit(0);
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return this.COMMAND_INFO;
-    }
+    }*/
 }

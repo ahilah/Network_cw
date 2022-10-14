@@ -11,7 +11,7 @@ public class Abroad {
     }
 
     public String toString() {
-        return "Abroad{country='" + this.country + "', pricePerMinute=" + this.pricePerMinute + "}";
+        return "Country: " + this.country + ", price per minute: " + this.pricePerMinute;
     }
 }
 

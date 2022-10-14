@@ -4,7 +4,7 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
 public class NumberCustomersCommand implements MenuCommand {
-    private String COMMAND_INFO = "calculate general number of customers";
+    //private String COMMAND_INFO = "calculate general number of customers";
     private Network network;
 
     public NumberCustomersCommand(Network network) {
@@ -14,7 +14,8 @@ public class NumberCustomersCommand implements MenuCommand {
     public void execute() {
         int numberCustomersInAvailableTariffs = numberCustomers(network.getNumberAvailableTariffs());
         int numberCustomersInArchivedTariffs = numberCustomers(network.getNumberArchivedTariffs());
-        System.out.println("\nGeneral number of customers: " + numberCustomersInArchivedTariffs + numberCustomersInAvailableTariffs);
+        System.out.println("\nGeneral number of customers: " +
+                numberCustomersInArchivedTariffs + numberCustomersInAvailableTariffs);
     }
 
     private int numberCustomers(int numberTariffs) {
@@ -25,8 +26,8 @@ public class NumberCustomersCommand implements MenuCommand {
         return numberCustomers;
     }
 
-    public String getCommandInfo() {
+    /*public String getCommandInfo() {
         return COMMAND_INFO;
-    }
+    }*/
 }
 

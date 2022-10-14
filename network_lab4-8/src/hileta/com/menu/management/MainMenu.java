@@ -17,7 +17,7 @@ public class MainMenu {
             this.mainCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
             int command = scanner.nextInt();
-            mainCommand.execute(--command);
+            mainCommand.execute(command);
         }
     }
 }

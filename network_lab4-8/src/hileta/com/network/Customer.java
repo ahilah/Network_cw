@@ -22,6 +22,6 @@ public class Customer {
     }
 
     public String toString() {
-        return "Customer{name='" + this.name + "', CustomerID='" + this.CustomerID + "'}";
+        return "Customer name: " + this.name + ", ID: " + this.CustomerID;
     }
 }

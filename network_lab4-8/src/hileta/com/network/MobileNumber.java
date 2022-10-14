@@ -14,7 +14,8 @@ public class MobileNumber {
     }
 
     public String toString() {
-        return "Mobile Number: " + this.number + ", tariff: " + this.tariffID.toString() + ", user: " + this.userID;
+        return "Mobile Number: " + this.number + ", tariff: " +
+                this.tariffID + ", user: " + this.userID + ", balance: " + this.balance;
     }
 
     public void setTariffID(String tariffID) {
