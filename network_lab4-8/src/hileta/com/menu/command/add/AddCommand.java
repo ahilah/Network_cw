@@ -81,7 +81,7 @@ public class AddCommand implements MenuCommand {
     }
 
     private int getUserDecisionObject() {
-        System.out.println("\nPress to add");
+        System.out.println("\n\nPress to add");
         System.out.print("""
                     1 - for new tariff
                     2 - for new customer
@@ -109,33 +109,33 @@ public class AddCommand implements MenuCommand {
         int numberCustomer = getCheckedNoCustomer();
         double balance = getCheckedBalance();
         network.getTariff(numberTariff).setNumberOfUsers(network.getTariff(numberTariff).getNumberOfUsers() + 1);
-        return new MobileNumber(mobileNumber, network.getTariff(--numberTariff).getTariffID(),
-                network.getCustomer(--numberCustomer).getCustomerID(), balance);
+        return new MobileNumber(mobileNumber, network.getTariff(numberTariff).getTariffID(),
+                network.getCustomer(numberCustomer).getCustomerID(), balance);
     }
 
     private int getCheckedNoCustomer() {
-        System.out.print("Choose customer: ");
+        System.out.print("\n\tChoose customer: \n");
         network.showCustomers();
-        System.out.println("Type number here: ");
+        System.out.print("Type number here: ");
         int numberCustomer = Integer.parseInt(scanner.nextLine());
         if (numberCustomer < 0 || numberCustomer > network.getNumberCustomers()) {
             System.out.println(ANSI_RED + "\nWrong number of customer." +
                     " Set default first customer in list." + ANSI_RESET);
-            numberCustomer = 0;
+            numberCustomer = 1;
         }
-        return numberCustomer;
+        return --numberCustomer;
     }
 
     private int getCheckedNoTariff() {
-        System.out.print("Choose tariff: ");
+        System.out.print("\n\tChoose tariff: \n");
         network.showTariffs();
-        System.out.println("Type number here: ");
+        System.out.print("Type number here: ");
         int numberTariff = Integer.parseInt(scanner.nextLine());
         if (numberTariff < 0 || numberTariff > network.getNumberAvailableTariffs()) {
             System.out.println(ANSI_RED + "\nWrong number of tariff. Set default first tariff in list." + ANSI_RESET);
-            numberTariff = 0;
+            numberTariff = 1;
         }
-        return numberTariff;
+        return --numberTariff;
     }
 
     private double getCheckedBalance() {

@@ -61,7 +61,7 @@ public class AddTariffCommand implements MenuCommand  {
     }
 
     private int getTariffKind() {
-        System.out.println("\tType " + ANSI_RED + "@" + ANSI_RESET + " for unlimited parameter!\nPress to add");
+        System.out.println("\n\tType " + ANSI_RED + "@" + ANSI_RESET + " for unlimited parameter!\nPress to add");
         System.out.print("""
                     1 - for start tariff
                     2 - for super tariff

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CreateNetworkCommand implements MenuCommand {
 
-    private String COMMAND_INFO = "\tFill network company info";
+    private String COMMAND_INFO = "\n\t--> Fill network company info\n";
     Scanner scanner;
 
     @Override

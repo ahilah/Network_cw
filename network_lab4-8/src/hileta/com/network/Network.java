@@ -96,19 +96,19 @@ public class Network {
 
     public void showTariffs() {
         for(int i = 0, j = i + 1; i < this.AvailableTariffs.size(); ++i, ++j) {
-            System.out.println(j + "." + this.AvailableTariffs.get(i));
+            System.out.println(j + ". " + this.AvailableTariffs.get(i));
         }
     }
 
     public void showCustomers() {
-        for(int i = 0, j = i; i < Customers.size(); ++i, ++j) {
-            System.out.println(j + "." + Customers.get(i));
+        for(int i = 0, j = i + 1; i < Customers.size(); ++i, ++j) {
+            System.out.println(j + ". " + Customers.get(i));
         }
     }
 
     public void showAbroad() {
-        for(int i = 0, j = i; i < ListAbroad.size(); ++i, ++j) {
-            System.out.println(j + "." + ListAbroad.get(i));
+        for(int i = 0, j = i + 1; i < ListAbroad.size(); ++i, ++j) {
+            System.out.println(j + ". " + ListAbroad.get(i));
         }
     }
 

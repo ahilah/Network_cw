@@ -18,6 +18,10 @@ public class MainMenu {
             System.out.print("Enter your command here: ");
             int command = scanner.nextInt();
             mainCommand.execute(command);
+            System.out.println("\n--------------------------------------------" +
+                    "--------------------------------------------------------" +
+                    "-----------------------------------------------------------" +
+                    "-----------------");
         }
     }
 }
