@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static hileta.com.menu.management.MainCommand.ANSI_RED;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+
 public class FileCustomer extends FileCommand {
     //private Network network;
 
@@ -23,7 +26,10 @@ public class FileCustomer extends FileCommand {
             String line = buff.readLine();
             while(line != null) {
                 customerInfo = line.split(" ");
-                network.addCustomer(getNewCustomer(customerInfo));
+                Customer newCustomer = getNewCustomer(customerInfo);
+                if(newCustomer != null)
+                    network.addCustomer(newCustomer);
+                else System.out.println(ANSI_RED + "Line " + line + "is with incorrect parameters." + ANSI_RESET);
                 line = buff.readLine();
             }
             buff.close();
@@ -36,6 +42,9 @@ public class FileCustomer extends FileCommand {
     }
 
     private Customer getNewCustomer(String[] customerInfo) {
-        return new Customer(customerInfo[0], customerInfo[1]);
+        Customer customer = null;
+        if(network.isCustomerAlreadyExist(customerInfo[1]))
+            customer = new Customer(customerInfo[0], customerInfo[1]);
+        return customer;
     }
 }

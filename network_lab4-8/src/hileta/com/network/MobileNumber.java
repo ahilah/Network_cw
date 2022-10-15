@@ -18,6 +18,10 @@ public class MobileNumber {
                 this.tariffID + ", user: " + this.userID + ", balance: " + this.balance;
     }
 
+    public String getTariffID() {
+        return tariffID;
+    }
+
     public void setTariffID(String tariffID) {
         this.tariffID = tariffID;
     }

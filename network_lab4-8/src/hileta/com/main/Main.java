@@ -17,6 +17,10 @@ public class Main {
 
         FromFile fromFileCommand = new FromFile(new Network("1", "2", "3"));
         fromFileCommand.execute();
-        // D:\test6.txt
+        // D:\test6.txt tariffs
+        // D:\test9.txt archive
+        // D:\test8.txt customer
+        // D:\test5.txt mobnum
+        // D:\test7.txt abroad
     }
 }

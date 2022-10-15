@@ -1,5 +1,6 @@
 package hileta.com.menu.command.file;
 
+import hileta.com.Tariff.BaseTariff;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
 
@@ -34,8 +35,11 @@ public class FileMobileNumber extends FileCommand {
             while(line != null) {
                 mobileNumberInfo = line.split(" ");
                 newMobileNumber = getNewMobileNumber(mobileNumberInfo);
-                if (newMobileNumber != null)
+                if (newMobileNumber != null) {
                     network.addMobileNumber(newMobileNumber);
+                    BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
+                    tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
+                }
                 else System.out.println(ANSI_RED + "Line " + line + "is with incorrect parameters." + ANSI_RESET);
                 line = buff.readLine();
             }
