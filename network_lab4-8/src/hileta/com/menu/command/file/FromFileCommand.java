@@ -1,7 +1,5 @@
 package hileta.com.menu.command.file;
 
-import hileta.com.menu.command.Archive;
-import hileta.com.menu.command.NumberCustomers;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
@@ -24,7 +22,7 @@ public class FromFileCommand {
     private void FillFileItems() {
         fileItems.put("Read new tariffs.", new FileTariff(network));
         fileItems.put("Read archived tariffs.", new FileTariffsArchive(network));
-        fileItems.put("Read new customers.", new NumberCustomers(network));
+        fileItems.put("Read new customers.", new FileCustomer(network));
         fileItems.put("Read new mobile numbers.", new FileMobileNumber(network));
         fileItems.put("Read new abroad.", new FileAbroad(network));
 
