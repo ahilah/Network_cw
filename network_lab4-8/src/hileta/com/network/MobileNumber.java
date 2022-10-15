@@ -22,6 +22,10 @@ public class MobileNumber {
         return tariffID;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
     public void setTariffID(String tariffID) {
         this.tariffID = tariffID;
     }

@@ -62,6 +62,8 @@ public class FileMobileNumber extends FileCommand {
 
     private boolean isParametersCorrect(String[] mobileNumberInfo) {
         return network.isTariffAlreadyExist(mobileNumberInfo[1]) &&
-                network.isCustomerAlreadyExist(mobileNumberInfo[2]) && Double.parseDouble(mobileNumberInfo[3]) >= 0;
+                network.isCustomerAlreadyExist(mobileNumberInfo[2]) &&
+                Double.parseDouble(mobileNumberInfo[3]) >= 0 &&
+                !network.isMobileNumberAlreadyExist(mobileNumberInfo[0]);
     }
 }

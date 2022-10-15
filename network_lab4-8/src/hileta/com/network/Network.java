@@ -5,6 +5,7 @@ import hileta.com.Tariff.BaseTariff;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Network {
 
@@ -160,6 +161,17 @@ public class Network {
             }
         }
         return isTariffIDEqual;
+    }
+
+    public boolean isMobileNumberAlreadyExist(String number) {
+        boolean isNumberEqual = false;
+        for (MobileNumber mobileNumber : ListMobileNumbers) {
+            if (Objects.equals(mobileNumber.getNumber(), number)) {
+                isNumberEqual = true;
+                break;
+            }
+        }
+        return isNumberEqual;
     }
 
     public boolean isCustomerAlreadyExist(String customerID) {

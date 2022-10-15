@@ -29,7 +29,7 @@ public class FileCustomer extends FileCommand {
                 Customer newCustomer = getNewCustomer(customerInfo);
                 if(newCustomer != null)
                     network.addCustomer(newCustomer);
-                else System.out.println(ANSI_RED + "Line " + line + "is with incorrect parameters." + ANSI_RESET);
+                else System.out.println(ANSI_RED + "Line " + line + " contains incorrect parameters." + ANSI_RESET);
                 line = buff.readLine();
             }
             buff.close();
@@ -43,7 +43,7 @@ public class FileCustomer extends FileCommand {
 
     private Customer getNewCustomer(String[] customerInfo) {
         Customer customer = null;
-        if(network.isCustomerAlreadyExist(customerInfo[1]))
+        if(!network.isCustomerAlreadyExist(customerInfo[1]))
             customer = new Customer(customerInfo[0], customerInfo[1]);
         return customer;
     }
