@@ -1,7 +1,7 @@
 package hileta.com.main;
 
 
-import hileta.com.menu.command.FromFile;
+import hileta.com.menu.command.file.FromFile;
 import hileta.com.network.Network;
 
 import java.io.IOException;

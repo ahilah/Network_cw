@@ -1,6 +1,6 @@
 package hileta.com.menu.command.add;
 
-import hileta.com.menu.command.FromFile;
+import hileta.com.menu.command.file.FromFile;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Abroad;
 import hileta.com.network.Customer;

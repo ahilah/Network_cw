@@ -16,7 +16,7 @@ public class MainMenu {
             System.out.println("\nAvailable commands: ");
             this.mainCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
-            int command = scanner.nextInt();
+            int command = Integer.parseInt(scanner.nextLine());
             mainCommand.execute(command);
             System.out.println("\n--------------------------------------------" +
                     "--------------------------------------------------------" +

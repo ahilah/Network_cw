@@ -85,7 +85,7 @@ public class AddTariff implements MenuCommand  {
     private void searchUnlimitedParameters(String[] inputInfo) {
         final String unlimSym = "@";
         for (int i = 0; i < inputInfo.length; i++) {
-            if (inputInfo[i].equals(unlimSym)) inputInfo[i] = "-1";
+            if (inputInfo[i].equals(unlimSym)) inputInfo[i] = "unlimited";
         }
     }
 

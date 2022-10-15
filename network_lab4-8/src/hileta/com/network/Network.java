@@ -112,6 +112,15 @@ public class Network {
         }
     }
 
+    public boolean isTariffAlreadyExist(String otherID) {
+        boolean isTariffIDEqual = false;
+        for (BaseTariff tariff : AvailableTariffs) {
+            if (tariff.getTariffID().equals(otherID));
+            isTariffIDEqual = true;
+        }
+        return isTariffIDEqual;
+    }
+
     public List<BaseTariff> getAvailableTariffs() {
         return AvailableTariffs;
     }
