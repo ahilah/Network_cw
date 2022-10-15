@@ -13,10 +13,7 @@ public class MobileNumber {
         this.balance = balance;
     }
 
-    public String toString() {
-        return "Mobile Number: " + this.number + ", tariff: " +
-                this.tariffID + ", user: " + this.userID + ", balance: " + this.balance;
-    }
+
 
     public String getTariffID() {
         return tariffID;
@@ -36,6 +33,12 @@ public class MobileNumber {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return "Mobile number: " + this.number + ", tariff ID: " +
+                this.tariffID + ", user ID: " + this.userID + ", balance: " + this.balance;
     }
 }
 

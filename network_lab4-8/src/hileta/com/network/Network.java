@@ -190,6 +190,10 @@ public class Network {
         AvailableTariffs.clear();
     }
 
+    public void archiveTariffs() {
+
+    }
+
     public List<BaseTariff> getAvailableTariffs() {
         return AvailableTariffs;
     }

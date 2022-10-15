@@ -21,7 +21,8 @@ public class Customer {
         this.CustomerID = customerID;
     }
 
+    @Override
     public String toString() {
-        return "Customer name: " + this.name + ", ID: " + this.CustomerID;
+        return "Name: " + this.name + ", ID: " + this.CustomerID;
     }
 }

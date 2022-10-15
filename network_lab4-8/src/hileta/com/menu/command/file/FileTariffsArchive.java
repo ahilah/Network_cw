@@ -12,8 +12,19 @@ public class FileTariffsArchive implements MenuCommand {
     @Override
     public void execute() {
         FileTariff fileTariff = new FileTariff(network);
+        int numberTariffs = network.getNumberAvailableTariffs();
         fileTariff.execute();
-        network.archiveAllAvailableTariffs();
+        int numberTariffsArchive = network.getNumberAvailableTariffs();
+        for (int i = numberTariffs; i < network.getNumberAvailableTariffs(); i++) {
+            network.archiveTariff(network.getTariff(i));
+        }
+
+        /*for (int i = numberTariffs; i < network.getNumberAvailableTariffs(); i++) {
+            network.archiveTariff(network.getTariff(i));
+        }*/
+
+        //network.archiveAllAvailableTariffs();
+
         System.out.println("\n\tArchive of tariffs: ");
         network.showArchive();
     }

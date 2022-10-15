@@ -10,6 +10,7 @@ public class Abroad {
         this.pricePerMinute = pricePerMinute;
     }
 
+    @Override
     public String toString() {
         return "Country: " + this.country + ", price per minute: " + this.pricePerMinute;
     }
