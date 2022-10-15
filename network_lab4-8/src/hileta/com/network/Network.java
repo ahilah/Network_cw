@@ -44,7 +44,7 @@ public class Network {
         AvailableTariffs.remove(numberOfTariff);
     }
 
-    public void addNumber(MobileNumber mobileNumber) {
+    public void addMobileNumber(MobileNumber mobileNumber) {
         ListMobileNumbers.add(mobileNumber);
     }
 
@@ -64,6 +64,17 @@ public class Network {
 
     public BaseTariff getTariff(int numberOfTariff) {
         return AvailableTariffs.get(numberOfTariff);
+    }
+
+    public BaseTariff searchTariff(String tariffID) {
+        BaseTariff searchedTariff = null;
+        for (BaseTariff tariff : AvailableTariffs) {
+            if (tariff.getTariffID().equals(tariffID)) searchedTariff = tariff;
+        }
+        for (BaseTariff tariff : ArchivedTariffs) {
+            if (tariff.getTariffID().equals(tariffID)) searchedTariff = tariff;
+        }
+        return searchedTariff;
     }
 
     public BaseTariff getTariffFromArchive(int numberOfTariff) {
@@ -95,8 +106,10 @@ public class Network {
     }
 
     public void showTariffs() {
-        for(int i = 0, j = i + 1; i < this.AvailableTariffs.size(); ++i, ++j) {
-            System.out.println(j + ". " + this.AvailableTariffs.get(i));
+        int i = 1;
+        for (BaseTariff tariff : AvailableTariffs) {
+            System.out.println(i + ". " + tariff);
+            ++i;
         }
     }
 
@@ -109,14 +122,26 @@ public class Network {
     }
 
     public void showCustomers() {
-        for(int i = 0, j = i + 1; i < Customers.size(); ++i, ++j) {
-            System.out.println(j + ". " + Customers.get(i));
+        int i = 1;
+        for (Customer customer : Customers) {
+            System.out.println(i + ". " + customer);
+            ++i;
         }
     }
 
     public void showAbroad() {
-        for(int i = 0, j = i + 1; i < ListAbroad.size(); ++i, ++j) {
-            System.out.println(j + ". " + ListAbroad.get(i));
+        int i = 1;
+        for (Abroad abroad : ListAbroad) {
+            System.out.println(i + ". " + abroad);
+            ++i;
+        }
+    }
+
+    public void showMobileNumbers() {
+        int i = 1;
+        for (MobileNumber number : ListMobileNumbers) {
+            System.out.println(i + ". " + number);
+            ++i;
         }
     }
 
@@ -128,7 +153,24 @@ public class Network {
                 break;
             }
         }
+        for (BaseTariff availableTariff : ArchivedTariffs) {
+            if (availableTariff.getTariffID().equals(otherID)) {
+                isTariffIDEqual = true;
+                break;
+            }
+        }
         return isTariffIDEqual;
+    }
+
+    public boolean isCustomerAlreadyExist(String customerID) {
+        boolean isCustomerIDEqual = false;
+        for (Customer customer : Customers) {
+            if (customer.getCustomerID().equals(customerID)) {
+                isCustomerIDEqual = true;
+                break;
+            }
+        }
+        return isCustomerIDEqual;
     }
 
     public void archiveAllAvailableTariffs() {

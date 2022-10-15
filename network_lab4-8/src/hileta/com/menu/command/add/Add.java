@@ -59,7 +59,7 @@ public class Add implements MenuCommand {
                         break;
                     }
                     MobileNumber mobileNumber = getNewMobileNumber();
-                    network.addNumber(mobileNumber);
+                    network.addMobileNumber(mobileNumber);
                     System.out.println("\n\tAdded mobile number: ");
                     System.out.println(mobileNumber);
                 }
