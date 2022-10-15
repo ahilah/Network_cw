@@ -100,6 +100,14 @@ public class Network {
         }
     }
 
+    public void showArchive() {
+        int i = 1;
+        for (BaseTariff tariff : ArchivedTariffs) {
+            System.out.println(i + ". " + tariff);
+            ++i;
+        }
+    }
+
     public void showCustomers() {
         for(int i = 0, j = i + 1; i < Customers.size(); ++i, ++j) {
             System.out.println(j + ". " + Customers.get(i));
@@ -114,11 +122,18 @@ public class Network {
 
     public boolean isTariffAlreadyExist(String otherID) {
         boolean isTariffIDEqual = false;
-        for (BaseTariff tariff : AvailableTariffs) {
-            if (tariff.getTariffID().equals(otherID));
-            isTariffIDEqual = true;
+        for (BaseTariff availableTariff : AvailableTariffs) {
+            if (availableTariff.getTariffID().equals(otherID)) {
+                isTariffIDEqual = true;
+                break;
+            }
         }
         return isTariffIDEqual;
+    }
+
+    public void archiveAllAvailableTariffs() {
+        ArchivedTariffs.addAll(AvailableTariffs);
+        AvailableTariffs.clear();
     }
 
     public List<BaseTariff> getAvailableTariffs() {
