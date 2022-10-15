@@ -21,7 +21,7 @@ public abstract class FileCommand implements MenuCommand {
 
     private String getFilePath() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Type file path: ");
+        System.out.print("Type file path: ");
         return scanner.nextLine();
     }
 

@@ -47,7 +47,7 @@ public class Add implements MenuCommand {
                 case 2 -> {
                     Customer customer = getNewCustomer();
                     network.addCustomer(customer);
-                    System.out.println("\n\tYour added customer: ");
+                    System.out.println("\n\tAdded customer: ");
                     System.out.println(customer);
                     //network.showCustomers();
                 }
@@ -60,13 +60,13 @@ public class Add implements MenuCommand {
                     }
                     MobileNumber mobileNumber = getNewMobileNumber();
                     network.addNumber(mobileNumber);
-                    System.out.println("\n\tYour added mobile number: ");
+                    System.out.println("\n\tAdded mobile number: ");
                     System.out.println(mobileNumber);
                 }
                 case 4 -> {
                     Abroad abroad = getNewAbroad();
                     network.addAbroad(abroad);
-                    System.out.println("\n\tYour added abroad:");
+                    System.out.println("\n\tAdded abroad:");
                     System.out.println(abroad);
                     //network.showAbroad();
                 }
