@@ -20,20 +20,20 @@ public class FileMobileNumber extends FileCommand {
 
     @Override
     public void execute() {
+        super.execute();
         if (network.isListCustomersEmpty() || network.isListTariffsEmpty()) {
             System.out.println(ANSI_RED +
                     "List of tariffs or customers is empty. Create at least one object of both!"
                     + ANSI_RESET);
             return;
         }
-        super.execute();
         int sizeMobileNumbers = network.getNumberMobileNumbers();
         try {
             readData();
             showAddedNumbers(sizeMobileNumbers);
         }
         catch (IOException e) {
-            System.out.println("Can't open: " + filePath);
+            System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
         }
     }
 
@@ -51,7 +51,7 @@ public class FileMobileNumber extends FileCommand {
                 BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
                 tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
             }
-            else System.out.println(ANSI_RED + "Line " + line + "is with incorrect parameters." + ANSI_RESET);
+            else System.out.println(ANSI_RED + "\tLine " + line + " is with incorrect parameters." + ANSI_RESET);
             line = buff.readLine();
         }
         buff.close();
@@ -74,8 +74,8 @@ public class FileMobileNumber extends FileCommand {
 
     private void showAddedNumbers(int sizeMobileNumbers) {
         System.out.println("\n\tAdded mobile numbers:");
-        for(int i = sizeMobileNumbers; i < network.getNumberMobileNumbers(); i++) {
-            System.out.println(network.getMobileNumber(i));
+        for(int i = sizeMobileNumbers, j = 1; i < network.getNumberMobileNumbers(); i++, j++) {
+            System.out.println(j + ". " + network.getMobileNumber(i));
         }
     }
 }

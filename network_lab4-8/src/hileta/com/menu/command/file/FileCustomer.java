@@ -25,7 +25,7 @@ public class FileCustomer extends FileCommand {
             showAddedCustomers(numberCustomers);
         }
         catch (IOException e) {
-            System.out.println("Can't open: " + filePath);
+            System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
         }
     }
 
@@ -39,7 +39,7 @@ public class FileCustomer extends FileCommand {
             Customer newCustomer = getNewCustomer(customerInfo);
             if(newCustomer != null)
                 network.addCustomer(newCustomer);
-            else System.out.println(ANSI_RED + "Line " + line + " contains incorrect parameters." + ANSI_RESET);
+            else System.out.println(ANSI_RED + "\tLine " + line + " contains incorrect parameters." + ANSI_RESET);
             line = buff.readLine();
         }
         buff.close();
@@ -53,9 +53,9 @@ public class FileCustomer extends FileCommand {
     }
 
     private void showAddedCustomers(int numberCustomers) {
-        System.out.println("\n\tAdded customers:");
-        for(int i = numberCustomers; i < network.getNumberCustomers(); i++) {
-            System.out.println(network.getCustomer(i));
+        System.out.println("\n\t\tAdded customers:");
+        for(int i = numberCustomers, j = 1; i < network.getNumberCustomers(); i++, j++) {
+            System.out.println(j + ". " + network.getCustomer(i));
         }
     }
 }

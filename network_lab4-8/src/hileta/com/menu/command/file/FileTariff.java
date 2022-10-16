@@ -39,7 +39,7 @@ public class FileTariff extends FileCommand {
                 showAddedTariffs(numberTariffs);
             }
             catch (IOException e) {
-                System.out.println("Can't open: " + filePath);
+                System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
             }
 
     }
@@ -75,37 +75,32 @@ public class FileTariff extends FileCommand {
         }
         return numbers;
     }
-
     private BaseTariff getNewStartTariff(String[] tariffInfo) {
         return new StartTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4]);
     }
-
     private BaseTariff getNewSuperTariff(String[] tariffInfo) {
         return new SuperTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
                 Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]));
     }
-
     private BaseTariff getNewSuperNetTariff(String[] tariffInfo) {
         return new SuperNetTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
                 Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]),
                 Double.parseDouble(tariffInfo[7]));
     }
-
     private void checkTariffCorrect(BaseTariff baseTariff) {
         if (!network.isTariffAlreadyExist(baseTariff.getTariffID()))
             network.addTariff(baseTariff);
         else System.out.println(ANSI_RED + "\nTariff " +
                 baseTariff + "\nalready exists in list!" + ANSI_RESET);
     }
-
     private void showAddedTariffs(int numberTariffs) {
         //int newNumberTariffs = network.getNumberAvailableTariffs();
-        System.out.println("\n\tAdded tariffs:");
-        for(int i = numberTariffs; i < network.getNumberAvailableTariffs(); i++) {
-            System.out.println(network.getTariff(i));
+        System.out.println("\n\t\tAdded tariffs:");
+        for(int i = numberTariffs, j = 1; i < network.getNumberAvailableTariffs(); i++, j++) {
+            System.out.println(j + ". " + network.getTariff(i));
         }
     }
 }

@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+import static hileta.com.menu.management.MainCommand.ANSI_RED;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+
 public class FileAbroad extends FileCommand {
 
     public FileAbroad(Network network) {
@@ -22,7 +25,7 @@ public class FileAbroad extends FileCommand {
             showAddedAbroad(numberAbroad);
         }
         catch (IOException e) {
-            System.out.println("Can't open: " + filePath);
+            System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
         }
     }
 
@@ -43,9 +46,9 @@ public class FileAbroad extends FileCommand {
     }
 
     private void showAddedAbroad(int numberAbroad) {
-        System.out.println("\n\tAdded abroad:");
-        for(int i = numberAbroad; i < network.getNumberAbroad(); i++) {
-            System.out.println(network.getAbroad(i));
+        System.out.println("\n\t\tAdded abroad:");
+        for(int i = numberAbroad, j = 1; i < network.getNumberAbroad(); i++, j++) {
+            System.out.println(j + ". " + network.getAbroad(i));
         }
     }
 }

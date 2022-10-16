@@ -21,7 +21,7 @@ public class Archive implements MenuCommand {
         int tariffNumber = getNumberOfTariff();
         network.archiveTariff(network.getTariff(tariffNumber));
         network.deleteTariff(tariffNumber);
-        System.out.println(ANSI_GREEN + "Tariff was successfully archived!" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "\n\tTariff was successfully archived!" + ANSI_RESET);
     }
 
     private int getNumberOfTariff() {

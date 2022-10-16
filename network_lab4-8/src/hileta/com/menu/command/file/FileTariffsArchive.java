@@ -15,8 +15,11 @@ public class FileTariffsArchive implements MenuCommand {
         int numberTariffs = network.getNumberAvailableTariffs();
         fileTariff.execute();
         int numberArchivedTariffs = network.getNumberArchivedTariffs();
-        archiveTariffs(numberArchivedTariffs);
-        showArchiveChanges(numberTariffs);
+        //network.showTariffs();
+        archiveTariffs(numberTariffs);
+        showArchiveChanges(numberArchivedTariffs);
+        /* System.out.println("------------------------");
+        network.showTariffs();*/
     }
 
     private void archiveTariffs(int numberTariffs) {
@@ -31,9 +34,9 @@ public class FileTariffsArchive implements MenuCommand {
     }
 
     private void showArchiveChanges(int numberArchivedTariffs) {
-        System.out.println("\n\tArchive of added tariffs: ");
-        for(int i = numberArchivedTariffs; i < network.getNumberArchivedTariffs(); i++) {
-            System.out.println(network.getArchivedTariff(i));
+        System.out.println("\n\t\tArchive of added tariffs: ");
+        for(int i = numberArchivedTariffs, j = 1; i < network.getNumberArchivedTariffs(); i++, j++) {
+            System.out.println(j + ". " + network.getArchivedTariff(i));
         }
     }
 }
