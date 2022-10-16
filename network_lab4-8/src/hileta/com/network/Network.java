@@ -67,6 +67,10 @@ public class Network {
         return AvailableTariffs.get(numberOfTariff);
     }
 
+    public BaseTariff getArchivedTariff(int numberOfTariff) {
+        return ArchivedTariffs.get(numberOfTariff);
+    }
+
     public BaseTariff searchTariff(String tariffID) {
         BaseTariff searchedTariff = null;
         for (BaseTariff tariff : AvailableTariffs) {
