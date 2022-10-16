@@ -44,6 +44,26 @@ public class FileTariff extends FileCommand {
 
     }
 
+    private void readFile() throws IOException {
+        buff = new BufferedReader(new FileReader(filePath));
+        //int isEndFile = Integer.parseInt(buff.readLine());
+        int [] info = getAmountAndTariffType(buff.readLine());
+        BaseTariff baseTariff;
+        String[] tariffInfo;
+        while(info != null) {
+            for(int i = 0; i < info[1]; i++) {
+                tariffInfo = buff.readLine().split(" ");
+                switch(info[0]) {
+                    case 1 -> baseTariff = getNewStartTariff(tariffInfo);
+                    case 2 -> baseTariff = getNewSuperTariff(tariffInfo);
+                    default -> baseTariff = getNewSuperNetTariff(tariffInfo);
+                }
+                checkTariffCorrect(baseTariff);
+            }
+            info = getAmountAndTariffType(buff.readLine());
+        }
+        buff.close();
+    }
     private int [] getAmountAndTariffType(String inputString) {
         int[] numbers = null;
         if (inputString != null) {
@@ -72,27 +92,6 @@ public class FileTariff extends FileCommand {
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
                 Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]),
                 Double.parseDouble(tariffInfo[7]));
-    }
-
-    private void readFile() throws IOException {
-        buff = new BufferedReader(new FileReader(filePath));
-        //int isEndFile = Integer.parseInt(buff.readLine());
-        int [] info = getAmountAndTariffType(buff.readLine());
-        BaseTariff baseTariff;
-        String[] tariffInfo;
-        while(info != null) {
-            for(int i = 0; i < info[1]; i++) {
-                tariffInfo = buff.readLine().split(" ");
-                switch(info[0]) {
-                    case 1 -> baseTariff = getNewStartTariff(tariffInfo);
-                    case 2 -> baseTariff = getNewSuperTariff(tariffInfo);
-                    default -> baseTariff = getNewSuperNetTariff(tariffInfo);
-                }
-                checkTariffCorrect(baseTariff);
-            }
-            info = getAmountAndTariffType(buff.readLine());
-        }
-        buff.close();
     }
 
     private void checkTariffCorrect(BaseTariff baseTariff) {

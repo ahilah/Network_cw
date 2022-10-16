@@ -26,30 +26,35 @@ public class FileMobileNumber extends FileCommand {
                     + ANSI_RESET);
             return;
         }
+        int sizeMobileNumbers = network.getNumberMobileNumbers();
         super.execute();
-        try { // open file
-            buff = new BufferedReader(new FileReader(filePath));
-            MobileNumber newMobileNumber;
-            String[] mobileNumberInfo;
-            String line = buff.readLine();
-            while(line != null) {
-                mobileNumberInfo = line.split(" ");
-                newMobileNumber = getNewMobileNumber(mobileNumberInfo);
-                if (newMobileNumber != null) {
-                    network.addMobileNumber(newMobileNumber);
-                    BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
-                    tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
-                }
-                else System.out.println(ANSI_RED + "Line " + line + "is with incorrect parameters." + ANSI_RESET);
-                line = buff.readLine();
-            }
-            buff.close();
-            System.out.println("\n\tAdded mobile numbers:");
-            network.showMobileNumbers();
+        try {
+            readData();
+            showAddedNumbers(sizeMobileNumbers);
         }
         catch (IOException e) {
             System.out.println("Can't open: " + filePath);
         }
+    }
+
+    private void readData() throws IOException {
+        // open file
+        buff = new BufferedReader(new FileReader(filePath));
+        MobileNumber newMobileNumber;
+        String[] mobileNumberInfo;
+        String line = buff.readLine();
+        while(line != null) {
+            mobileNumberInfo = line.split(" ");
+            newMobileNumber = getNewMobileNumber(mobileNumberInfo);
+            if (newMobileNumber != null) {
+                network.addMobileNumber(newMobileNumber);
+                BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
+                tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
+            }
+            else System.out.println(ANSI_RED + "Line " + line + "is with incorrect parameters." + ANSI_RESET);
+            line = buff.readLine();
+        }
+        buff.close();
     }
 
     private MobileNumber getNewMobileNumber(String[] mobileNumberInfo) {
@@ -65,5 +70,12 @@ public class FileMobileNumber extends FileCommand {
                 network.isCustomerAlreadyExist(mobileNumberInfo[2]) &&
                 Double.parseDouble(mobileNumberInfo[3]) >= 0 &&
                 !network.isMobileNumberAlreadyExist(mobileNumberInfo[0]);
+    }
+
+    private void showAddedNumbers(int sizeMobileNumbers) {
+        System.out.println("\n\tAdded mobile numbers:");
+        for(int i = sizeMobileNumbers; i < network.getNumberMobileNumbers(); i++) {
+            System.out.println(network.getMobileNumber(i));
+        }
     }
 }

@@ -71,6 +71,10 @@ public class Network {
         return ArchivedTariffs.get(numberOfTariff);
     }
 
+    public MobileNumber getMobileNumber(int number) {
+        return ListMobileNumbers.get(number);
+    }
+
     public BaseTariff searchTariff(String tariffID) {
         BaseTariff searchedTariff = null;
         for (BaseTariff tariff : AvailableTariffs) {
@@ -100,6 +104,10 @@ public class Network {
 
     public int getNumberCustomers() {
         return Customers.size();
+    }
+
+    public int getNumberMobileNumbers() {
+        return ListMobileNumbers.size();
     }
 
     public boolean isListTariffsEmpty() {
