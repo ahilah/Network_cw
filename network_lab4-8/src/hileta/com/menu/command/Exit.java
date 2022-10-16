@@ -9,7 +9,7 @@ public class Exit implements MenuCommand {
     //private String COMMAND_INFO = "exit";
 
     public void execute() {
-        System.out.println(ANSI_PURPLE + "\n\n\t Program is ended." + ANSI_RESET);
+        System.out.println(ANSI_PURPLE + "\n\n\t Program is ended.\n" + ANSI_RESET);
         System.exit(0);
     }
 

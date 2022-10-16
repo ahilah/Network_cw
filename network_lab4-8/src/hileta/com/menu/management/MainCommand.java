@@ -47,7 +47,7 @@ public class MainCommand {
             }
             position++;
         }
-        System.out.println(ANSI_RED + " Incorrect command! Try again." + ANSI_RESET);
+        System.out.println(ANSI_RED + "\n\tIncorrect command! Try again." + ANSI_RESET);
     }
 
     public void showAvailableCommands() {

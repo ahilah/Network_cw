@@ -25,7 +25,7 @@ public class CreateNetwork implements MenuCommand {
         String companyMobileNumber = scanner.nextLine().replaceAll("\\s","");
         System.out.println("Type network company email: ");
         String companyEmail = scanner.nextLine();
-        return new Network(companyName, companyMobileNumber, companyEmail);
+        return Network.getNetwork(companyName, companyMobileNumber, companyEmail);
     }
 
     /*@Override

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Network {
-
+    static Network network;
     private final String companyName;
     private final String companyNumber;
     private final String companyEmail;
@@ -18,7 +18,14 @@ public class Network {
     private List<MobileNumber> ListMobileNumbers;
     private List<Abroad> ListAbroad;
 
-    public Network(String companyName, String companyNumber, String companyEmail) {
+    public static Network getNetwork(String companyName, String companyNumber, String companyEmail) {
+        if (network == null) {
+            network = new Network(companyName, companyNumber, companyEmail);
+        }
+        return network;
+    }
+
+    private Network(String companyName, String companyNumber, String companyEmail) {
         this.companyName = companyName;
         this.companyNumber = companyNumber;
         this.companyEmail = companyEmail;
