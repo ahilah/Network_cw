@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.util.Scanner;
 
 public abstract class FileCommand implements MenuCommand {
+
     protected Network network;
 
     protected BufferedReader buff;
@@ -19,14 +20,14 @@ public abstract class FileCommand implements MenuCommand {
         //this.filePath = getFilePath();
     }
 
+    @Override
+    public void execute() {
+       this.filePath = getFilePath();
+    }
+
     private String getFilePath() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Type file path: ");
         return scanner.nextLine();
-    }
-
-    @Override
-    public void execute() {
-       this.filePath = getFilePath();
     }
 }
