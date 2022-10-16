@@ -26,8 +26,8 @@ public class FileMobileNumber extends FileCommand {
                     + ANSI_RESET);
             return;
         }
-        int sizeMobileNumbers = network.getNumberMobileNumbers();
         super.execute();
+        int sizeMobileNumbers = network.getNumberMobileNumbers();
         try {
             readData();
             showAddedNumbers(sizeMobileNumbers);

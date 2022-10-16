@@ -75,20 +75,9 @@ public class Network {
         return ListMobileNumbers.get(number);
     }
 
-    public BaseTariff searchTariff(String tariffID) {
-        BaseTariff searchedTariff = null;
-        for (BaseTariff tariff : AvailableTariffs) {
-            if (tariff.getTariffID().equals(tariffID)) searchedTariff = tariff;
-        }
-        for (BaseTariff tariff : ArchivedTariffs) {
-            if (tariff.getTariffID().equals(tariffID)) searchedTariff = tariff;
-        }
-        return searchedTariff;
-    }
-
-    public BaseTariff getTariffFromArchive(int numberOfTariff) {
-        return ArchivedTariffs.get(numberOfTariff);
-    }
+   public Abroad getAbroad(int numberAbroad) {
+        return ListAbroad.get(numberAbroad);
+   }
 
     public Customer getCustomer(int numberCustomer) {
         return Customers.get(numberCustomer);
@@ -108,6 +97,10 @@ public class Network {
 
     public int getNumberMobileNumbers() {
         return ListMobileNumbers.size();
+    }
+
+    public int getNumberAbroad() {
+        return ListAbroad.size();
     }
 
     public boolean isListTariffsEmpty() {
@@ -157,7 +150,16 @@ public class Network {
             ++i;
         }
     }
-
+    public BaseTariff searchTariff(String tariffID) {
+        BaseTariff searchedTariff = null;
+        for (BaseTariff tariff : AvailableTariffs) {
+            if (tariff.getTariffID().equals(tariffID)) searchedTariff = tariff;
+        }
+        for (BaseTariff tariff : ArchivedTariffs) {
+            if (tariff.getTariffID().equals(tariffID)) searchedTariff = tariff;
+        }
+        return searchedTariff;
+    }
     public boolean isTariffAlreadyExist(String otherID) {
         boolean isTariffIDEqual = false;
         for (BaseTariff availableTariff : AvailableTariffs) {
@@ -200,10 +202,6 @@ public class Network {
     public void archiveAllAvailableTariffs() {
         ArchivedTariffs.addAll(AvailableTariffs);
         AvailableTariffs.clear();
-    }
-
-    public void archiveTariffs() {
-
     }
 
     public List<BaseTariff> getAvailableTariffs() {
