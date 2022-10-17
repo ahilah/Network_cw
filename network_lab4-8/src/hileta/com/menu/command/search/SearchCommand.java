@@ -19,7 +19,7 @@ public class SearchCommand {
     }
     private void fillMenuItems() {
         menuItems.put("Search tariffs with parameters from .", new SearchTariffs(network));
-        menuItems.put("Search customer info.", new SearchCustomer(network));
+        menuItems.put("Search customer info.", new SearchDebtors(network));
         menuItems.put("Search customer's mobile numbers.", new SearchMobileNumbers(network));
         menuItems.put("Search abroad.", new SearchAbroad(network));
     }

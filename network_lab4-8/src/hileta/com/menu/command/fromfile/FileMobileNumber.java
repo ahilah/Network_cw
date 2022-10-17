@@ -51,7 +51,7 @@ public class FileMobileNumber extends FileCommand {
                 BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
                 tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
             }
-            else System.out.println(ANSI_RED + "\n\tLine " + line + " is with incorrect parameters." + ANSI_RESET);
+            else System.out.println(ANSI_RED + "\n\tLine " + line + " contains incorrect parameters." + ANSI_RESET);
             line = buff.readLine();
         }
         buff.close();

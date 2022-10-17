@@ -88,6 +88,13 @@ public class Network {
         return Customers.get(numberCustomer);
     }
 
+    public Customer getCustomer(String customerID) {
+        for(Customer customer : Customers) {
+            if (customer.getCustomerID().equals(customerID)) return customer;
+        }
+        return null;
+    }
+
     public int getNumberAvailableTariffs() {
         return AvailableTariffs.size();
     }

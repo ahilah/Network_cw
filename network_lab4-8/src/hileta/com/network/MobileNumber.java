@@ -23,6 +23,14 @@ public class MobileNumber {
         return number;
     }
 
+    public String getUserID() {
+        return userID;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
     public void setTariffID(String tariffID) {
         this.tariffID = tariffID;
     }

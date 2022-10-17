@@ -33,7 +33,7 @@ public class Archive implements MenuCommand {
     }
 
     private int getNumberOfTariff() {
-        System.out.println("\n\t There are available commands: ");
+        System.out.println("\n\t There are available tariffs: ");
         network.showTariffs();
         System.out.print("Type number of tariff here: ");
         int numberOfTariff = Integer.parseInt(scanner.nextLine());

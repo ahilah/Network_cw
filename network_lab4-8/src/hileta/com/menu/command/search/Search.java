@@ -25,7 +25,7 @@ public class Search implements MenuCommand {
             int command = Integer.parseInt(scanner.nextLine());
             if (command != 0) searchCommand.execute(command);
             else {
-                System.out.println(ANSI_PURPLE + "\n\tInput data from file was successfully over!" + ANSI_RESET);
+                System.out.println(ANSI_PURPLE + "\n\tSearching data was successfully over!" + ANSI_RESET);
                 return;
             }
         }

@@ -30,7 +30,7 @@ public class Add implements MenuCommand {
             int command = Integer.parseInt(scanner.nextLine());
             if (command != 0) addCommand.execute(command);
             else {
-                System.out.println(ANSI_PURPLE + "\n\tInput data from file was successfully over!" + ANSI_RESET);
+                System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
                 return;
             }
         }
