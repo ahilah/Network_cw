@@ -19,7 +19,7 @@ public class Search implements MenuCommand {
     public void execute() {
         while (true) {
             System.out.println("\n\n\tPres " + ANSI_RED + "0 " + ANSI_RESET +
-                    "for end adding new items.\n\tAvailable commands: ");
+                    "for end searching.\n\tAvailable commands: ");
             searchCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
             int command = Integer.parseInt(scanner.nextLine());

@@ -4,8 +4,7 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
 public class NumberCustomers implements MenuCommand {
-
-    private Network network;
+    private final Network network;
 
     public NumberCustomers(Network network) {
         this.network = network;

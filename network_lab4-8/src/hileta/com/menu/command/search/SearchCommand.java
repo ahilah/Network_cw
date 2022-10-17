@@ -1,7 +1,5 @@
 package hileta.com.menu.command.search;
 
-import hileta.com.menu.command.*;
-import hileta.com.menu.command.add.Add;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
@@ -21,7 +19,7 @@ public class SearchCommand {
     }
     private void fillMenuItems() {
         menuItems.put("Search tariffs with parameters from .", new SearchTariffs(network));
-        menuItems.put("Search customer info.", new SearchCustomers(network));
+        menuItems.put("Search customer info.", new SearchCustomer(network));
         menuItems.put("Search customer's mobile numbers.", new SearchMobileNumbers(network));
         menuItems.put("Search abroad.", new SearchAbroad(network));
     }
