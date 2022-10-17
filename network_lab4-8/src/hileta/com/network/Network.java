@@ -89,10 +89,12 @@ public class Network {
     }
 
     public Customer getCustomer(String customerID) {
+        Customer searchedCustomer = null;
         for(Customer customer : Customers) {
-            if (customer.getCustomerID().equals(customerID)) return customer;
+            if (customer.getCustomerID().equals(customerID))
+                searchedCustomer = customer;
         }
-        return null;
+        return searchedCustomer;
     }
 
     public int getNumberAvailableTariffs() {

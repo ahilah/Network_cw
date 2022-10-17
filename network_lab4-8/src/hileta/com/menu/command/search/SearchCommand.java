@@ -1,6 +1,7 @@
 package hileta.com.menu.command.search;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.command.search.tariffs.SearchTariffs;
 import hileta.com.network.Network;
 
 import java.util.LinkedHashMap;

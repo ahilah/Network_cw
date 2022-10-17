@@ -3,11 +3,10 @@ package hileta.com.menu.management;
 import java.util.Scanner;
 
 public class MainMenu {
-    public static  Scanner scanner;
+    public static  Scanner scanner = new Scanner(System.in);
     private final MainCommand mainCommand;
 
     public MainMenu() {
-        scanner = new Scanner(System.in);
         mainCommand = new MainCommand();
     }
 

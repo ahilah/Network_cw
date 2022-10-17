@@ -2,8 +2,8 @@ package hileta.com.Tariff;
 
 
 public class SuperTariff extends BaseTariff {
-    double numberMinutesOtherNetwork;
-    double numberMinutesOtherCountries;
+    private double numberMinutesOtherNetwork;
+    private double numberMinutesOtherCountries;
 
     public SuperTariff(String nameTariff, int SMSNumber, double numberMinutesThisOperator,
                        int priceTariff, String tariffID, double numberMinutesOtherNetwork,
@@ -11,6 +11,14 @@ public class SuperTariff extends BaseTariff {
         super(nameTariff, SMSNumber, numberMinutesThisOperator, priceTariff, tariffID);
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
+    }
+
+    public double getNumberMinutesOtherNetwork() {
+        return numberMinutesOtherNetwork;
+    }
+
+    public double getNumberMinutesOtherCountries() {
+        return numberMinutesOtherCountries;
     }
 
     public void setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {

@@ -1,7 +1,7 @@
 package hileta.com.main;
 
 
-import hileta.com.menu.management.MainMenu;
+import hileta.com.menu.command.search.tariffs.SpectrumParameters;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, SQLException {
-        MainMenu mainMenu = new MainMenu();
-        mainMenu.StartMainMenu();
+        //MainMenu mainMenu = new MainMenu();
+        //mainMenu.StartMainMenu();
 
         /*Add addCommand = new Add(new Network("1", "2", "3"));
         addCommand.execute();*/
@@ -38,5 +38,7 @@ public class Main {
         for(Integer innnn : lol){
             System.out.println(innnn);
         }*/
+        SpectrumParameters spectrumParameters = new SpectrumParameters();
+
     }
 }
