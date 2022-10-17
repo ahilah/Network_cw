@@ -18,7 +18,7 @@ public class Delete implements MenuCommand {
 
     public void execute() {
         network.deleteTariff(getNumberOfTariff());
-        System.out.println(ANSI_GREEN + "Tariff was successfully deleted!" + ANSI_RESET);
+        System.out.println(ANSI_GREEN + "\n\t\tTariff was successfully deleted!" + ANSI_RESET);
     }
 
     private int getNumberOfTariff() {

@@ -212,5 +212,8 @@ public class Network {
     public List<BaseTariff> getAvailableTariffs() {
         return AvailableTariffs;
     }
+    public List<BaseTariff> getArchivedTariffs() {
+        return ArchivedTariffs;
+    }
 }
 

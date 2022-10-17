@@ -2,6 +2,7 @@ package hileta.com.menu.management;
 
 import hileta.com.menu.command.*;
 import hileta.com.menu.command.add.Add;
+import hileta.com.menu.command.calculate.Calculate;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.menu.command.search.Search;
 import hileta.com.network.Network;
@@ -35,7 +36,7 @@ public class MainCommand {
         menuItems.put("Sort tariffs of their price.", new Sort(operatorNetwork));
         menuItems.put("Delete tariff.", new Delete(operatorNetwork));
         menuItems.put("Archive tariff.", new Archive(operatorNetwork));
-        menuItems.put("Calculate general number of customers.", new NumberCustomers(operatorNetwork));
+        menuItems.put("Calculate general number of customers.", new Calculate(operatorNetwork));
         menuItems.put("Exit.", new Exit());
     }
 
@@ -73,7 +74,7 @@ public class MainCommand {
         menuItems.add(new Sort(operatorNetwork));
         menuItems.add(new Delete(operatorNetwork));
         menuItems.add(new Archive(operatorNetwork));
-        menuItems.add(new NumberCustomers(operatorNetwork));
+        menuItems.add(new Calculate(operatorNetwork));
         menuItems.add(new Exit());
 
         try {
