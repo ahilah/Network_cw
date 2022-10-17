@@ -3,22 +3,23 @@ package hileta.com.menu.management;
 import hileta.com.menu.command.*;
 import hileta.com.menu.command.add.Add;
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.command.search.Search;
 import hileta.com.network.Network;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MainCommand {
-
     private final Map<String, MenuCommand> menuItems;
-    public final Network operatorNetwork;
+    private final Network operatorNetwork;
+
     public static final String ANSI_RED = "\u001b[31m";
     public static final String ANSI_RESET = "\u001b[0m";
 
     public MainCommand() {
         operatorNetwork = executeNewNetwork();
         menuItems = new LinkedHashMap<>();
-        FillMenuItems();
+        fillMenuItems();
     }
 
     private Network executeNewNetwork() {
@@ -27,10 +28,10 @@ public class MainCommand {
         return createNetworkCommand.networkCompanyInfo();
     }
 
-    private void FillMenuItems() {
+    private void fillMenuItems() {
         menuItems.put("Add new object.", new Add(operatorNetwork));
         menuItems.put("Edit object.", new Edit(operatorNetwork));
-        menuItems.put("View object.", new View(operatorNetwork));
+        menuItems.put("Search object.", new Search(operatorNetwork));
         menuItems.put("Sort tariffs of their price.", new Sort(operatorNetwork));
         menuItems.put("Delete tariff.", new Delete(operatorNetwork));
         menuItems.put("Archive tariff.", new Archive(operatorNetwork));
@@ -68,7 +69,7 @@ public class MainCommand {
 
         menuItems.add(new Add(operatorNetwork));
         menuItems.add(new Edit(operatorNetwork));
-        menuItems.add(new View(operatorNetwork));
+        menuItems.add(new Search(operatorNetwork));
         menuItems.add(new Sort(operatorNetwork));
         menuItems.add(new Delete(operatorNetwork));
         menuItems.add(new Archive(operatorNetwork));

@@ -4,7 +4,7 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
 public class NumberCustomers implements MenuCommand {
-    //private String COMMAND_INFO = "calculate general number of customers";
+
     private Network network;
 
     public NumberCustomers(Network network) {
@@ -26,8 +26,11 @@ public class NumberCustomers implements MenuCommand {
         return numberCustomers;
     }
 
-    /*public String getCommandInfo() {
+    /*
+    public String getCommandInfo() {
         return COMMAND_INFO;
-    }*/
+    }
+    //private String COMMAND_INFO = "calculate general number of customers";
+    */
 }
 

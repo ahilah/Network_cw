@@ -3,8 +3,8 @@ package hileta.com.menu.management;
 import java.util.Scanner;
 
 public class MainMenu {
-    public Scanner scanner;
-    public MainCommand mainCommand;
+    public static  Scanner scanner;
+    private final MainCommand mainCommand;
 
     public MainMenu() {
         scanner = new Scanner(System.in);
