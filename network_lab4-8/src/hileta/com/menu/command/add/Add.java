@@ -1,10 +1,6 @@
 package hileta.com.menu.command.add;
 
-import hileta.com.menu.command.file.FromFile;
 import hileta.com.menu.command.commandable.MenuCommand;
-import hileta.com.network.Abroad;
-import hileta.com.network.Customer;
-import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
 
 import java.util.Scanner;
@@ -14,26 +10,53 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 
 public class Add implements MenuCommand {
-    // private final String COMMAND_INFO = "add new object";
     Scanner scanner;
-    private Network network;
-    private final FromFile fileCommand;
-    AddTariff addTariffCommand;
+    private final Network network;
+    AddCommand addCommand;
     public static final String ANSI_PURPLE = "\u001b[35m";
 
     public Add(Network network) {
         this.network = network;
         scanner = new Scanner(System.in);
-        fileCommand = new FromFile(network);
-        addTariffCommand = new AddTariff(network);
+        addCommand = new AddCommand(network);
     }
 
     public void execute() {
-        if (isInputFromFile()) {
+        while (true) {
+            System.out.println("\n\n\tPres " + ANSI_RED + "0 " + ANSI_RESET +
+                    "for end adding new items.\n\tAvailable commands: ");
+            this.addCommand.showAvailableCommands();
+            System.out.print("Enter your command here: ");
+            int command = Integer.parseInt(scanner.nextLine());
+            if (command != 0) addCommand.execute(command);
+            else {
+                System.out.println(ANSI_PURPLE + "\n\tInput data from file was successfully over!" + ANSI_RESET);
+                return;
+            }
+        }
+    }
+
+
+    /*
+    // private final String COMMAND_INFO = "add new object";
+    //private final FromFile fileCommand;
+    //AddTariff addTariff;
+
+     //fileCommand = new FromFile(network);
+     //addTariff = new AddTariff(network);
+
+    if (isInputFromFile()) {
             fileCommand.execute();
             return;
         }
-        while (true) {
+
+
+    @Override
+    public String getCommandInfo() {
+        return this.COMMAND_INFO;
+    }
+
+    while (true) {
             //int command = getUserDecisionObject();
             switch (getUserDecisionObject()) {
                 case 0 -> {
@@ -41,7 +64,7 @@ public class Add implements MenuCommand {
                     return;
                 }
                 case 1 -> {
-                    addTariffCommand.execute();
+                    addTariff.execute();
                     //network.showTariffs();
                 }
                 case 2 -> {
@@ -73,7 +96,6 @@ public class Add implements MenuCommand {
                 default -> System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
             }
         }
-    }
 
     private boolean isInputFromFile() {
         System.out.print("\nPress to read data from:\n1 - file\n0 - console\nType here: ");
@@ -113,55 +135,6 @@ public class Add implements MenuCommand {
                 network.getCustomer(numberCustomer).getCustomerID(), balance);
     }
 
-    private int getCheckedNoCustomer() {
-        System.out.print("\n\tChoose customer: \n");
-        network.showCustomers();
-        System.out.print("Type number here: ");
-        int numberCustomer = Integer.parseInt(scanner.nextLine());
-        if (numberCustomer < 0 || numberCustomer > network.getNumberCustomers()) {
-            System.out.println(ANSI_RED + "\nWrong number of customer." +
-                    " Set default first customer in list." + ANSI_RESET);
-            numberCustomer = 1;
-        }
-        return --numberCustomer;
-    }
-
-    private int getCheckedNoTariff() {
-        System.out.print("\n\tChoose tariff: \n");
-        network.showTariffs();
-        System.out.print("Type number here: ");
-        int numberTariff = Integer.parseInt(scanner.nextLine());
-        if (numberTariff < 0 || numberTariff > network.getNumberAvailableTariffs()) {
-            System.out.println(ANSI_RED + "\nWrong number of tariff. Set default first tariff in list." + ANSI_RESET);
-            numberTariff = 1;
-        }
-        return --numberTariff;
-    }
-
-    private double getCheckedBalance() {
-        System.out.print("Type number balance (in hryvnias): ");
-        double balance = Double.parseDouble(scanner.nextLine());
-        if (balance < 0) {
-            System.out.println(ANSI_RED + "\tBalance can't be less than 0! Set balance 0." + ANSI_RESET);
-            balance = 0;
-        }
-        return balance;
-    }
-
-    private Abroad getNewAbroad() {
-        System.out.print("Type country: ");
-        String country = scanner.nextLine();
-        System.out.print("Type price per minute in hryvnias: ");
-        double pricePerMinute = Double.parseDouble(scanner.nextLine());
-        return new Abroad(country, pricePerMinute);
-    }
-
-    /*@Override
-    public String getCommandInfo() {
-        return this.COMMAND_INFO;
-    }*/
-
-    /*
     String ss = "input --price --data";
 
         List<String> s = convertArrayToList(s1);
@@ -183,5 +156,7 @@ public class Add implements MenuCommand {
 
         return list;
     }
- */
+
+
+    */
 }

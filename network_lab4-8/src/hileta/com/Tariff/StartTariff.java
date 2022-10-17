@@ -9,4 +9,6 @@ public class StartTariff extends BaseTariff {
     public String toString() {
         return "Start Tariff (" + super.toString() + ")";
     }
+
+
 }

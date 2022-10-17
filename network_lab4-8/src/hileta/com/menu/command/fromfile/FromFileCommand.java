@@ -1,4 +1,4 @@
-package hileta.com.menu.command.file;
+package hileta.com.menu.command.fromfile;
 
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
@@ -37,7 +37,7 @@ public class FromFileCommand {
                 }
                 position++;
             }
-            System.out.println(ANSI_RED + " Incorrect command! Try again." + ANSI_RESET);
+            System.out.println(ANSI_RED + "\n\tIncorrect command! Try again." + ANSI_RESET);
     }
 
     public void showAvailableCommands() {

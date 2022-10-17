@@ -2,8 +2,8 @@ package hileta.com.network;
 
 import hileta.com.Tariff.BaseTariff;
 
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -64,10 +64,8 @@ public class Network {
         ListAbroad.add(abroad);
     }
 
-    public void numberCustomers() {
-    }
-
-    public void sortTariffs() {
+    public void sortAvailableTariffs() {
+        Collections.sort(AvailableTariffs);
     }
 
     public BaseTariff getTariff(int numberOfTariff) {

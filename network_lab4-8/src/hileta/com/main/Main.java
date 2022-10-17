@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, SQLException {
         MainMenu mainMenu = new MainMenu();
         mainMenu.StartMainMenu();
+
         /*Add addCommand = new Add(new Network("1", "2", "3"));
         addCommand.execute();*/
 

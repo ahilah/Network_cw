@@ -14,8 +14,8 @@ public class NumberCustomers implements MenuCommand {
     public void execute() {
         int numberCustomersInAvailableTariffs = numberCustomers(network.getNumberAvailableTariffs());
         int numberCustomersInArchivedTariffs = numberCustomers(network.getNumberArchivedTariffs());
-        System.out.println("\nGeneral number of customers: " +
-                numberCustomersInArchivedTariffs + numberCustomersInAvailableTariffs);
+        System.out.println("\nGeneral number of customers: ");
+        System.out.print(numberCustomersInArchivedTariffs + numberCustomersInAvailableTariffs);
     }
 
     private int numberCustomers(int numberTariffs) {

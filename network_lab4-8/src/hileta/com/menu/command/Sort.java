@@ -13,7 +13,9 @@ public class Sort implements MenuCommand {
 
     public void execute() {
         System.out.println("sort");
-        network.sortTariffs();
+        network.sortAvailableTariffs();
+        System.out.println("\n\t\t Sorted tariffs by price: ");
+        network.showTariffs();
     }
 
     /*public String getCommandInfo() {

@@ -1,6 +1,6 @@
 package hileta.com.Tariff;
 
-public abstract class BaseTariff {
+public abstract class BaseTariff implements Comparable<BaseTariff> {
     String nameTariff;
     int SMSNumber;
     double numberMinutesThisOperator;
@@ -22,6 +22,10 @@ public abstract class BaseTariff {
 
     public String getTariffID() {
         return tariffID;
+    }
+
+    public int getPriceTariff() {
+        return priceTariff;
     }
 
     public void setNameTariff(String nameTariff) {
@@ -48,8 +52,13 @@ public abstract class BaseTariff {
         this.numberOfUsers = numberOfUsers;
     }
 
+    @Override
+    public int compareTo(BaseTariff o) {
+        return this.priceTariff - o.getPriceTariff();
+    }
+
     public String toString() {
-        return "tariff name: " + this.nameTariff + ",\n\t\t\tnumber of SMS: " + this.SMSNumber +
+        return  this.nameTariff + ",\n\t\t\tnumber of SMS: " + this.SMSNumber +
                 ",\n\t\t\tnumber of minutes on this operator: " + this.numberMinutesThisOperator +
                 ",\n\t\t\tprice of tariff in hryvnias: " + this.priceTariff +
                 ",\n\t\t\ttariff ID: " + this.tariffID +
