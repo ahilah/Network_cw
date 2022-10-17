@@ -9,23 +9,30 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 public class Archive implements MenuCommand {
     public static final String ANSI_GREEN = "\u001b[32m";
-
-    //private String COMMAND_INFO = "archive tariff";
-    private Network network;
-
+    private final Network network;
+    Scanner scanner;
     public Archive(Network network) {
         this.network = network;
+        scanner = new Scanner(System.in);
     }
 
     public void execute() {
-        int tariffNumber = getNumberOfTariff();
-        network.archiveTariff(network.getTariff(tariffNumber));
-        network.deleteTariff(tariffNumber);
-        System.out.println(ANSI_GREEN + "\n\tTariff was successfully archived!" + ANSI_RESET);
+        System.out.println("\n\t\tEnter 1 for archive all available tariffs 0 for archive one tariff.");
+        System.out.print("Type here: ");
+        int userChoice = Integer.parseInt(scanner.nextLine());
+        if(userChoice != 1) {
+            int tariffNumber = getNumberOfTariff();
+            network.archiveTariff(network.getTariff(tariffNumber));
+            network.deleteTariff(tariffNumber);
+            System.out.println(ANSI_GREEN + "\n\tTariff was successfully archived!" + ANSI_RESET);
+        }
+        else {
+            network.archiveAllAvailableTariffs();
+            System.out.println(ANSI_GREEN + "\n\tAll tariffs was successfully archived!" + ANSI_RESET);
+        }
     }
 
     private int getNumberOfTariff() {
-        Scanner scanner = new Scanner(System.in);
         System.out.println("\n\t There are available commands: ");
         network.showTariffs();
         System.out.print("Type number of tariff here: ");
@@ -34,8 +41,11 @@ public class Archive implements MenuCommand {
         return numberOfTariff;
     }
 
-    /*public String getCommandInfo() {
+    /*
+    public String getCommandInfo() {
         return COMMAND_INFO;
-    }*/
+    }
+    //private String COMMAND_INFO = "archive tariff";
+    */
 }
 

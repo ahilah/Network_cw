@@ -9,12 +9,12 @@ import static hileta.com.menu.command.add.Add.ANSI_PURPLE;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 public class CreateNetwork implements MenuCommand {
-    private String COMMAND_INFO = ANSI_PURPLE + "\n\t--> Fill network company info\n" + ANSI_RESET;
     Scanner scanner;
 
     @Override
     public void execute() {
         scanner = new Scanner(System.in);
+        String COMMAND_INFO = ANSI_PURPLE + "\n\t--> Fill network company info\n" + ANSI_RESET;
         System.out.println(COMMAND_INFO);
     }
 
