@@ -1,4 +1,4 @@
-package hileta.com.menu.command;
+package hileta.com.menu.management;
 
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;

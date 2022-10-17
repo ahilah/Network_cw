@@ -32,6 +32,7 @@ public class MainCommand {
     private void fillMenuItems() {
         menuItems.put("Add new object.", new Add(operatorNetwork));
         menuItems.put("Edit object.", new Edit(operatorNetwork));
+        menuItems.put("View object.", new View(operatorNetwork));
         menuItems.put("Search object.", new Search(operatorNetwork));
         menuItems.put("Sort tariffs of their price.", new Sort(operatorNetwork));
         menuItems.put("Delete tariff.", new Delete(operatorNetwork));
