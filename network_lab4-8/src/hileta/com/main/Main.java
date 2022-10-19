@@ -49,5 +49,17 @@ public class Main {
         System.out.println(superTariff.rowTable());
         SuperTariff superTariff1 = new SuperTariff("2222", 1325, 988,
                 9999,"88888888", 123,401);
+
     }
+    public static void PrintHeadOfList() {
+        System.out.println("|--------|------------------|--------------|-------|-------------|--------------------|");
+        System.out.println("|   ID   | Apartment Number |     Area     | Floor | Room Number |       Street       |");
+        System.out.println("|--------|------------------|--------------|-------|-------------|--------------------|");
+    }
+
+    public static void PrintEmptyList() {
+        System.out.println("|                             There is no such houses                                 |");
+        System.out.println("|--------|------------------|--------------|-------|-------------|--------------------|");
+    }
+
 }
