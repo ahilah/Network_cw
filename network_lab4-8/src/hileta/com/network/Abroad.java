@@ -14,6 +14,10 @@ public class Abroad {
         return country;
     }
 
+    public double getPricePerMinute() {
+        return pricePerMinute;
+    }
+
     @Override
     public String toString() {
         return "Country: " + this.country + ", price per minute: " + this.pricePerMinute;

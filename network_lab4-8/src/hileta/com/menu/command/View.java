@@ -58,4 +58,8 @@ public class View implements MenuCommand {
         System.out.print("Type here: ");
         return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
     }
+
+    private void printEmptyRow() {
+
+    }
 }

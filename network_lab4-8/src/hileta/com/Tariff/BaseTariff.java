@@ -66,10 +66,17 @@ public abstract class BaseTariff implements Comparable<BaseTariff> {
     }
 
     public String toString() {
-        return  this.nameTariff + "(\n\t\t\tnumber of SMS: " + this.SMSNumber +
+        return  this.nameTariff + "\n\t\t\t (number of SMS: " + this.SMSNumber +
                 ",\n\t\t\tnumber of minutes on this operator: " + this.numberMinutesThisOperator +
                 ",\n\t\t\tprice of tariff in hryvnias: " + this.priceTariff +
                 ",\n\t\t\ttariff ID: " + this.tariffID +
                 ",\n\t\t\tgeneral number of tariff users: " + this.numberOfUsers;
+    }
+
+    public String rowTable() {
+        return String.format("%-20s|%-10d|%-10.2f|%-10d|%-15s|%-10d|", this.nameTariff,
+                this.SMSNumber, this.numberMinutesThisOperator, this.priceTariff, this.tariffID,
+                this.numberOfUsers);
+
     }
 }

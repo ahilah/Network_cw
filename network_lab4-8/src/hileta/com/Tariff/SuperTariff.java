@@ -29,6 +29,7 @@ public class SuperTariff extends BaseTariff {
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
     }
 
+    @Override
     public String toString() {
         return "Super Tariff " + super.toString() +
                 ",\n\t\t\tnumber of minutes on other network: " + this.numberMinutesOtherNetwork +
