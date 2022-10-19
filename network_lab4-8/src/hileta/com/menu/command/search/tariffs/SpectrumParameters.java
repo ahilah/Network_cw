@@ -59,95 +59,41 @@ public class SpectrumParameters {
         return SMSNumber_l;
     }
 
-    public void setSMSNumber_l(int SMSNumber_l) {
-        this.SMSNumber_l = SMSNumber_l;
-    }
-
     public int getSMSNumber_u() {
         return SMSNumber_u;
-    }
-
-    public void setSMSNumber_u(int SMSNumber_u) {
-        this.SMSNumber_u = SMSNumber_u;
     }
 
     public double getMinThisNet_l() {
         return MinThisNet_l;
     }
-
-    public void setMinThisNet_l(double minThisNet_l) {
-        MinThisNet_l = minThisNet_l;
-    }
-
     public double getMinThisNet_u() {
         return MinThisNet_u;
-    }
-
-    public void setMinThisNet_u(double minThisNet_u) {
-        MinThisNet_u = minThisNet_u;
     }
 
     public int getPriceTariff_l() {
         return priceTariff_l;
     }
 
-    public void setPriceTariff_l(int priceTariff_l) {
-        this.priceTariff_l = priceTariff_l;
-    }
-
     public int getPriceTariff_u() {
         return priceTariff_u;
-    }
-
-    public void setPriceTariff_u(int priceTariff_u) {
-        this.priceTariff_u = priceTariff_u;
     }
 
     public double getMinOtherNet_l() {
         return MinOtherNet_l;
     }
-
-    public void setMinOtherNet_l(double minOtherNet_l) {
-        MinOtherNet_l = minOtherNet_l;
-    }
-
     public double getMinOtherNet_u() {
         return MinOtherNet_u;
     }
-
-    public void setMinOtherNet_u(double minOtherNet_u) {
-        MinOtherNet_u = minOtherNet_u;
-    }
-
     public double getMinOtherCountries_l() {
         return MinOtherCountries_l;
     }
-
-    public void setMinOtherCountries_l(double minOtherCountries_l) {
-        MinOtherCountries_l = minOtherCountries_l;
-    }
-
     public double getMinOtherCountries_u() {
         return MinOtherCountries_u;
     }
-
-    public void setMinOtherCountries_u(double minOtherCountries_u) {
-        MinOtherCountries_u = minOtherCountries_u;
-    }
-
     public double getMobileInternet_l() {
         return mobileInternet_l;
     }
-
-    public void setMobileInternet_l(double mobileInternet_l) {
-        this.mobileInternet_l = mobileInternet_l;
-    }
-
     public double getMobileInternet_u() {
         return mobileInternet_u;
-    }
-
-    public void setMobileInternet_u(double mobileInternet_u) {
-        this.mobileInternet_u = mobileInternet_u;
     }
 }
