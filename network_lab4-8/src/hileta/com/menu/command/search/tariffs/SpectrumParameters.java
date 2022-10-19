@@ -38,10 +38,10 @@ public class SpectrumParameters {
         priceTariff_l = Integer.parseInt(price[0]);
         priceTariff_u = Integer.parseInt(price[1]);
 
-        System.out.print("interval of minutes on other countries: ");
+        System.out.print("interval of minutes on other network: ");
         String[] othernet = scanner.nextLine().split(" ");
-        MinOtherNet_l = Double.parseDouble(price[0]);
-        MinOtherNet_u = Double.parseDouble(price[1]);
+        MinOtherNet_l = Double.parseDouble(othernet[0]);
+        MinOtherNet_u = Double.parseDouble(othernet[1]);
 
         System.out.print("interval of minutes on other countries: ");
         String[] othercountries = scanner.nextLine().split(" ");

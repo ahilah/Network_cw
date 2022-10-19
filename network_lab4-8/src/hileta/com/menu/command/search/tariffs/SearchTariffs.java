@@ -23,19 +23,21 @@ public class SearchTariffs implements MenuCommand {
     @Override
     public void execute() {
         spectrum = new SpectrumParameters();
-        fillListTariffs();
-        filterTariffs();
+        List<BaseTariff> notFilteredtariffs = fillListTariffs();
+        tariffs = filterTariffs(notFilteredtariffs);
         System.out.println("\n\t\t Filtered tariffs: ");
         for(BaseTariff tariff : tariffs)
             System.out.println(tariff);
     }
 
-    private void fillListTariffs() {
+    private List<BaseTariff> fillListTariffs() {
+        List<BaseTariff> notFilteredtariffs = new ArrayList<>();
         for (int i = 0; i < network.getNumberAvailableTariffs(); i++) {
             BaseTariff tariff = network.getTariff(i);
             if (isTariffMatch(tariff))
-                tariffs.add(tariff);
+                notFilteredtariffs.add(tariff);
         }
+        return notFilteredtariffs;
     }
 
     private boolean isTariffMatch(BaseTariff tariff) {
@@ -47,34 +49,49 @@ public class SearchTariffs implements MenuCommand {
                 spectrum.getMinThisNet_u() >= tariff.getNumberMinutesThisOperator();
     }
 
-    private void filterTariffs() {
-
+    private List<BaseTariff> filterTariffs(List<BaseTariff> notFilteredTariffs) {
+        List<BaseTariff> filteredTariffs = new ArrayList<>();
         if (spectrum.getMinOtherCountries_u() == 0 || spectrum.getMinOtherNet_u() == 0) {
-            tariffs.removeIf(tariff -> tariff instanceof SuperNetTariff || tariff instanceof SuperTariff);
+            notFilteredTariffs.removeIf(tariff -> tariff instanceof SuperNetTariff || tariff instanceof SuperTariff);
+            filteredTariffs.addAll(notFilteredTariffs);
 
         } else {
-            tariffs.removeIf(tariff -> tariff instanceof StartTariff);
-            for (BaseTariff tariff : tariffs) {
-                SuperTariff superTariff = (SuperTariff) tariff;
-                if (!(superTariff.getNumberMinutesOtherCountries() >= spectrum.getMinOtherCountries_l()) ||
-                        !(superTariff.getNumberMinutesOtherCountries() <= spectrum.getMinOtherCountries_u()) ||
-                !(superTariff.getNumberMinutesOtherNetwork() >= spectrum.getMinOtherNet_l()) ||
-                !(superTariff.getNumberMinutesOtherNetwork() <= spectrum.getMinOtherNet_u()))
-                    tariffs.remove(tariff);
-            }
-
-            if (spectrum.getMinThisNet_u() != 0) {
-                tariffs.removeIf(tariff -> tariff instanceof SuperTariff);
-                for (BaseTariff tariff : tariffs) {
+            notFilteredTariffs.removeIf(tariff -> tariff instanceof StartTariff);
+            if(spectrum.getMinThisNet_u() != 0) {
+                notFilteredTariffs.removeIf(tariff -> tariff instanceof SuperTariff);
+                for (BaseTariff tariff : notFilteredTariffs) {
                     SuperNetTariff netTariff = (SuperNetTariff) tariff;
-                    if (!(netTariff.getMobileInternet() >= spectrum.getMobileInternet_l()) ||
-                            !(netTariff.getMobileInternet() <= spectrum.getMobileInternet_u()))
-                        tariffs.remove(tariff);
+                    if (netTariff.getMobileInternet() >= spectrum.getMobileInternet_l() &&
+                            netTariff.getMobileInternet() <= spectrum.getMobileInternet_u() &&
+                            netTariff.getNumberMinutesOtherCountries() >= spectrum.getMinOtherCountries_l() &&
+                            netTariff.getNumberMinutesOtherCountries() <= spectrum.getMinOtherCountries_u() &&
+                            netTariff.getNumberMinutesOtherNetwork() >= spectrum.getMinOtherNet_l() &&
+                            netTariff.getNumberMinutesOtherNetwork() <= spectrum.getMinOtherNet_u() ) {
+                        filteredTariffs.add(tariff);
+                    }
+                }
+            } else {
+                notFilteredTariffs.removeIf(tariff1 -> tariff1 instanceof SuperNetTariff);
+                for (BaseTariff tariff2 : notFilteredTariffs) {
+                        SuperTariff superTariff = (SuperTariff) tariff2;
+                        if (superTariff.getNumberMinutesOtherCountries() >= spectrum.getMinOtherCountries_l() &&
+                                superTariff.getNumberMinutesOtherCountries() <= spectrum.getMinOtherCountries_u() &&
+                                superTariff.getNumberMinutesOtherNetwork() >= spectrum.getMinOtherNet_l() &&
+                                superTariff.getNumberMinutesOtherNetwork() <= spectrum.getMinOtherNet_u())
+                            filteredTariffs.add(tariff2);
+                    }
                 }
             }
-        }
-
-
+            /*if () {
+                notFilteredTariffs.removeIf(tariff -> tariff instanceof SuperTariff);
+                for (BaseTariff tariff : notFilteredTariffs) {
+                    SuperNetTariff netTariff = (SuperNetTariff) tariff;
+                    if (netTariff.getMobileInternet() >= spectrum.getMobileInternet_l() ||
+                            netTariff.getMobileInternet() <= spectrum.getMobileInternet_u())
+                        filteredTariffs.add(tariff);
+                }
+            }}*/
+        return filteredTariffs;
     }
 
 }
