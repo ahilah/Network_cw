@@ -66,7 +66,7 @@ public abstract class BaseTariff implements Comparable<BaseTariff> {
     }
 
     public String toString() {
-        return  this.nameTariff + ",\n\t\t\tnumber of SMS: " + this.SMSNumber +
+        return  this.nameTariff + "(\n\t\t\tnumber of SMS: " + this.SMSNumber +
                 ",\n\t\t\tnumber of minutes on this operator: " + this.numberMinutesThisOperator +
                 ",\n\t\t\tprice of tariff in hryvnias: " + this.priceTariff +
                 ",\n\t\t\ttariff ID: " + this.tariffID +

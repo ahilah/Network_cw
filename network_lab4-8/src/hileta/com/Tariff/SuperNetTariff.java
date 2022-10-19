@@ -37,7 +37,7 @@ public class SuperNetTariff extends BaseTariff {
     }
 
     public String toString() {
-        return "Super Net Tariff (" + super.toString() +
+        return "Super Net Tariff " + super.toString() +
                 ",\n\t\t\tnumber of minutes on other network: " + this.numberMinutesOtherNetwork +
                 ",\n\t\t\tnumber of minutes on other countries: " + this.numberMinutesOtherCountries +
                 ",\n\t\t\tGB of mobile Internet: " + this.mobileInternet + ")";

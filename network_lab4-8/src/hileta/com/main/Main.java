@@ -1,9 +1,7 @@
 package hileta.com.main;
 
 
-import hileta.com.menu.command.fromfile.FileTariff;
-import hileta.com.menu.command.search.tariffs.SearchTariffs;
-import hileta.com.network.Network;
+import hileta.com.menu.management.MainMenu;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -11,9 +9,9 @@ import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, SQLException {
-        /*
+        /**/
         MainMenu mainMenu = new MainMenu();
-        mainMenu.StartMainMenu();*/
+        mainMenu.StartMainMenu();/**/
 
         /*Add addCommand = new Add(new Network("1", "2", "3"));
         addCommand.execute();*/
@@ -42,9 +40,9 @@ public class Main {
             System.out.println(innnn);
         }*/
         //SpectrumParameters spectrumParameters = new SpectrumParameters();
-        FileTariff file = new FileTariff(Network.getNetwork("1", "2", "3"));
+        /* FileTariff file = new FileTariff(Network.getNetwork("1", "2", "3"));
         file.execute();
         SearchTariffs search = new SearchTariffs(Network.getNetwork("1", "2", "3"));
-        search.execute();
+        search.execute(); */
     }
 }
