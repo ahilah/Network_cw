@@ -16,24 +16,27 @@ public class SuperNetTariff extends BaseTariff {
         return numberMinutesOtherNetwork;
     }
 
-    public void setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
+    public BaseTariff setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
+        return this;
     }
 
     public double getNumberMinutesOtherCountries() {
         return numberMinutesOtherCountries;
     }
 
-    public void setNumberMinutesOtherCountries(double numberMinutesOtherCountries) {
+    public BaseTariff setNumberMinutesOtherCountries(double numberMinutesOtherCountries) {
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
+        return this;
     }
 
     public double getMobileInternet() {
         return mobileInternet;
     }
 
-    public void setMobileInternet(double mobileInternet) {
+    public BaseTariff setMobileInternet(double mobileInternet) {
         this.mobileInternet = mobileInternet;
+        return this;
     }
 
     @Override

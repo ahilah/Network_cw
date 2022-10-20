@@ -1,7 +1,7 @@
 package hileta.com.main;
 
 
-import hileta.com.network.Abroad;
+import hileta.com.menu.management.MainMenu;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, SQLException {
         /**/
-        /*MainMenu mainMenu = new MainMenu();
+        MainMenu mainMenu = new MainMenu();
         mainMenu.StartMainMenu();/**/
 
         // D:\test6.txt tariffs
@@ -24,8 +24,7 @@ public class Main {
         file.execute();
         SearchTariffs search = new SearchTariffs(Network.getNetwork("1", "2", "3"));
         search.execute(); */
-        Abroad abroad = new Abroad("aaaaaaaaaa", 11);
-        System.out.println(abroad.rowTable());
+
 
     }
 }

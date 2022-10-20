@@ -1,6 +1,5 @@
 package hileta.com.Tariff;
 
-
 public class SuperTariff extends BaseTariff {
     private double numberMinutesOtherNetwork;
     private double numberMinutesOtherCountries;
@@ -12,21 +11,19 @@ public class SuperTariff extends BaseTariff {
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
     }
-
     public double getNumberMinutesOtherNetwork() {
         return numberMinutesOtherNetwork;
     }
-
     public double getNumberMinutesOtherCountries() {
         return numberMinutesOtherCountries;
     }
-
-    public void setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
+    public SuperTariff setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
+        return this;
     }
-
-    public void setNumberMinutesOtherCountries(double numberMinutesOtherCountries) {
+    public SuperTariff setNumberMinutesOtherCountries(double numberMinutesOtherCountries) {
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
+        return this;
     }
 
     @Override

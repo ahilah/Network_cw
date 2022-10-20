@@ -15,47 +15,41 @@ public abstract class BaseTariff implements Comparable<BaseTariff> {
         this.priceTariff = priceTariff;
         this.tariffID = tariffID;
     }
-
     public int getNumberOfUsers() {
         return this.numberOfUsers;
     }
-
     public String getTariffID() {
         return tariffID;
     }
-
     public int getPriceTariff() {
         return priceTariff;
     }
-
     public int getSMSNumber() {
         return SMSNumber;
     }
-
     public double getNumberMinutesThisOperator() {
         return numberMinutesThisOperator;
     }
-
-    public void setNameTariff(String nameTariff) {
+    public BaseTariff setNameTariff(String nameTariff) {
         this.nameTariff = nameTariff;
+        return this;
     }
-
-    public void setSMSNumber(int SMSNumber) {
+    public BaseTariff setSMSNumber(int SMSNumber) {
         this.SMSNumber = SMSNumber;
+        return this;
     }
-
-    public void setNumberMinutesThisOperator(double numberMinutesThisOperator) {
+    public BaseTariff setNumberMinutesThisOperator(double numberMinutesThisOperator) {
         this.numberMinutesThisOperator = numberMinutesThisOperator;
+        return this;
     }
-
-    public void setPriceTariff(int priceTariff) {
+    public BaseTariff setPriceTariff(int priceTariff) {
         this.priceTariff = priceTariff;
+        return this;
     }
-
-    public void setTariffID(String tariffID) {
+    public BaseTariff setTariffID(String tariffID) {
         this.tariffID = tariffID;
+        return this;
     }
-
     public void setNumberOfUsers(int numberOfUsers) {
         this.numberOfUsers = numberOfUsers;
     }
@@ -66,7 +60,7 @@ public abstract class BaseTariff implements Comparable<BaseTariff> {
     }
 
     public String toString() {
-        return  this.nameTariff + "\n\t\t\t (number of SMS: " + this.SMSNumber +
+        return  this.nameTariff + "\n\t\t\t(number of SMS: " + this.SMSNumber +
                 ",\n\t\t\tnumber of minutes on this operator: " + this.numberMinutesThisOperator +
                 ",\n\t\t\tprice of tariff in hryvnias: " + this.priceTariff +
                 ",\n\t\t\ttariff ID: " + this.tariffID +
