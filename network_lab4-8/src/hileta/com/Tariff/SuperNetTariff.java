@@ -43,4 +43,13 @@ public class SuperNetTariff extends BaseTariff {
                 ",\n\t\t\tnumber of minutes on other countries: " + this.numberMinutesOtherCountries +
                 ",\n\t\t\tGB of mobile Internet: " + this.mobileInternet + ")";
     }
+
+    @Override
+    public String rowTable() {
+        return String.format("|%-15s ", " Super Net Tariff") + super.rowTable() + String.format(" %-14.2f| %-14.2f| %-9.2f|",
+                this.numberMinutesOtherNetwork, this.numberMinutesOtherCountries, this.mobileInternet) +
+                "\n|-------------------------------------" +
+                "-----------------------------------------" +
+                "-----------------------------------------------------------------------|";
+    }
 }

@@ -35,4 +35,13 @@ public class SuperTariff extends BaseTariff {
                 ",\n\t\t\tnumber of minutes on other network: " + this.numberMinutesOtherNetwork +
                 ",\n\t\t\tnumber of minutes on other countries: " + this.numberMinutesOtherCountries + ")";
     }
+
+    @Override
+    public String rowTable() {
+        return String.format("|%-17s ", " Super Tariff ") + super.rowTable() + String.format(" %-14.2f| %-14.2f| %-9s|",
+                this.numberMinutesOtherNetwork, this.numberMinutesOtherCountries, "    -    ") +
+                "\n|-------------------------------------" +
+                "-----------------------------------------" +
+                "-----------------------------------------------------------------------|";
+    }
 }

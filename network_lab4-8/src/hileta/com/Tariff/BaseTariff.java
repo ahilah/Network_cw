@@ -74,9 +74,8 @@ public abstract class BaseTariff implements Comparable<BaseTariff> {
     }
 
     public String rowTable() {
-        return String.format("%-20s|%-10d|%-10.2f|%-10d|%-15s|%-10d|", this.nameTariff,
+        return String.format("%-20s| %-10d| %-13.2f| %-10d| %-15s| %-10d|", this.nameTariff,
                 this.SMSNumber, this.numberMinutesThisOperator, this.priceTariff, this.tariffID,
                 this.numberOfUsers);
-
     }
 }

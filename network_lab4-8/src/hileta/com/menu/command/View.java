@@ -1,5 +1,6 @@
 package hileta.com.menu.command;
 
+import hileta.com.Tariff.BaseTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
@@ -21,14 +22,8 @@ public class View implements MenuCommand {
                 case 0 -> {
                     return;
                 }
-                case 1 -> {
-                    System.out.println("\n\t\t Available tariffs list: ");
-                    network.showTariffs();
-                }
-                case 2 -> {
-                    System.out.println("\n\t\t Archived tariffs list: ");
-                    network.showArchive();
-                }
+                case 1 -> showTariffs();
+                case 2 -> showArchive();
                 case 3 -> {
                     System.out.println("\n\t\t Customers list: ");
                     network.showCustomers();
@@ -58,8 +53,46 @@ public class View implements MenuCommand {
         System.out.print("Type here: ");
         return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
     }
+    private void showTariffs() {
+        System.out.println("\n\t\t Available tariffs list: ");
+        PrintTariffsHeadOfList();
+        if (network.isListTariffsEmpty()) PrintEmptyTariffsList();
+        else {
+            for(BaseTariff tariff : network.getAvailableTariffs())
+                tariff.rowTable();
+        }
+        //network.showTariffs();
+    }
+    private void PrintTariffsHeadOfList() {
+        System.out.println("|--------------------------------------|-----------|--------------|-----------|----------------|-----------|" +
+                "---------------|---------------|----------|");
+        System.out.println("|              Tariff name             |    SMS    | Min this net |   Price   |   Tariff ID    | Customers |" +
+                " Min other net | Min countries | Internet |");
+        System.out.println("|--------------------------------------|-----------|--------------|-----------|----------------|-----------|" +
+                "---------------|---------------|----------|");
+    }
+    private void PrintEmptyTariffsList() {
+        System.out.println("|                                                            There is no such tariffs                                                                 |");
+        System.out.println("|-----------------------------------------------------------------------------------------------------------" +
+                "------------------------------------------|");
+    }
+    private void showArchive() {
+        System.out.println("\n\t\t Archived tariffs list: ");
+        PrintTariffsHeadOfList();
+        if (network.getArchivedTariffs().isEmpty()) PrintEmptyTariffsList();
+        else {
+            for(BaseTariff tariff : network.getArchivedTariffs())
+                tariff.rowTable();
+        }
+        //network.showArchive();
+    }
+    private void showCustomers() {
 
-    private void printEmptyRow() {
+    }
+    private void showMobileNumbers() {
+
+    }
+    private void showAbroad() {
 
     }
 }

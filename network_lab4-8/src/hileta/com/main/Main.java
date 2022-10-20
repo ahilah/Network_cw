@@ -1,9 +1,6 @@
 package hileta.com.main;
 
 
-import hileta.com.Tariff.StartTariff;
-import hileta.com.Tariff.SuperTariff;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -45,21 +42,9 @@ public class Main {
         file.execute();
         SearchTariffs search = new SearchTariffs(Network.getNetwork("1", "2", "3"));
         search.execute(); */
-        StartTariff superTariff = new StartTariff("111", 12, 12, 12, "444");
-        System.out.println(superTariff.rowTable());
-        SuperTariff superTariff1 = new SuperTariff("2222", 1325, 988,
-                9999,"88888888", 123,401);
+
 
     }
-    public static void PrintHeadOfList() {
-        System.out.println("|--------|------------------|--------------|-------|-------------|--------------------|");
-        System.out.println("|   ID   | Apartment Number |     Area     | Floor | Room Number |       Street       |");
-        System.out.println("|--------|------------------|--------------|-------|-------------|--------------------|");
-    }
 
-    public static void PrintEmptyList() {
-        System.out.println("|                             There is no such houses                                 |");
-        System.out.println("|--------|------------------|--------------|-------|-------------|--------------------|");
-    }
 
 }
