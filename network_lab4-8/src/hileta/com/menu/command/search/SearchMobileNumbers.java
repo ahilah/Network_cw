@@ -35,12 +35,14 @@ public class SearchMobileNumbers implements MenuCommand {
         else System.out.println("Customer " +
                 network.getCustomer(customerID).getName()
                 + " haven't mobile numbers yet.");
+
+        customerNumbers.clear();
     }
 
     private String getCustomerID() {
-        System.out.print("\n\tEnter customer ID: ");
+        System.out.println("\n\tChoose customer ID: ");
+        network.showCustomers();
+        System.out.println("Type here: ");
         return scanner.nextLine();
     }
-
-
 }

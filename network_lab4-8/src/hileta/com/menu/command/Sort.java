@@ -1,5 +1,6 @@
 package hileta.com.menu.command;
 
+import hileta.com.Tariff.BaseTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
@@ -12,10 +13,32 @@ public class Sort implements MenuCommand {
     }
 
     public void execute() {
-        System.out.println("sort");
         network.sortAvailableTariffs();
         System.out.println("\n\t\t Sorted tariffs by price: ");
-        network.showTariffs();
+        PrintTariffsHeadOfList();
+        if (network.isListTariffsEmpty()) PrintEmptyTariffsList();
+        else {
+            for(BaseTariff tariff : network.getAvailableTariffs())
+                System.out.println(tariff.rowTable());
+        }
+    }
+
+    private void PrintTariffsHeadOfList() {
+        System.out.println("|---------------------------------" +
+                "-----|-----------|--------------|-----------|----------------|-----------|" +
+                "---------------|---------------|----------|");
+        System.out.println("|              Tariff name         " +
+                "    |    SMS    | Min this net |   Price   |   Tariff ID    | Customers |" +
+                " Min other net | Min countries | Internet |");
+        System.out.println("|---------------------------------" +
+                "-----|-----------|--------------|-----------|----------------|-----------|" +
+                "---------------|---------------|----------|");
+    }
+    private void PrintEmptyTariffsList() {
+        System.out.println("|                                                              There are no tariffs                                                                   |");
+        System.out.println("|---------------------------------" +
+                "--------------------------------------------------------------------------" +
+                "------------------------------------------|");
     }
 
     /*public String getCommandInfo() {

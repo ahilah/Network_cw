@@ -130,6 +130,9 @@ public class Network {
     public List<Abroad> getListAbroad() {
         return ListAbroad;
     }
+    public List<MobileNumber> getListMobileNumbers() {
+        return this.ListMobileNumbers;
+    }
 
     public boolean isListTariffsEmpty() {
         return AvailableTariffs.isEmpty();

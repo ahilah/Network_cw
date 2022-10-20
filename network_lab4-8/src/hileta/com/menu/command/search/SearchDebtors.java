@@ -18,9 +18,13 @@ public class SearchDebtors implements MenuCommand {
 
     @Override
     public void execute() {
+        if(network.isListCustomersEmpty() || network.isListMobileNumbersEmpty() || network.isListTariffsEmpty()) {
+            System.out.println("\n\tList of customers or mobile numbers or tariffs is empty. Please, fill data.");
+            return;
+        }
         for (int i = 0; i < network.getNumberCustomers(); i++) {
             for (int j = 0; j < network.getNumberMobileNumbers(); j++) {
-                if (isNumberSearched(i, j) && isBalanceNotEnough(i)) {
+                if (isNumberSearched(i, j) && isBalanceNotEnough(j)) {
                     debtors.put(network.getMobileNumber(j), network.getCustomer(i));
                 }
             }
@@ -28,7 +32,10 @@ public class SearchDebtors implements MenuCommand {
         if(!debtors.isEmpty()){
             System.out.println("\n\t\t List of debtors: ");
             debtors.forEach((k, v) -> System.out.println(v + " - "+ k));
+            System.out.print("\n\n\t\tGeneral debtor number: " +
+                    Integer.parseInt(String.valueOf(debtors.size())));
         } else System.out.println("\n\t There are no debtors.");
+        debtors.clear();
     }
 
     private boolean isNumberSearched(int i, int j) {
@@ -44,14 +51,15 @@ public class SearchDebtors implements MenuCommand {
             if (network.getTariff(j).getTariffID().equals(searchedTariffID)) {
                 isTariffArchived = false;
                 tariffPrice = (network.getTariff(j).getPriceTariff());
+                break;
             }
         }
 
         if (isTariffArchived) {
             for (int j = 0; j < network.getNumberArchivedTariffs(); j++) {
                 if (network.getArchivedTariff(j).getTariffID().equals(searchedTariffID)) {
-                    isTariffArchived = false;
                     tariffPrice = network.getArchivedTariff(j).getPriceTariff();
+                    break;
                 }
             }
         }

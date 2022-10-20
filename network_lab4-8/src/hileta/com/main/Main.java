@@ -13,18 +13,22 @@ public class Main {
         MainMenu mainMenu = new MainMenu();
         mainMenu.StartMainMenu();/**/
 
-        // D:\test6.txt tariffs
+        // D:\test1.txt tariffs
         // D:\test9.txt archive
         // D:\test8.txt customer
         // D:\test5.txt mobnum
         // D:\test7.txt abroad
 
-        //SpectrumParameters spectrumParameters = new SpectrumParameters();
-        /* FileTariff file = new FileTariff(Network.getNetwork("1", "2", "3"));
-        file.execute();
-        SearchTariffs search = new SearchTariffs(Network.getNetwork("1", "2", "3"));
-        search.execute(); */
+
 
 
     }
+
+        /*
+         //SpectrumParameters spectrumParameters = new SpectrumParameters();
+
+        FileTariff file = new FileTariff(Network.getNetwork("1", "2", "3"));
+        file.execute();
+        SearchTariffs search = new SearchTariffs(Network.getNetwork("1", "2", "3"));
+        search.execute(); */
 }

@@ -5,35 +5,37 @@ import hileta.com.network.Network;
 
 public class Calculate implements MenuCommand {
     private final Network network;
-    final String delimited = "----------------------------------------";
+    final String delimited = "\n----------------------------------------";
     public Calculate(Network network) {
         this.network = network;
     }
 
     public void execute() {
+        System.out.println("\n\n\t\tNetwork company info: ");
         showTariffInfo();
         showCustomerInfo();
         showMobileNumbersInfo();
+        System.out.println("\n");
     }
 
     private void showTariffInfo() {
-        System.out.print("\n\n\tGeneral tariff number: ");
+        System.out.print("\tGeneral tariff number: ");
         System.out.print(network.getNumberAvailableTariffs() + network.getNumberArchivedTariffs());
-        System.out.print("\n\n\tNumber of available tariffs:  ");
+        System.out.print("\n\tNumber of available tariffs:  ");
         System.out.print(network.getNumberAvailableTariffs());
-        System.out.print("\n\n\tNumber of archived tariffs:  ");
+        System.out.print("\n\tNumber of archived tariffs:  ");
         System.out.print(network.getNumberArchivedTariffs());
         System.out.println(delimited);
     }
 
     private void showCustomerInfo() {
-        System.out.print("\n\n\tGeneral number of users: ");
+        System.out.print("\n\tGeneral number of users: ");
         System.out.print(network.getNumberCustomers());
         System.out.println(delimited);
     }
 
     private void showMobileNumbersInfo() {
-        System.out.print("\n\n\tGeneral number of mobile numbers: ");
+        System.out.print("\n\tGeneral number of mobile numbers: ");
         System.out.print(network.getNumberMobileNumbers());
         CalculateNumberTariff calculateAvailableTariffs = new CalculateNumberTariff(network.getAvailableTariffs()),
                 calculateArchivedTariffs = new CalculateNumberTariff(network.getArchivedTariffs());
@@ -43,7 +45,6 @@ public class Calculate implements MenuCommand {
         System.out.print(calculateAvailableTariffs.getSuperNumber() + calculateArchivedTariffs.getSuperNumber());
         System.out.print("\n\tNumber tariffs of type Super Net Tariff: ");
         System.out.print(calculateAvailableTariffs.getSuperNetNumber() + calculateArchivedTariffs.getSuperNetNumber());
-        System.out.println(delimited);
     }
 
     /*

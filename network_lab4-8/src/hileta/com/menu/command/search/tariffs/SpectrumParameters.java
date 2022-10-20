@@ -9,12 +9,12 @@ public class SpectrumParameters {
     private double MinThisNet_u;
     private int priceTariff_l;
     private int priceTariff_u;
-    private double MinOtherNet_l;
+    /*private double MinOtherNet_l;
     private double MinOtherNet_u;
     private double MinOtherCountries_l;
     private double MinOtherCountries_u;
     private double mobileInternet_l;
-    private double mobileInternet_u;
+    private double mobileInternet_u;*/
 
     public SpectrumParameters() {
         getSpectrum();
@@ -38,7 +38,7 @@ public class SpectrumParameters {
         priceTariff_l = Integer.parseInt(price[0]);
         priceTariff_u = Integer.parseInt(price[1]);
 
-        System.out.print("interval of minutes on other network: ");
+        /*System.out.print("interval of minutes on other network: ");
         String[] othernet = scanner.nextLine().split(" ");
         MinOtherNet_l = Double.parseDouble(othernet[0]);
         MinOtherNet_u = Double.parseDouble(othernet[1]);
@@ -51,7 +51,7 @@ public class SpectrumParameters {
         System.out.print("interval of mobile internet (in GB): ");
         String[] internet = scanner.nextLine().split(" ");
         mobileInternet_l = Double.parseDouble(internet[0]);
-        mobileInternet_u = Double.parseDouble(internet[1]);
+        mobileInternet_u = Double.parseDouble(internet[1]);*/
 
     }
 
@@ -78,7 +78,7 @@ public class SpectrumParameters {
         return priceTariff_u;
     }
 
-    public double getMinOtherNet_l() {
+    /*public double getMinOtherNet_l() {
         return MinOtherNet_l;
     }
     public double getMinOtherNet_u() {
@@ -95,5 +95,5 @@ public class SpectrumParameters {
     }
     public double getMobileInternet_u() {
         return mobileInternet_u;
-    }
+    }*/
 }

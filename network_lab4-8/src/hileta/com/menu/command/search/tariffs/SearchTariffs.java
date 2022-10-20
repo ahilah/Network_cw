@@ -1,9 +1,6 @@
 package hileta.com.menu.command.search.tariffs;
 
 import hileta.com.Tariff.BaseTariff;
-import hileta.com.Tariff.StartTariff;
-import hileta.com.Tariff.SuperNetTariff;
-import hileta.com.Tariff.SuperTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
 
@@ -24,13 +21,14 @@ public class SearchTariffs implements MenuCommand {
     public void execute() {
         spectrum = new SpectrumParameters();
         List<BaseTariff> filteredBaseParameters = fillListTariffs();
-        tariffs = filterAdditionalParameters(filteredBaseParameters);
+        //tariffs = filterAdditionalParameters(filteredBaseParameters);
         System.out.println("\n\t\t Filtered tariffs: ");
-        if (tariffs.isEmpty()) {
-            System.out.println("there is no such tariffs");
+        PrintTariffsHeadOfList();
+        if (filteredBaseParameters.isEmpty()) {
+            PrintEmptyTariffsList();
         } else
-            for (BaseTariff tariff : tariffs) {
-            System.out.println(tariff);
+            for (BaseTariff tariff : filteredBaseParameters) {
+            System.out.println(tariff.rowTable());
         }
     }
 
@@ -38,8 +36,9 @@ public class SearchTariffs implements MenuCommand {
         List<BaseTariff> filteredBaseParameters = new ArrayList<>();
         for (int i = 0; i < network.getNumberAvailableTariffs(); i++) {
             BaseTariff tariff = network.getTariff(i);
-            if (isBaseParametersMatch(tariff))
+            if (isBaseParametersMatch(tariff)) {
                 filteredBaseParameters.add(tariff);
+            }
         }
         return filteredBaseParameters;
     }
@@ -51,7 +50,26 @@ public class SearchTariffs implements MenuCommand {
                 spectrum.getMinThisNet_l() <= tariff.getNumberMinutesThisOperator() &&
                 spectrum.getMinThisNet_u() >= tariff.getNumberMinutesThisOperator();
     }
-    private List<BaseTariff> filterAdditionalParameters(List<BaseTariff> notFilteredTariffs) {
+
+    private void PrintTariffsHeadOfList() {
+        System.out.println("|---------------------------------" +
+                "-----|-----------|--------------|-----------|----------------|-----------|" +
+                "---------------|---------------|----------|");
+        System.out.println("|              Tariff name         " +
+                "    |    SMS    | Min this net |   Price   |   Tariff ID    | Customers |" +
+                " Min other net | Min countries | Internet |");
+        System.out.println("|---------------------------------" +
+                "-----|-----------|--------------|-----------|----------------|-----------|" +
+                "---------------|---------------|----------|");
+    }
+    private void PrintEmptyTariffsList() {
+        System.out.println("|                                                         There are no such tariffs                                                                   |");
+        System.out.println("|---------------------------------" +
+                "--------------------------------------------------------------------------" +
+                "------------------------------------------|");
+    }
+
+    /*private List<BaseTariff> filterAdditionalParameters(List<BaseTariff> notFilteredTariffs) {
         List<BaseTariff> filteredTariffs = new ArrayList<>();
         if (isAdditionalParamNeeded()) {
             notFilteredTariffs.removeIf(tariff -> tariff instanceof SuperNetTariff || tariff instanceof SuperTariff);
@@ -107,8 +125,7 @@ public class SearchTariffs implements MenuCommand {
                 superTariff.getNumberMinutesOtherNetwork() <= spectrum.getMinOtherNet_u();
     }
 
-
-    /*if () {
+    if () {
                 notFilteredTariffs.removeIf(tariff -> tariff instanceof SuperTariff);
                 for (BaseTariff tariff : notFilteredTariffs) {
                     SuperNetTariff netTariff = (SuperNetTariff) tariff;
@@ -116,5 +133,7 @@ public class SearchTariffs implements MenuCommand {
                             netTariff.getMobileInternet() <= spectrum.getMobileInternet_u())
                         filteredTariffs.add(tariff);
                 }
-            }}*/
+            }}
+
+    */
 }

@@ -58,7 +58,7 @@ public class View implements MenuCommand {
         if (network.isListTariffsEmpty()) PrintEmptyTariffsList();
         else {
             for(BaseTariff tariff : network.getAvailableTariffs())
-                tariff.rowTable();
+                System.out.println(tariff.rowTable());
         }
         //network.showTariffs();
     }

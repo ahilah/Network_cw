@@ -34,7 +34,8 @@ public class EditTariff implements MenuCommand {
         System.out.println("\n\t Choose number to edit: ");
         network.showTariffs();
         System.out.print("Type here: ");
-        return Integer.parseInt(scanner.nextLine());
+        int i = Integer.parseInt(scanner.nextLine());
+        return --i;
     }
     private String[] getInputTariffInfo() {
         System.out.println("\n\tEnter your tariff parameters like [name]---[sms]--[]--[]--[]");

@@ -14,7 +14,6 @@ public class Edit implements MenuCommand {
         editCommand = new EditCommand(network);
     }
     public void execute() {
-        //System.out.println("edit");
         while (true) {
             System.out.println("\n\n\tPres " + ANSI_RED + "0 " + ANSI_RESET +
                     "for end editing items.\n\tAvailable commands: ");

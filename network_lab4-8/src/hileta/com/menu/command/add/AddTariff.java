@@ -90,6 +90,7 @@ public class AddTariff implements MenuCommand  {
     }
 
     private BaseTariff getNewStartTariff(String[] tariffInfo) {
+        searchUnlimitedParameters(tariffInfo);
         return new StartTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4]);
     }

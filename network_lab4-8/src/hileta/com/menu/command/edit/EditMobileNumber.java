@@ -34,7 +34,8 @@ public class EditMobileNumber implements MenuCommand {
         System.out.println("\n\t Choose number to edit: ");
         network.showMobileNumbers();
         System.out.print("\nType here: ");
-        return Integer.parseInt(scanner.nextLine());
+        int i = Integer.parseInt(scanner.nextLine());
+        return --i;
     }
     private String getNewCustomerID(int number) {
         System.out.println("\n\tChoose new customer: ");
