@@ -4,6 +4,7 @@ import hileta.com.menu.command.*;
 import hileta.com.menu.command.add.Add;
 import hileta.com.menu.command.calculate.Calculate;
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.command.edit.Edit;
 import hileta.com.menu.command.search.Search;
 import hileta.com.network.Network;
 

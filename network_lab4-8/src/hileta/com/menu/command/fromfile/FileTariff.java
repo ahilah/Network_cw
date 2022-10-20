@@ -91,7 +91,7 @@ public class FileTariff extends FileCommand {
                 Double.parseDouble(tariffInfo[7]));
     }
     private void checkTariffCorrect(BaseTariff baseTariff) {
-        if (!network.isTariffAlreadyExist(baseTariff.getTariffID()))
+        if (!network.isTariffAlreadyExists(baseTariff.getTariffID()))
             network.addTariff(baseTariff);
         else System.out.println(ANSI_RED + "\nTariff " +
                 baseTariff + "\nalready exists in list!" + ANSI_RESET);

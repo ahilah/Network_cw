@@ -8,7 +8,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 import static hileta.com.menu.management.MainMenu.scanner;
 
 public class SearchAbroad implements MenuCommand {
-    private Network network;
+    private final Network network;
     public SearchAbroad(Network network) {
         this.network = network;
     }

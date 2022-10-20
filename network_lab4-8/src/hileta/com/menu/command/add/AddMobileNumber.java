@@ -4,18 +4,16 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
 
-import java.util.Scanner;
-
 import static hileta.com.menu.management.MainCommand.ANSI_RED;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+import static hileta.com.menu.management.MainMenu.scanner;
 
 public class AddMobileNumber implements MenuCommand {
-    Scanner scanner;
     private final Network network;
 
     public AddMobileNumber(Network network) {
         this.network = network;
-        scanner = new Scanner(System.in);
+        //scanner = new Scanner(System.in);
     }
 
     @Override

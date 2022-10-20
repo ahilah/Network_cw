@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Network {
-    static Network network;
+    private static Network network;
     private final String companyName;
     private final String companyNumber;
     private final String companyEmail;
@@ -137,8 +137,21 @@ public class Network {
     public boolean isListCustomersEmpty() {
         return Customers.isEmpty();
     }
+    public boolean isListMobileNumbersEmpty() {
+        return ListMobileNumbers.isEmpty();
+    }
 
-    public boolean isTariffAlreadyExist(String otherID) {
+    public boolean isTariffAvailableExists(String otherID) {
+        boolean isTariffIDEqual = false;
+        for (BaseTariff availableTariff : AvailableTariffs) {
+            if (availableTariff.getTariffID().equals(otherID)) {
+                isTariffIDEqual = true;
+                break;
+            }
+        }
+        return isTariffIDEqual;
+    }
+    public boolean isTariffAlreadyExists(String otherID) {
         boolean isTariffIDEqual = false;
         for (BaseTariff availableTariff : AvailableTariffs) {
             if (availableTariff.getTariffID().equals(otherID)) {

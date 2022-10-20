@@ -1,10 +1,10 @@
 package hileta.com.network;
 
 public class MobileNumber {
-    String number;
-    String tariffID;
-    String userID;
-    double balance;
+    private String number;
+    private String tariffID;
+    private String userID;
+    private double balance;
 
     public MobileNumber(String number, String tariffID, String userID, double balance) {
         this.number = number;
@@ -12,33 +12,24 @@ public class MobileNumber {
         this.userID = userID;
         this.balance = balance;
     }
-
-
-
     public String getTariffID() {
         return tariffID;
     }
-
     public String getNumber() {
         return number;
     }
-
     public String getUserID() {
         return userID;
     }
-
     public double getBalance() {
         return balance;
     }
-
     public void setTariffID(String tariffID) {
         this.tariffID = tariffID;
     }
-
     public void setUserID(String userID) {
         this.userID = userID;
     }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
