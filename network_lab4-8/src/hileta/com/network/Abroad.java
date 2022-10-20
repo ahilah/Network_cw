@@ -22,5 +22,10 @@ public class Abroad {
     public String toString() {
         return "Country: " + this.country + ", price per minute: " + this.pricePerMinute;
     }
+
+    public String rowTable() {
+        return String.format("|  %-31s|  %-10.2f|", this.country, this.pricePerMinute) +
+                "\n|----------------------------------------------|";
+    }
 }
 

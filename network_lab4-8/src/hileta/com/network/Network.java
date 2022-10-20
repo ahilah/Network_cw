@@ -24,14 +24,12 @@ public class Network {
         }
         return network;
     }
-
     private Network(String companyName, String companyNumber, String companyEmail) {
         this.companyName = companyName;
         this.companyNumber = companyNumber;
         this.companyEmail = companyEmail;
         CreateLists();
     }
-
     private void CreateLists() {
         AvailableTariffs = new ArrayList<>();
         ArchivedTariffs = new ArrayList<>();
@@ -43,126 +41,30 @@ public class Network {
     public void addTariff(BaseTariff tariff) {
         AvailableTariffs.add(tariff);
     }
+    public void addMobileNumber(MobileNumber mobileNumber) {
+        ListMobileNumbers.add(mobileNumber);
+    }
+    public void addCustomer(Customer customer) {
+        Customers.add(customer);
+    }
+    public void addAbroad(Abroad abroad) {
+        ListAbroad.add(abroad);
+    }
 
     public void archiveTariff(BaseTariff tariff) {
         ArchivedTariffs.add(tariff);
+    }
+    public void archiveAllAvailableTariffs() {
+        ArchivedTariffs.addAll(AvailableTariffs);
+        AvailableTariffs.clear();
     }
 
     public void deleteTariff(int numberOfTariff) {
         AvailableTariffs.remove(numberOfTariff);
     }
 
-    public void addMobileNumber(MobileNumber mobileNumber) {
-        ListMobileNumbers.add(mobileNumber);
-    }
-
-    public void addCustomer(Customer customer) {
-        Customers.add(customer);
-    }
-
-    public void addAbroad(Abroad abroad) {
-        ListAbroad.add(abroad);
-    }
-
     public void sortAvailableTariffs() {
         Collections.sort(AvailableTariffs);
-    }
-
-    public BaseTariff getTariff(int numberOfTariff) {
-        return AvailableTariffs.get(numberOfTariff);
-    }
-
-    public BaseTariff getArchivedTariff(int numberOfTariff) {
-        return ArchivedTariffs.get(numberOfTariff);
-    }
-
-    public MobileNumber getMobileNumber(int number) {
-        return ListMobileNumbers.get(number);
-    }
-
-   public Abroad getAbroad(int numberAbroad) {
-        return ListAbroad.get(numberAbroad);
-   }
-
-    public Customer getCustomer(int numberCustomer) {
-        return Customers.get(numberCustomer);
-    }
-
-    public Customer getCustomer(String customerID) {
-        Customer searchedCustomer = null;
-        for(Customer customer : Customers) {
-            if (customer.getCustomerID().equals(customerID))
-                searchedCustomer = customer;
-        }
-        return searchedCustomer;
-    }
-
-    public int getNumberAvailableTariffs() {
-        return AvailableTariffs.size();
-    }
-
-    public int getNumberArchivedTariffs() {
-        return ArchivedTariffs.size();
-    }
-
-    public int getNumberCustomers() {
-        return Customers.size();
-    }
-
-    public int getNumberMobileNumbers() {
-        return ListMobileNumbers.size();
-    }
-
-    public int getNumberAbroad() {
-        return ListAbroad.size();
-    }
-
-    public boolean isListTariffsEmpty() {
-        return AvailableTariffs.isEmpty();
-    }
-
-    public boolean isListCustomersEmpty() {
-        return Customers.isEmpty();
-    }
-
-    public void showTariffs() {
-        int i = 1;
-        for (BaseTariff tariff : AvailableTariffs) {
-            System.out.println(i + ". " + tariff);
-            ++i;
-        }
-    }
-
-    public void showArchive() {
-        int i = 1;
-        for (BaseTariff tariff : ArchivedTariffs) {
-            System.out.println(i + ". " + tariff);
-            ++i;
-        }
-    }
-
-    public void showCustomers() {
-        int i = 1;
-        for (Customer customer : Customers) {
-            System.out.println(i + ". " + customer);
-            ++i;
-        }
-    }
-
-    public void showAbroad() {
-        int i = 1;
-        for (Abroad abroad : ListAbroad) {
-            System.out.println(i + ". " + abroad);
-            ++i;
-        }
-    }
-
-    public void showMobileNumbers() {
-        int i = 1;
-        for (MobileNumber number : ListMobileNumbers) {
-            System.out.println(i + ". " + number);
-            ++i;
-        }
     }
     public BaseTariff searchTariff(String tariffID) {
         BaseTariff searchedTariff = null;
@@ -174,6 +76,68 @@ public class Network {
         }
         return searchedTariff;
     }
+
+    public BaseTariff getTariff(int numberOfTariff) {
+        return AvailableTariffs.get(numberOfTariff);
+    }
+    public BaseTariff getArchivedTariff(int numberOfTariff) {
+        return ArchivedTariffs.get(numberOfTariff);
+    }
+    public MobileNumber getMobileNumber(int number) {
+        return ListMobileNumbers.get(number);
+    }
+    public Abroad getAbroad(int numberAbroad) {
+        return ListAbroad.get(numberAbroad);
+   }
+    public Customer getCustomer(int numberCustomer) {
+        return Customers.get(numberCustomer);
+    }
+    public Customer getCustomer(String customerID) {
+        Customer searchedCustomer = null;
+        for(Customer customer : Customers) {
+            if (customer.getCustomerID().equals(customerID))
+                searchedCustomer = customer;
+        }
+        return searchedCustomer;
+    }
+    public void getNetworkInfo() {
+        System.out.println("\n\t\tNetwork info:");
+        System.out.println("Company name: " + this.companyName + "\ne-mail: " + this.companyEmail + "\nnumber: " + this.companyNumber);
+    }
+
+    public int getNumberAvailableTariffs() {
+        return AvailableTariffs.size();
+    }
+    public int getNumberArchivedTariffs() {
+        return ArchivedTariffs.size();
+    }
+    public int getNumberCustomers() {
+        return Customers.size();
+    }
+    public int getNumberMobileNumbers() {
+        return ListMobileNumbers.size();
+    }
+    public int getNumberAbroad() {
+        return ListAbroad.size();
+    }
+
+    public List<BaseTariff> getAvailableTariffs() {
+        return AvailableTariffs;
+    }
+    public List<BaseTariff> getArchivedTariffs() {
+        return ArchivedTariffs;
+    }
+    public List<Abroad> getListAbroad() {
+        return ListAbroad;
+    }
+
+    public boolean isListTariffsEmpty() {
+        return AvailableTariffs.isEmpty();
+    }
+    public boolean isListCustomersEmpty() {
+        return Customers.isEmpty();
+    }
+
     public boolean isTariffAlreadyExist(String otherID) {
         boolean isTariffIDEqual = false;
         for (BaseTariff availableTariff : AvailableTariffs) {
@@ -190,7 +154,6 @@ public class Network {
         }
         return isTariffIDEqual;
     }
-
     public boolean isMobileNumberAlreadyExist(String number) {
         boolean isNumberEqual = false;
         for (MobileNumber mobileNumber : ListMobileNumbers) {
@@ -201,7 +164,6 @@ public class Network {
         }
         return isNumberEqual;
     }
-
     public boolean isCustomerAlreadyExist(String customerID) {
         boolean isCustomerIDEqual = false;
         for (Customer customer : Customers) {
@@ -213,16 +175,39 @@ public class Network {
         return isCustomerIDEqual;
     }
 
-    public void archiveAllAvailableTariffs() {
-        ArchivedTariffs.addAll(AvailableTariffs);
-        AvailableTariffs.clear();
+    public void showTariffs() {
+        int i = 1;
+        for (BaseTariff tariff : AvailableTariffs) {
+            System.out.println(i + ". " + tariff);
+            ++i;
+        }
     }
-
-    public List<BaseTariff> getAvailableTariffs() {
-        return AvailableTariffs;
+    public void showArchive() {
+        for(BaseTariff tariff : ArchivedTariffs)
+            System.out.println(tariff.rowTable());
+        /*int i = 1;
+        for (BaseTariff tariff : ArchivedTariffs) {
+            System.out.println(i + ". " + tariff);
+            ++i;
+        }*/
     }
-    public List<BaseTariff> getArchivedTariffs() {
-        return ArchivedTariffs;
+    public void showCustomers() {
+        int i = 1;
+        for (Customer customer : Customers) {
+            System.out.println(i + ". " + customer);
+            ++i;
+        }
+    }
+    public void showAbroad() {
+        for(Abroad abroad : ListAbroad)
+            System.out.println(abroad.rowTable());
+    }
+    public void showMobileNumbers() {
+        int i = 1;
+        for (MobileNumber number : ListMobileNumbers) {
+            System.out.println(i + ". " + number);
+            ++i;
+        }
     }
 }
 

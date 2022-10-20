@@ -32,10 +32,8 @@ public class View implements MenuCommand {
                     System.out.println("\n\t\t Mobile numbers list: ");
                     network.showMobileNumbers();
                 }
-                case 5 -> {
-                    System.out.println("\n\t\t Abroad list: ");
-                    network.showAbroad();
-                }
+                case 5 -> showAbroad();
+                case 6 -> network.getNetworkInfo();
                 default -> System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
             }
         }
@@ -49,6 +47,7 @@ public class View implements MenuCommand {
                     3 - customers list.
                     4 - mobile numbers list.
                     5 - abroad list.
+                    6 - company network info.
                     0 - to exit.""".indent(0));
         System.out.print("Type here: ");
         return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
@@ -64,35 +63,42 @@ public class View implements MenuCommand {
         //network.showTariffs();
     }
     private void PrintTariffsHeadOfList() {
-        System.out.println("|--------------------------------------|-----------|--------------|-----------|----------------|-----------|" +
+        System.out.println("|---------------------------------" +
+                "-----|-----------|--------------|-----------|----------------|-----------|" +
                 "---------------|---------------|----------|");
-        System.out.println("|              Tariff name             |    SMS    | Min this net |   Price   |   Tariff ID    | Customers |" +
+        System.out.println("|              Tariff name         " +
+                "    |    SMS    | Min this net |   Price   |   Tariff ID    | Customers |" +
                 " Min other net | Min countries | Internet |");
-        System.out.println("|--------------------------------------|-----------|--------------|-----------|----------------|-----------|" +
+        System.out.println("|---------------------------------" +
+                "-----|-----------|--------------|-----------|----------------|-----------|" +
                 "---------------|---------------|----------|");
     }
     private void PrintEmptyTariffsList() {
-        System.out.println("|                                                            There is no such tariffs                                                                 |");
-        System.out.println("|-----------------------------------------------------------------------------------------------------------" +
+        System.out.println("|                                                              There are no tariffs                                                                   |");
+        System.out.println("|---------------------------------" +
+                "--------------------------------------------------------------------------" +
                 "------------------------------------------|");
     }
     private void showArchive() {
         System.out.println("\n\t\t Archived tariffs list: ");
         PrintTariffsHeadOfList();
         if (network.getArchivedTariffs().isEmpty()) PrintEmptyTariffsList();
-        else {
-            for(BaseTariff tariff : network.getArchivedTariffs())
-                tariff.rowTable();
-        }
+        else network.showArchive();
         //network.showArchive();
     }
-    private void showCustomers() {
-
-    }
-    private void showMobileNumbers() {
-
-    }
     private void showAbroad() {
-
+        System.out.println("\n\t\t Abroad list: ");
+        printAbroadHeadList();
+        if (network.getListAbroad().isEmpty()) printEmptyRowAbroad();
+        else network.showAbroad();
+    }
+    private void printAbroadHeadList() {
+        System.out.println("|----------------------------------------------|");
+        System.out.println("|           Country             |     Price    |");
+        System.out.println("|----------------------------------------------|");
+    }
+    private void printEmptyRowAbroad() {
+        System.out.println("|              There are no abroad             |");
+        System.out.println("|----------------------------------------------|");
     }
 }
