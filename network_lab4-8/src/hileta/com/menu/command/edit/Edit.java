@@ -27,11 +27,11 @@ public class Edit implements MenuCommand {
             }
         }
     }
+}
 
-    /*
+/*
     //private String COMMAND_INFO = "edit object";
     public String getCommandInfo() {
         return COMMAND_INFO;
     }
     */
-}

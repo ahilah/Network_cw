@@ -46,8 +46,9 @@ public class Calculate implements MenuCommand {
         System.out.print("\n\tNumber tariffs of type Super Net Tariff: ");
         System.out.print(calculateAvailableTariffs.getSuperNetNumber() + calculateArchivedTariffs.getSuperNetNumber());
     }
+}
 
-    /*
+/*
     public String getCommandInfo() {
         return COMMAND_INFO;
     }
@@ -66,5 +67,4 @@ public class Calculate implements MenuCommand {
         System.out.println("\nGeneral number of customers: ");
         System.out.print(numberCustomersInArchivedTariffs + numberCustomersInAvailableTariffs);
     */
-}
 

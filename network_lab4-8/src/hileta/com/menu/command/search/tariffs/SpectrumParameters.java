@@ -77,8 +77,8 @@ public class SpectrumParameters {
     public int getPriceTariff_u() {
         return priceTariff_u;
     }
-
-    /*public double getMinOtherNet_l() {
+}
+/*public double getMinOtherNet_l() {
         return MinOtherNet_l;
     }
     public double getMinOtherNet_u() {
@@ -96,4 +96,3 @@ public class SpectrumParameters {
     public double getMobileInternet_u() {
         return mobileInternet_u;
     }*/
-}

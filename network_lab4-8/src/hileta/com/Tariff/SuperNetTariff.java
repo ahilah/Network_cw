@@ -4,23 +4,19 @@ public class SuperNetTariff extends BaseTariff {
     private double numberMinutesOtherNetwork;
     private double numberMinutesOtherCountries;
     private double mobileInternet;
-
     public SuperNetTariff(String nameTariff, int SMSNumber, double numberMinutesThisOperator, int priceTariff, String tariffID, double numberMinutesOtherNetwork, double numberMinutesOtherCountries, double mobileInternet) {
         super(nameTariff, SMSNumber, numberMinutesThisOperator, priceTariff, tariffID);
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
         this.mobileInternet = mobileInternet;
     }
-
     public double getNumberMinutesOtherNetwork() {
         return numberMinutesOtherNetwork;
     }
-
     public BaseTariff setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
         return this;
     }
-
     public double getNumberMinutesOtherCountries() {
         return numberMinutesOtherCountries;
     }
@@ -29,16 +25,13 @@ public class SuperNetTariff extends BaseTariff {
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
         return this;
     }
-
     public double getMobileInternet() {
         return mobileInternet;
     }
-
     public BaseTariff setMobileInternet(double mobileInternet) {
         this.mobileInternet = mobileInternet;
         return this;
     }
-
     @Override
     public String toString() {
         return "Super Net Tariff " + super.toString() +

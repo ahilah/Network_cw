@@ -3,7 +3,6 @@ package hileta.com.network;
 public class Customer {
     private String name;
     private String CustomerID;
-
     public Customer(String name, String CustomerID) {
         this.name = name;
         this.CustomerID = CustomerID;

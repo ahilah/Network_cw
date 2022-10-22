@@ -40,4 +40,3 @@ public class MobileNumber {
                 this.tariffID + ", user ID: " + this.userID + ", balance: " + this.balance;
     }
 }
-

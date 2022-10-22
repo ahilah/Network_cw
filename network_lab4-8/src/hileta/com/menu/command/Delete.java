@@ -44,11 +44,12 @@ public class Delete implements MenuCommand {
         --numberOfTariff;
         return numberOfTariff;
     }
+}
+
 
     /*
     //private String COMMAND_INFO = "delete tariff";
     public String getCommandInfo() {
         return COMMAND_INFO;
     }*/
-}
 

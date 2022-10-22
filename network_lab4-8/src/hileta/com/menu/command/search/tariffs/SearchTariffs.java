@@ -68,7 +68,7 @@ public class SearchTariffs implements MenuCommand {
                 "--------------------------------------------------------------------------" +
                 "------------------------------------------|");
     }
-
+}
     /*private List<BaseTariff> filterAdditionalParameters(List<BaseTariff> notFilteredTariffs) {
         List<BaseTariff> filteredTariffs = new ArrayList<>();
         if (isAdditionalParamNeeded()) {
@@ -136,4 +136,3 @@ public class SearchTariffs implements MenuCommand {
             }}
 
     */
-}

@@ -40,6 +40,8 @@ public class Archive implements MenuCommand {
         --numberOfTariff;
         return numberOfTariff;
     }
+}
+
 
     /*
     public String getCommandInfo() {
@@ -47,5 +49,4 @@ public class Archive implements MenuCommand {
     }
     //private String COMMAND_INFO = "archive tariff";
     */
-}
 
