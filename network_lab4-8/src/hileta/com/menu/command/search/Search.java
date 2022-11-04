@@ -22,11 +22,16 @@ public class Search implements MenuCommand {
                     "for end searching.\n\tAvailable commands: ");
             searchCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
-            int command = Integer.parseInt(scanner.nextLine());
-            if (command != 0) searchCommand.execute(command);
-            else {
-                System.out.println(ANSI_PURPLE + "\n\tSearching data was successfully over!" + ANSI_RESET);
-                return;
+            try {
+                int command = Integer.parseInt(scanner.nextLine());
+                if (command != 0) searchCommand.execute(command);
+                else {
+                    System.out.println(ANSI_PURPLE + "\n\tSearching data was successfully over!" + ANSI_RESET);
+                    return;
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Wrong input line!");
             }
         }
     }

@@ -7,11 +7,15 @@ import java.sql.SQLException;
 
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException, IOException, SQLException {
+    public static void main(String args[]) throws InterruptedException, IOException, SQLException {
         MainMenu mainMenu = new MainMenu();
         mainMenu.StartMainMenu();
 
-        // D:\test1.txt tariffs
+        // D:\test1.txt
+        // D:\test2.txt
+        // D:\test3.txt
+        // D:\test4.txt
+        // D:\test5.txt
     }
 }
 

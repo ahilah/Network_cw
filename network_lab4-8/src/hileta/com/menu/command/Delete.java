@@ -21,8 +21,15 @@ public class Delete implements MenuCommand {
             System.out.print("\n\n\tThis tariff has users. Choose another tariff to connect them to it: ");
             /*network.showTariffs();
             System.out.print("\nType here: ");*/
-            int anotherTariff = Integer.parseInt(scanner.nextLine());
-            --anotherTariff;
+            int anotherTariff;
+            try {
+                anotherTariff = Integer.parseInt(scanner.nextLine());
+                --anotherTariff;
+            }
+            catch (NumberFormatException e){
+                System.out.println("Wrong input line!");
+                anotherTariff = 0;
+            }
             String oldTariffID = network.getTariff(tariffNumber).getTariffID();
             String newTariffID = network.getTariff(anotherTariff).getTariffID();
             for(MobileNumber mobileNumber : network.getListMobileNumbers()) {
@@ -38,11 +45,17 @@ public class Delete implements MenuCommand {
     private int getNumberOfTariff() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\t There are available tariffs: ");
-        network.showTariffs();
-        System.out.print("Type number of tariff here: ");
-        int numberOfTariff = Integer.parseInt(scanner.nextLine());
-        --numberOfTariff;
-        return numberOfTariff;
+        try {
+            network.showTariffs();
+            System.out.print("Type number of tariff here: ");
+            int numberOfTariff = Integer.parseInt(scanner.nextLine());
+            --numberOfTariff;
+            return numberOfTariff;
+        }
+        catch (NumberFormatException e){
+            System.out.println("Wrong input line!");
+            return  0;
+        }
     }
 }
 

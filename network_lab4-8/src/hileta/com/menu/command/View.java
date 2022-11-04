@@ -50,7 +50,13 @@ public class View implements MenuCommand {
                     6 - company network info.
                     0 - to exit.""".indent(0));
         System.out.print("Type here: ");
-        return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
+        try {
+            return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
+        }
+        catch (NumberFormatException e){
+            System.out.println("Wrong input line!");
+            return 666;
+        }
     }
     private void showTariffs() {
         System.out.println("\n\t\t Available tariffs list: ");

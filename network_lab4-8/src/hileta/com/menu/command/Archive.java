@@ -19,16 +19,20 @@ public class Archive implements MenuCommand {
     public void execute() {
         System.out.println("\n\t\tEnter 1 for archive all available tariffs 0 for archive one tariff.");
         System.out.print("Type here: ");
-        int userChoice = Integer.parseInt(scanner.nextLine());
-        if(userChoice != 1) {
-            int tariffNumber = getNumberOfTariff();
-            network.archiveTariff(network.getTariff(tariffNumber));
-            network.deleteTariff(tariffNumber);
-            System.out.println(ANSI_GREEN + "\n\tTariff was successfully archived!" + ANSI_RESET);
+        try {
+            int userChoice = Integer.parseInt(scanner.nextLine());
+            if (userChoice != 1) {
+                int tariffNumber = getNumberOfTariff();
+                network.archiveTariff(network.getTariff(tariffNumber));
+                network.deleteTariff(tariffNumber);
+                System.out.println(ANSI_GREEN + "\n\tTariff was successfully archived!" + ANSI_RESET);
+            } else {
+                network.archiveAllAvailableTariffs();
+                System.out.println(ANSI_GREEN + "\n\tAll tariffs was successfully archived!" + ANSI_RESET);
+            }
         }
-        else {
-            network.archiveAllAvailableTariffs();
-            System.out.println(ANSI_GREEN + "\n\tAll tariffs was successfully archived!" + ANSI_RESET);
+        catch (NumberFormatException e){
+            System.out.println("Wrong input line!");
         }
     }
 
@@ -36,9 +40,14 @@ public class Archive implements MenuCommand {
         System.out.println("\n\t There are available tariffs: ");
         network.showTariffs();
         System.out.print("Type number of tariff here: ");
-        int numberOfTariff = Integer.parseInt(scanner.nextLine());
-        --numberOfTariff;
-        return numberOfTariff;
+        try {
+            int numberOfTariff = Integer.parseInt(scanner.nextLine());
+            --numberOfTariff;
+            return numberOfTariff;
+        } catch (NumberFormatException e){
+            System.out.println("Wrong input line!");
+            return 0;
+        }
     }
 }
 

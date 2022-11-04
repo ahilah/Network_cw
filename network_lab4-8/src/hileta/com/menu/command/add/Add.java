@@ -27,11 +27,16 @@ public class Add implements MenuCommand {
                     "for end adding new items.\n\tAvailable commands: ");
             this.addCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
-            int command = Integer.parseInt(scanner.nextLine());
-            if (command != 0) addCommand.execute(command);
-            else {
-                System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
-                return;
+            try {
+                int command = Integer.parseInt(scanner.nextLine());
+                if (command != 0) addCommand.execute(command);
+                else {
+                    System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
+                    return;
+                }
+            }
+            catch (NumberFormatException e){
+                    System.out.println("Wrong input line!");
             }
         }
     }

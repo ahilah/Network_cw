@@ -30,11 +30,16 @@ public class FromFile implements MenuCommand {
                     "for end read from file.\n\tAvailable commands: ");
             this.fromFileCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
-            int command = Integer.parseInt(scanner.nextLine());
-            if(command != 0) fromFileCommand.execute(command);
-            else {
-                System.out.println(ANSI_PURPLE + "\n\tInput data from file was successfully over!" + ANSI_RESET);
-                return;
+            try {
+                int command = Integer.parseInt(scanner.nextLine());
+                if (command != 0) fromFileCommand.execute(command);
+                else {
+                    System.out.println(ANSI_PURPLE + "\n\tInput data from file was successfully over!" + ANSI_RESET);
+                    return;
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Wrong input line!");
             }
         }
 

@@ -19,11 +19,16 @@ public class Edit implements MenuCommand {
                     "for end editing items.\n\tAvailable commands: ");
             this.editCommand.showAvailableCommands();
             System.out.print("Enter your command here: ");
-            int command = Integer.parseInt(scanner.nextLine());
-            if (command != 0) editCommand.execute(command);
-            else {
-                System.out.println(ANSI_PURPLE + "\n\tEditing data was successfully over!" + ANSI_RESET);
-                return;
+            try {
+                int command = Integer.parseInt(scanner.nextLine());
+                if (command != 0) editCommand.execute(command);
+                else {
+                    System.out.println(ANSI_PURPLE + "\n\tEditing data was successfully over!" + ANSI_RESET);
+                    return;
+                }
+            }
+            catch (NumberFormatException e){
+                System.out.println("Wrong input line!");
             }
         }
     }
