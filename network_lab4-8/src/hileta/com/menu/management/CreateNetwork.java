@@ -28,6 +28,10 @@ public class CreateNetwork implements MenuCommand {
         return Network.getNetwork(companyName, companyMobileNumber, companyEmail);
     }
 
+    public Network networkCompanyInfo(String companyName, String companyMobileNumber, String companyEmail) {
+        return Network.getNetwork(companyName, companyMobileNumber, companyEmail);
+    }
+
     /*@Override
     public String getCommandInfo() {
         return COMMAND_INFO;

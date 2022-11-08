@@ -30,16 +30,20 @@ public class Delete implements MenuCommand {
                 System.out.println("Wrong input line!");
                 anotherTariff = 0;
             }
-            String oldTariffID = network.getTariff(tariffNumber).getTariffID();
-            String newTariffID = network.getTariff(anotherTariff).getTariffID();
-            for(MobileNumber mobileNumber : network.getListMobileNumbers()) {
-                if(mobileNumber.getTariffID().equals(oldTariffID)) {
-                    mobileNumber.setTariffID(newTariffID);
-                }
-            }
+        changeTariffsAfterRemoving(tariffNumber, anotherTariff);
         }
         network.deleteTariff(tariffNumber);
         System.out.println(ANSI_GREEN + "\n\t\tTariff was successfully deleted!" + ANSI_RESET);
+    }
+
+    public void changeTariffsAfterRemoving(int oldID, int newID) {
+        String oldTariffID = network.getTariff(oldID).getTariffID();
+        String newTariffID = network.getTariff(newID).getTariffID();
+        for(MobileNumber mobileNumber : network.getListMobileNumbers()) {
+            if(mobileNumber.getTariffID().equals(oldTariffID)) {
+                mobileNumber.setTariffID(newTariffID);
+            }
+        }
     }
 
     private int getNumberOfTariff() {

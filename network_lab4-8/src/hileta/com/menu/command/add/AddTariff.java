@@ -71,38 +71,38 @@ public class AddTariff implements MenuCommand  {
         return Integer.parseInt(scanner.nextLine());
     }
 
-    private String[] getInputTariffInfo() {
+    public String[] getInputTariffInfo() {
         System.out.print("Type: ");
         String tariffInputInfo = scanner.nextLine();
         return splitString(tariffInputInfo);
     }
 
-    private String[] splitString(String inputString) {
+    public String[] splitString(String inputString) {
         String delims = "[-.,?!]+";
         return inputString.split(delims);
     }
 
-    private void searchUnlimitedParameters(String[] inputInfo) {
+    public void searchUnlimitedParameters(String[] inputInfo) {
         final String unlimSym = "@";
         for (int i = 0; i < inputInfo.length; i++) {
-            if (inputInfo[i].equals(unlimSym)) inputInfo[i] = "99999999";
+            if (inputInfo[i].equals(unlimSym)) inputInfo[i] = "9999";
         }
     }
 
-    private BaseTariff getNewStartTariff(String[] tariffInfo) {
+    public BaseTariff getNewStartTariff(String[] tariffInfo) {
         searchUnlimitedParameters(tariffInfo);
         return new StartTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4]);
     }
 
-    private BaseTariff getNewSuperTariff(String[] tariffInfo) {
+    public BaseTariff getNewSuperTariff(String[] tariffInfo) {
         searchUnlimitedParameters(tariffInfo);
         return new SuperTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
                 Double.parseDouble(tariffInfo[5]), Double.parseDouble(tariffInfo[6]));
     }
 
-    private BaseTariff getNewSuperNetTariff(String[] tariffInfo) {
+    public BaseTariff getNewSuperNetTariff(String[] tariffInfo) {
         searchUnlimitedParameters(tariffInfo);
         return new SuperNetTariff(tariffInfo[0], Integer.parseInt(tariffInfo[1]),
                 Double.parseDouble(tariffInfo[2]), Integer.parseInt(tariffInfo[3]), tariffInfo[4],
