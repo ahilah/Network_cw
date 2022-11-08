@@ -226,5 +226,7 @@ public class Network {
         }
     }
 
-
+    public List<Customer> getCustomers() {
+        return Customers;
+    }
 }

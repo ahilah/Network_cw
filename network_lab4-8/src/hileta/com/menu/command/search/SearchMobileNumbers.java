@@ -20,10 +20,6 @@ public class SearchMobileNumbers implements MenuCommand {
     @Override
     public void execute() {
         String customerID = getCustomerID();
-        for(int i = 0; i < network.getNumberMobileNumbers(); i++) {
-            if (network.getMobileNumber(i).getUserID().equals(customerID))
-                customerNumbers.add(network.getMobileNumber(i));
-        }
         if(!customerNumbers.isEmpty()) {
             System.out.println("\n\t\t Mobile numbers of customer " + network.getCustomer(customerID).getName());
             int i = 1;
@@ -39,10 +35,21 @@ public class SearchMobileNumbers implements MenuCommand {
         customerNumbers.clear();
     }
 
+    public void searchMNumbers(String customerID) {
+        for(int i = 0; i < network.getNumberMobileNumbers(); i++) {
+            if (network.getMobileNumber(i).getUserID().equals(customerID))
+                customerNumbers.add(network.getMobileNumber(i));
+        }
+    }
+
     private String getCustomerID() {
         System.out.println("\n\tChoose customer ID: ");
         network.showCustomers();
         System.out.println("Type here: ");
         return scanner.nextLine();
+    }
+
+    public List<MobileNumber> getCustomerNumbers() {
+        return customerNumbers;
     }
 }

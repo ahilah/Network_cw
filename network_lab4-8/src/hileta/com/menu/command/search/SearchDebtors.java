@@ -22,6 +22,21 @@ public class SearchDebtors implements MenuCommand {
             System.out.println("\n\tList of customers or mobile numbers or tariffs is empty. Please, fill data.");
             return;
         }
+        fillDebtors();
+        if(!debtors.isEmpty()){
+            System.out.println("\n\t\t List of debtors: ");
+            debtors.forEach((k, v) -> System.out.println(v + " - "+ k));
+            System.out.print("\n\n\t\tGeneral debtor number: " +
+                    Integer.parseInt(String.valueOf(debtors.size())));
+        } else System.out.println("\n\t There are no debtors.");
+
+    }
+
+    public void clearDebtors() {
+        debtors.clear();
+    }
+
+    public void fillDebtors() {
         for (int i = 0; i < network.getNumberCustomers(); i++) {
             for (int j = 0; j < network.getNumberMobileNumbers(); j++) {
                 if (isNumberSearched(i, j) && isBalanceNotEnough(j)) {
@@ -29,19 +44,13 @@ public class SearchDebtors implements MenuCommand {
                 }
             }
         }
-        if(!debtors.isEmpty()){
-            System.out.println("\n\t\t List of debtors: ");
-            debtors.forEach((k, v) -> System.out.println(v + " - "+ k));
-            System.out.print("\n\n\t\tGeneral debtor number: " +
-                    Integer.parseInt(String.valueOf(debtors.size())));
-        } else System.out.println("\n\t There are no debtors.");
-        debtors.clear();
     }
 
     private boolean isNumberSearched(int i, int j) {
         String customerID = network.getCustomer(i).getCustomerID();
         return network.getMobileNumber(j).getUserID().equals(customerID);
     }
+
     private boolean isBalanceNotEnough(int i) {
         String searchedTariffID = network.getMobileNumber(i).getTariffID();
         boolean isTariffArchived = true;
@@ -64,6 +73,13 @@ public class SearchDebtors implements MenuCommand {
             }
         }
         return numberBalance < tariffPrice;
+    }
 
+    public Customer getDebtors(MobileNumber mnumber) {
+        return debtors.get(mnumber);
+    }
+
+    public Map<MobileNumber, Customer> getDebtors() {
+        return debtors;
     }
 }
