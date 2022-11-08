@@ -43,11 +43,11 @@ public class EditTariff implements MenuCommand {
         String tariffInputInfo = scanner.nextLine();
         return splitString(tariffInputInfo);
     }
-    private String[] splitString(String inputString) {
+    public String[] splitString(String inputString) {
         String delims = "[-.,?!]+";
         return inputString.split(delims);
     }
-    private void editBaseTariff(BaseTariff tariff, String [] tariffInfo) {
+    public void editBaseTariff(BaseTariff tariff, String [] tariffInfo) {
         /*tariff =*/ tariff.setSMSNumber(Integer.parseInt(tariffInfo[0]))
                 .setNumberMinutesThisOperator(Double.parseDouble(tariffInfo[1]))
                 .setPriceTariff(Integer.parseInt(tariffInfo[2]))

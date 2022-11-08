@@ -6,6 +6,10 @@ public class StartTariff extends BaseTariff {
         super(nameTariff, SMSNumber, numberMinutesThisOperator, priceTariff, tariffID);
     }
 
+    public StartTariff() {
+        super();
+    }
+
     @Override
     public String toString() {
         return "Start Tariff " + super.toString() + ")";

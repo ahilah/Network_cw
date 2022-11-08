@@ -33,18 +33,22 @@ public class AddMobileNumber implements MenuCommand {
         System.out.print("Type mobile number: ");
         //scanner.next();
         String mobileNumber = scanner.nextLine().replaceAll("\\s","");
-        int numberTariff = getCheckedNoTariff();
-        int numberCustomer = getCheckedNoCustomer();
-        double balance = getCheckedBalance();
+        int numberTariff = getCheckedNoTariff(inputNoTariff());
+        int numberCustomer = getCheckedNoCustomer(inputNoCust());
+        double balance = getCheckedBalance(getBalance());
         network.getTariff(numberTariff).setNumberOfUsers(network.getTariff(numberTariff).getNumberOfUsers() + 1);
         return new MobileNumber(mobileNumber, network.getTariff(numberTariff).getTariffID(),
                 network.getCustomer(numberCustomer).getCustomerID(), balance);
     }
-    private int getCheckedNoCustomer() {
+
+    private int inputNoCust() {
         System.out.print("\n\tChoose customer: \n");
         network.showCustomers();
         System.out.print("Type number here: ");
-        int numberCustomer = Integer.parseInt(scanner.nextLine());
+         return Integer.parseInt(scanner.nextLine());
+    }
+
+    public int getCheckedNoCustomer(int numberCustomer) {
         if (numberCustomer < 0 || numberCustomer > network.getNumberCustomers()) {
             System.out.println(ANSI_RED + "\nWrong number of customer." +
                     " Set default first customer in list." + ANSI_RESET);
@@ -52,20 +56,28 @@ public class AddMobileNumber implements MenuCommand {
         }
         return --numberCustomer;
     }
-    private int getCheckedNoTariff() {
+
+    private int inputNoTariff() {
         System.out.print("\n\tChoose tariff: \n");
         network.showTariffs();
         System.out.print("Type number here: ");
-        int numberTariff = Integer.parseInt(scanner.nextLine());
+       return Integer.parseInt(scanner.nextLine());
+    }
+
+    public int getCheckedNoTariff(int numberTariff) {
         if (numberTariff < 0 || numberTariff > network.getNumberAvailableTariffs()) {
             System.out.println(ANSI_RED + "\nWrong number of tariff. Set default first tariff in list." + ANSI_RESET);
             numberTariff = 1;
         }
         return --numberTariff;
     }
-    private double getCheckedBalance() {
+
+    private double getBalance() {
         System.out.print("Type number balance (in hryvnias): ");
-        double balance = Double.parseDouble(scanner.nextLine());
+        return Double.parseDouble(scanner.nextLine());
+    }
+
+    public double getCheckedBalance(double balance) {
         if (balance < 0) {
             System.out.println(ANSI_RED + "\tBalance can't be less than 0! Set balance 0." + ANSI_RESET);
             balance = 0;

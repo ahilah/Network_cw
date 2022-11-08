@@ -8,6 +8,10 @@ public abstract class BaseTariff implements Comparable<BaseTariff> {
     private String tariffID;
     private int numberOfUsers = 0;
 
+    public BaseTariff() {
+
+    }
+
     BaseTariff(String nameTariff, int SMSNumber, double numberMinutesThisOperator, int priceTariff, String tariffID) {
         this.nameTariff = nameTariff;
         this.SMSNumber = SMSNumber;

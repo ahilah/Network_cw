@@ -39,7 +39,7 @@ class NetworkTest {
     }
 
     @Test
-    void addTariff() {
+    void addAndDeleteTariff() {
         tariffs.clear();
         BaseTariff tariff4 = new StartTariff("Angst",17,
                 300, 90, "1");
@@ -63,16 +63,20 @@ class NetworkTest {
         network.addTariff(tariff4);
 
         Assertions.assertArrayEquals(tariffs.toArray(), network.getAvailableTariffs().toArray());
+
+        tariffs.remove(3);
+        network.deleteTariff(3);
+        Assertions.assertArrayEquals(tariffs.toArray(), network.getAvailableTariffs().toArray());
+
         tariffs.clear();
         network.getAvailableTariffs().clear();
     }
 
     @Test
     void addMobileNumber() {
-    }
-
-    @Test
-    void addCustomer() {
+        Abroad abroad = new Abroad("France", 10.5);
+        network.addAbroad(abroad);
+        Assertions.assertEquals(abroad, network.getAbroad(0));
     }
 
     @Test
@@ -92,10 +96,6 @@ class NetworkTest {
 
     @Test
     void archiveAllAvailableTariffs() {
-    }
-
-    @Test
-    void deleteTariff() {
     }
 
     @Test
@@ -222,25 +222,5 @@ class NetworkTest {
 
     @Test
     void isCustomerAlreadyExist() {
-    }
-
-    @Test
-    void showTariffs() {
-    }
-
-    @Test
-    void showArchive() {
-    }
-
-    @Test
-    void showCustomers() {
-    }
-
-    @Test
-    void showAbroad() {
-    }
-
-    @Test
-    void showMobileNumbers() {
     }
 }
