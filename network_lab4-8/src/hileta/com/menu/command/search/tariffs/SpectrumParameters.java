@@ -16,6 +16,16 @@ public class SpectrumParameters {
     private double mobileInternet_l;
     private double mobileInternet_u;*/
 
+    public SpectrumParameters(int minSMS, int maxSMS,
+                              double MinThisNet_l, double MinThisNet_u,
+                              int priceTariff_l, int priceTariff_u) {
+        SMSNumber_l = minSMS;
+        SMSNumber_u = maxSMS;
+        this.MinThisNet_l = MinThisNet_l;
+        this.MinThisNet_u = MinThisNet_u;
+        this.priceTariff_l = priceTariff_l;
+        this.priceTariff_u = priceTariff_u;
+    }
     public SpectrumParameters() {
         getSpectrum();
     }

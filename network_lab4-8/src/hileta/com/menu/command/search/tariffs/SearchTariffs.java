@@ -19,7 +19,7 @@ public class SearchTariffs implements MenuCommand {
 
     @Override
     public void execute() {
-        spectrum = new SpectrumParameters();
+        callSpectrum(1);
         List<BaseTariff> filteredBaseParameters = fillListTariffs();
         //tariffs = filterAdditionalParameters(filteredBaseParameters);
         System.out.println("\n\t\t Filtered tariffs: ");
@@ -32,7 +32,13 @@ public class SearchTariffs implements MenuCommand {
         }
     }
 
-    private List<BaseTariff> fillListTariffs() {
+    public void callSpectrum (int i) {
+        if (i == 1) spectrum = new SpectrumParameters();
+        else spectrum = new SpectrumParameters(1, 100,
+                1, 200, 1, 300);
+    }
+
+    public List<BaseTariff> fillListTariffs() {
         List<BaseTariff> filteredBaseParameters = new ArrayList<>();
         for (int i = 0; i < network.getNumberAvailableTariffs(); i++) {
             BaseTariff tariff = network.getTariff(i);
@@ -42,7 +48,7 @@ public class SearchTariffs implements MenuCommand {
         }
         return filteredBaseParameters;
     }
-    private boolean isBaseParametersMatch(BaseTariff tariff) {
+    public boolean isBaseParametersMatch(BaseTariff tariff) {
         return spectrum.getSMSNumber_l() <= tariff.getSMSNumber() &&
                 spectrum.getSMSNumber_u() >= tariff.getSMSNumber() &&
                 spectrum.getPriceTariff_l() <= tariff.getPriceTariff() &&

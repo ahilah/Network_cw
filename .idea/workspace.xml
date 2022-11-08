@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -31,7 +31,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
+    "Downloaded.Files.Path.Enabled": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -40,7 +40,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "D:/programming/appliedProgramming/course_work/network_course_work",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
@@ -51,41 +51,83 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="hileta.com.menu.command.calculate" />
       <recent name="hileta.com.Tariff" />
       <recent name="hileta.com.network" />
       <recent name="hileta.com.menu.command" />
       <recent name="hileta.com.menu.command.search" />
-      <recent name="hileta.com.menu.command.search.tariffs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="hileta.com.menu.command.commandable" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hileta.com.main.Main" />
+  <component name="RunManager" selected="JUnit.SearchAbroadTest.searchAbroad">
+    <configuration name="All in Network_cw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Network_cw" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hileta.com.main.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateNetworkTest.execute" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NetworkTest.addTariff" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Network_cw" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hileta.com.menu.management.*" />
+          <option name="PATTERN" value="hileta.com.network.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hileta.com.menu.management" />
-      <option name="MAIN_CLASS_NAME" value="hileta.com.menu.management.CreateNetworkTest" />
-      <option name="METHOD_NAME" value="execute" />
+      <option name="PACKAGE_NAME" value="hileta.com.network" />
+      <option name="MAIN_CLASS_NAME" value="hileta.com.network.NetworkTest" />
+      <option name="METHOD_NAME" value="addTariff" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchAbroadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Network_cw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hileta.com.menu.command.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hileta.com.menu.command.search" />
+      <option name="MAIN_CLASS_NAME" value="hileta.com.menu.command.search.SearchAbroadTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchAbroadTest.searchAbroad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Network_cw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hileta.com.menu.command.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hileta.com.menu.command.search" />
+      <option name="MAIN_CLASS_NAME" value="hileta.com.menu.command.search.SearchAbroadTest" />
+      <option name="METHOD_NAME" value="searchAbroad" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTariffsTest.fillListTariffs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Network_cw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hileta.com.menu.command.search.tariffs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hileta.com.menu.command.search.tariffs" />
+      <option name="MAIN_CLASS_NAME" value="hileta.com.menu.command.search.tariffs.SearchTariffsTest" />
+      <option name="METHOD_NAME" value="fillListTariffs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -93,8 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.CreateNetworkTest.execute" />
+        <item itemvalue="JUnit.SearchAbroadTest.searchAbroad" />
+        <item itemvalue="JUnit.SearchAbroadTest" />
+        <item itemvalue="JUnit.All in Network_cw" />
+        <item itemvalue="JUnit.NetworkTest.addTariff" />
+        <item itemvalue="JUnit.SearchTariffsTest.fillListTariffs" />
       </list>
     </recent_temporary>
   </component>
@@ -121,6 +166,22 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Network_cw$SearchTariffsTest_fillListTariffs.ic" NAME="SearchTariffsTest.fillListTariffs Coverage Results" MODIFIED="1667923231922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.menu.command.search.tariffs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest.ic" NAME="NetworkTest Coverage Results" MODIFIED="1667919113671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.network.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$All_in_Network_cw.ic" NAME="All in Network_cw Coverage Results" MODIFIED="1667920589966" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Network_cw$SpectrumParametersTest.ic" NAME="SpectrumParametersTest Coverage Results" MODIFIED="1667922922994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.menu.command.search.tariffs.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_addTariff.ic" NAME="NetworkTest.addTariff Coverage Results" MODIFIED="1667918406922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.network.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_archiveTariff.ic" NAME="NetworkTest.archiveTariff Coverage Results" MODIFIED="1667920944640" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.network.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Network_cw$CreateNetworkTest_execute.ic" NAME="CreateNetworkTest.execute Coverage Results" MODIFIED="1666529720902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.menu.management.*</FILTER>
     </SUITE>

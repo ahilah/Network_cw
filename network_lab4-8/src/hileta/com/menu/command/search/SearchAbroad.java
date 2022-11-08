@@ -1,7 +1,10 @@
 package hileta.com.menu.command.search;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.network.Abroad;
 import hileta.com.network.Network;
+
+import java.util.List;
 
 import static hileta.com.menu.management.MainCommand.ANSI_RED;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
@@ -18,13 +21,24 @@ public class SearchAbroad implements MenuCommand {
         while(true) {
             System.out.print("\n\t Enter country: ");
             String country = scanner.nextLine();
-            for (int i = 0; i < network.getNumberAbroad(); i++) {
-                if (network.getAbroad(i).getCountry().equals(country)) {
-                    System.out.println(network.getAbroad(i));
-                    return;
-                }
+            Abroad abroad = searchAbroad(country);
+            if (abroad == null) {
+                System.out.println(ANSI_RED + "\n\tIncorrect country, try again!" + ANSI_RESET);
+                return;
             }
-            System.out.println(ANSI_RED + "\n\tIncorrect country, try again!" + ANSI_RESET);
         }
+    }
+
+    public Abroad searchAbroad(String country) {
+        List<Abroad> abroad = network.getListAbroad();
+        Abroad abrd = null;
+        for (int i = 0; i < abroad.size(); i++) {
+            abrd = abroad.get(i);
+            if (abrd.getCountry().equals(country)) {
+                System.out.println(network.getAbroad(i));
+                break;
+            }
+        }
+        return abrd;
     }
 }

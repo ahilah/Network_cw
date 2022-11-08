@@ -10,6 +10,7 @@ public class Calculate implements MenuCommand {
         this.network = network;
     }
 
+    @Override
     public void execute() {
         System.out.println("\n\n\t\tNetwork company info: ");
         showTariffInfo();
@@ -20,12 +21,15 @@ public class Calculate implements MenuCommand {
 
     private void showTariffInfo() {
         System.out.print("\tGeneral tariff number: ");
-        System.out.print(network.getNumberAvailableTariffs() + network.getNumberArchivedTariffs());
+        System.out.print(generalTariffNumber());
         System.out.print("\n\tNumber of available tariffs:  ");
         System.out.print(network.getNumberAvailableTariffs());
         System.out.print("\n\tNumber of archived tariffs:  ");
         System.out.print(network.getNumberArchivedTariffs());
         System.out.println(delimited);
+    }
+    public int generalTariffNumber () {
+        return network.getNumberAvailableTariffs() + network.getNumberArchivedTariffs();
     }
 
     private void showCustomerInfo() {
