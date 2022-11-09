@@ -16,9 +16,14 @@ public class FileCustomer extends FileCommand {
        super(network);
     }
 
+    public FileCustomer(Network network, String filePath) {
+        //super(network);
+        super(network, filePath);
+    }
+
     @Override
     public void execute() {
-        super.execute();
+        //super.execute();
         int numberCustomers = network.getNumberCustomers();
         try {
             getFileData();

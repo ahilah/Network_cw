@@ -18,9 +18,13 @@ public class FileMobileNumber extends FileCommand {
         super(network);
     }
 
+    public FileMobileNumber(Network network, String filePath) {
+        super(network, filePath);
+    }
+
     @Override
     public void execute() {
-        super.execute();
+        //super.execute();
         if (network.isListCustomersEmpty() || network.isListTariffsEmpty()) {
             System.out.println(ANSI_RED +
                     "List of tariffs or customers is empty. Create at least one object of both!"

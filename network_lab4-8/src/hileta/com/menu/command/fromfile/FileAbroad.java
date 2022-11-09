@@ -16,9 +16,14 @@ public class FileAbroad extends FileCommand {
         super(network);
     }
 
+    public FileAbroad(Network network, String filePath) {
+        //super(network);
+        super(network, filePath);
+    }
+
+
     @Override
     public void execute() {
-        super.execute();
         int numberAbroad = network.getNumberAbroad();
         try { // open file
             readData();

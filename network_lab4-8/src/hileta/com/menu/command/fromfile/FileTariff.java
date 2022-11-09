@@ -23,6 +23,11 @@ public class FileTariff extends FileCommand {
         //this.filePath = getFilePath();
     }
 
+    public FileTariff(Network network, String filePath) {
+        //super(network);
+        super(network, filePath);
+    }
+
     /*private String getFilePath() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Type file path: ");
@@ -32,7 +37,7 @@ public class FileTariff extends FileCommand {
     @Override
     public void execute() {
         //String filePath = getFilePath();
-        super.execute();
+        //super.execute();
         int numberTariffs = network.getNumberAvailableTariffs();
             try { // open file
                 readFile();

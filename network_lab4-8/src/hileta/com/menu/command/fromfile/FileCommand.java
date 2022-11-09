@@ -12,12 +12,19 @@ public abstract class FileCommand implements MenuCommand {
     protected String filePath;
     public FileCommand(Network network) {
         this.network = network;
-        //this.filePath = getFilePath();
+        this.filePath = getFilePath();
     }
+
+    public FileCommand(Network network, String filePath) {
+        this.network = network;
+        this.filePath = filePath;
+    }
+
     @Override
     public void execute() {
        this.filePath = getFilePath();
     }
+
     private String getFilePath() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Type file path: ");
