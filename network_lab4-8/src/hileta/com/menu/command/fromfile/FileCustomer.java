@@ -23,7 +23,6 @@ public class FileCustomer extends FileCommand {
 
     @Override
     public void execute() {
-        //super.execute();
         int numberCustomers = network.getNumberCustomers();
         try {
             getFileData();

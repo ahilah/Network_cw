@@ -64,7 +64,20 @@
       <recent name="hileta.com.menu.command.commandable" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Network_cw">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hileta.com.main.Main" />
+      <module name="Network_cw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hileta.com.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in Network_cw" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Network_cw" />
       <option name="PACKAGE_NAME" value="" />
@@ -120,29 +133,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NetworkTest.isTariffAlreadyExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Network_cw" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hileta.com.network.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hileta.com.network" />
-      <option name="MAIN_CLASS_NAME" value="hileta.com.network.NetworkTest" />
-      <option name="METHOD_NAME" value="isTariffAlreadyExists" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Network_cw" />
         <item itemvalue="JUnit.NetworkTest.archiveAllAvailableTariffs" />
         <item itemvalue="JUnit.NetworkTest" />
         <item itemvalue="JUnit.NetworkTest.isMobileNumberAlreadyExist" />
-        <item itemvalue="JUnit.NetworkTest.isTariffAlreadyExists" />
       </list>
     </recent_temporary>
   </component>
@@ -187,16 +184,19 @@
     <SUITE FILE_PATH="coverage/Network_cw$TariffTest.ic" NAME="TariffTest Coverage Results" MODIFIED="1668020531688" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.Tariff.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_isMobileNumberAlreadyExist.ic" NAME="NetworkTest.isMobileNumberAlreadyExist Coverage Results" MODIFIED="1668023150322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.network.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Network_cw$TariffTest_SuperNetTest.ic" NAME="TariffTest.SuperNetTest Coverage Results" MODIFIED="1668020639982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.Tariff.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Network_cw$SearchAbroadTest.ic" NAME="SearchAbroadTest Coverage Results" MODIFIED="1667930036905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.menu.command.search.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Network_cw$All_in_Network_cw.ic" NAME="All in Network_cw Coverage Results" MODIFIED="1668022561392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_isTariffAlreadyExists.ic" NAME="NetworkTest.isTariffAlreadyExists Coverage Results" MODIFIED="1668023002563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.network.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$All_in_Network_cw.ic" NAME="All in Network_cw Coverage Results" MODIFIED="1668023395152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Network_cw$FileCustomerTest.ic" NAME="FileCustomerTest Coverage Results" MODIFIED="1668012248729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.menu.command.fromfile.*</FILTER>
     </SUITE>
@@ -233,13 +233,16 @@
     <SUITE FILE_PATH="coverage/Network_cw$AddAbroadTest.ic" NAME="AddAbroadTest Coverage Results" MODIFIED="1668018200298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.menu.command.add.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_archiveAllAvailableTariffs.ic" NAME="NetworkTest.archiveAllAvailableTariffs Coverage Results" MODIFIED="1668023371282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hileta.com.network.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_getNetworkInfo.ic" NAME="NetworkTest.getNetworkInfo Coverage Results" MODIFIED="1668022500914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.network.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Network_cw$FileTariffTest.ic" NAME="FileTariffTest Coverage Results" MODIFIED="1668012662315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.menu.command.fromfile.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest.ic" NAME="NetworkTest Coverage Results" MODIFIED="1668022869553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Network_cw$NetworkTest.ic" NAME="NetworkTest Coverage Results" MODIFIED="1668023163202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.network.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Network_cw$SearchMobileNumbersTest_searchMNumbers.ic" NAME="SearchMobileNumbersTest.searchMNumbers Coverage Results" MODIFIED="1667930021821" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
