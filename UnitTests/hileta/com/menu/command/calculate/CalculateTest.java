@@ -6,6 +6,7 @@ import hileta.com.Tariff.SuperNetTariff;
 import hileta.com.Tariff.SuperTariff;
 import hileta.com.network.Network;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CalculateTest {
-
     static Network network;
     static List<BaseTariff> tariffs;
     Calculate calculate;
@@ -23,6 +23,7 @@ class CalculateTest {
     @BeforeEach
     void setUp() {
         network = Network.getNetwork("LvivNet", "06985471", "lvivnet@com");
+        network.getAvailableTariffs().clear();
         tariffs = new ArrayList<>(4);
         BaseTariff tariff4 = new StartTariff("Angst",17,
                 300, 90, "1");
@@ -48,12 +49,14 @@ class CalculateTest {
     @AfterEach
     void tearDown() {
         network.getAvailableTariffs().clear();
-        network.getArchivedTariffs().clear();
         tariffs.clear();
     }
 
     @Test
     void generalTariffNumber() {
-        assertEquals(4, calculate.generalTariffNumber());
+        Assertions.assertFalse(network.isListTariffsEmpty());
+        Assertions.assertFalse(network.getArchivedTariffs().isEmpty());
+        int expectedNumber = network.getNumberAvailableTariffs() + network.getNumberArchivedTariffs();
+        assertEquals(expectedNumber, calculate.generalTariffNumber());
     }
 }
