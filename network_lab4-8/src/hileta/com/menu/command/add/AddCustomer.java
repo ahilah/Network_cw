@@ -17,19 +17,27 @@ public class AddCustomer implements MenuCommand {
 
     @Override
     public void execute() {
-        Customer customer = getNewCustomer();
+        String name = getName();
+        String ID = getID();
+        Customer customer = getNewCustomer(name, ID);
         network.addCustomer(customer);
         System.out.println("\n\tAdded customer: ");
         System.out.println(customer);
         //network.showCustomers();
     }
 
-    private Customer getNewCustomer() {
+    private String getName() {
         System.out.print("Type customer name: ");
         //scanner.next();
-        String customerName = scanner.nextLine();
+        return scanner.nextLine();
+    }
+
+    private String getID() {
         System.out.print("Type customer ID: ");
-        String customerID = scanner.nextLine().replaceAll("\\s","");
-        return new Customer(customerName, customerID);
+        return  scanner.nextLine().replaceAll("\\s","");
+    }
+
+    public Customer getNewCustomer(String name, String ID) {
+        return new Customer(name, ID);
     }
 }

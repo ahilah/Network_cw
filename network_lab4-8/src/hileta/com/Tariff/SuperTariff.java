@@ -11,20 +11,14 @@ public class SuperTariff extends BaseTariff {
         this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
     }
-    public double getNumberMinutesOtherNetwork() {
+
+    /*public double getNumberMinutesOtherNetwork() {
         return numberMinutesOtherNetwork;
     }
     public double getNumberMinutesOtherCountries() {
         return numberMinutesOtherCountries;
-    }
-    public SuperTariff setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
-        this.numberMinutesOtherNetwork = numberMinutesOtherNetwork;
-        return this;
-    }
-    public SuperTariff setNumberMinutesOtherCountries(double numberMinutesOtherCountries) {
-        this.numberMinutesOtherCountries = numberMinutesOtherCountries;
-        return this;
-    }
+    }*/
+
 
     @Override
     public String toString() {

@@ -17,18 +17,26 @@ public class AddAbroad implements MenuCommand {
 
     @Override
     public void execute() {
-        Abroad abroad = getNewAbroad();
+        String country = getCountryName();
+        Double price = getPricePerMinute();
+        Abroad abroad = getNewAbroad(country, price);
         network.addAbroad(abroad);
         System.out.println("\n\tAdded abroad:");
         System.out.println(abroad);
         //network.showAbroad();
     }
 
-    private Abroad getNewAbroad() {
+    private String getCountryName() {
         System.out.print("Type country: ");
-        String country = scanner.nextLine();
+        return scanner.nextLine();
+    }
+
+    private Double getPricePerMinute() {
         System.out.print("Type price per minute in hryvnias: ");
-        double pricePerMinute = Double.parseDouble(scanner.nextLine());
-        return new Abroad(country, pricePerMinute);
+        return Double.parseDouble(scanner.nextLine());
+    }
+
+    public Abroad getNewAbroad(String country, Double price) {
+        return new Abroad(country, price);
     }
 }

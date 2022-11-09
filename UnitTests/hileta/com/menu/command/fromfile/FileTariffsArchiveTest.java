@@ -14,6 +14,8 @@ class FileTariffsArchiveTest {
     static void beforeAll() {
         network = Network.getNetwork("LvivNet", "06985471", "lvivnet@com");
         file = new FileTariffsArchive(network, "D:\\test1.txt");
+        network.getAvailableTariffs().clear();
+        network.getArchivedTariffs().clear();
     }
 
     @AfterAll

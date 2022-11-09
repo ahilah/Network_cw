@@ -33,7 +33,7 @@ public class View implements MenuCommand {
                     network.showMobileNumbers();
                 }
                 case 5 -> showAbroad();
-                case 6 -> network.getNetworkInfo();
+                case 6 -> System.out.println(network.getNetworkInfo());
                 default -> System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
             }
         }

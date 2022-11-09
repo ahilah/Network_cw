@@ -4,7 +4,6 @@ import hileta.com.menu.command.*;
 import hileta.com.menu.command.add.Add;
 import hileta.com.menu.command.calculate.Calculate;
 import hileta.com.menu.command.commandable.MenuCommand;
-import hileta.com.menu.command.edit.Edit;
 import hileta.com.menu.command.search.Search;
 import hileta.com.network.Network;
 
@@ -32,7 +31,7 @@ public class MainCommand {
 
     private void fillMenuItems() {
         menuItems.put("Add new object.", new Add(operatorNetwork));
-        menuItems.put("Edit object.", new Edit(operatorNetwork));
+        //menuItems.put("Edit object.", new Edit(operatorNetwork));
         menuItems.put("View object.", new View(operatorNetwork));
         menuItems.put("Search object.", new Search(operatorNetwork));
         menuItems.put("Sort tariffs of their price.", new Sort(operatorNetwork));

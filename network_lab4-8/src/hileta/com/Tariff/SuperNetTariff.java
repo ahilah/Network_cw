@@ -10,7 +10,8 @@ public class SuperNetTariff extends BaseTariff {
         this.numberMinutesOtherCountries = numberMinutesOtherCountries;
         this.mobileInternet = mobileInternet;
     }
-    public double getNumberMinutesOtherNetwork() {
+
+    /*public double getNumberMinutesOtherNetwork() {
         return numberMinutesOtherNetwork;
     }
     public BaseTariff setNumberMinutesOtherNetwork(double numberMinutesOtherNetwork) {
@@ -31,7 +32,8 @@ public class SuperNetTariff extends BaseTariff {
     public BaseTariff setMobileInternet(double mobileInternet) {
         this.mobileInternet = mobileInternet;
         return this;
-    }
+    }*/
+
     @Override
     public String toString() {
         return "Super Net Tariff " + super.toString() +

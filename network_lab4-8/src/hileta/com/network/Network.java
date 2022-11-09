@@ -100,9 +100,10 @@ public class Network {
         }
         return searchedCustomer;
     }
-    public void getNetworkInfo() {
-        System.out.println("\n\t\tNetwork info:");
-        System.out.println("Company name: " + this.companyName + "\ne-mail: " + this.companyEmail + "\nnumber: " + this.companyNumber);
+
+    public String getNetworkInfo() {
+        String string = "\n\t\tNetwork info:";
+        return string + "\nCompany name: " + this.companyName + "\ne-mail: " + this.companyEmail + "\nnumber: " + this.companyNumber;
     }
 
     public int getNumberAvailableTariffs() {
@@ -144,7 +145,7 @@ public class Network {
         return ListMobileNumbers.isEmpty();
     }
 
-    public boolean isTariffAvailableExists(String otherID) {
+    /*public boolean isTariffAvailableExists(String otherID) {
         boolean isTariffIDEqual = false;
         for (BaseTariff availableTariff : AvailableTariffs) {
             if (availableTariff.getTariffID().equals(otherID)) {
@@ -153,7 +154,7 @@ public class Network {
             }
         }
         return isTariffIDEqual;
-    }
+    }*/
     public boolean isTariffAlreadyExists(String otherID) {
         boolean isTariffIDEqual = false;
         for (BaseTariff availableTariff : AvailableTariffs) {

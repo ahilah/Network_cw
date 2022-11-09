@@ -4,10 +4,7 @@ import hileta.com.Tariff.BaseTariff;
 import hileta.com.Tariff.StartTariff;
 import hileta.com.Tariff.SuperNetTariff;
 import hileta.com.Tariff.SuperTariff;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,18 +15,17 @@ class NetworkTest {
 
     @BeforeAll
     static void beforeAll() {
-        network = Network.getNetwork("LvivNet", "06985471", "lvivnet@com");
+        network = Network.getNetwork("test1", "1", "test01");
         tariffs = new ArrayList<>(4);
-
-
     }
 
-    @AfterAll
-    static void afterAll() {
+    @AfterEach
+    void afterAll() {
         network.getArchivedTariffs().clear();
         network.getAvailableTariffs().clear();
+        network.getListAbroad().clear();
+        network.getListMobileNumbers().clear();
         tariffs.clear();
-
     }
 
     @Test
@@ -40,7 +36,7 @@ class NetworkTest {
 
     @Test
     void addAndDeleteTariff() {
-        tariffs.clear();
+        //tariffs.clear();
         BaseTariff tariff4 = new StartTariff("Angst",17,
                 300, 90, "1");
         BaseTariff tariff2 = new StartTariff("Pile",20 ,
@@ -68,8 +64,8 @@ class NetworkTest {
         network.deleteTariff(3);
         Assertions.assertArrayEquals(tariffs.toArray(), network.getAvailableTariffs().toArray());
 
-        tariffs.clear();
-        network.getAvailableTariffs().clear();
+        //tariffs.clear();
+        //network.getAvailableTariffs().clear();
     }
 
     @Test
@@ -77,10 +73,6 @@ class NetworkTest {
         Abroad abroad = new Abroad("France", 10.5);
         network.addAbroad(abroad);
         Assertions.assertEquals(abroad, network.getAbroad(0));
-    }
-
-    @Test
-    void addAbroad() {
     }
 
     @Test
@@ -92,10 +84,6 @@ class NetworkTest {
         tariffs.clear();
         tariffs.add(tariff4);
         Assertions.assertArrayEquals(tariffs.toArray(), network.getArchivedTariffs().toArray());
-    }
-
-    @Test
-    void archiveAllAvailableTariffs() {
     }
 
     @Test
@@ -129,98 +117,43 @@ class NetworkTest {
     }
 
     @Test
-    void searchTariff() {
-    }
-
-    @Test
-    void getTariff() {
-    }
-
-    @Test
-    void getArchivedTariff() {
-    }
-
-    @Test
-    void getMobileNumber() {
-    }
-
-    @Test
-    void getAbroad() {
-    }
-
-    @Test
     void getCustomer() {
-    }
-
-    @Test
-    void testGetCustomer() {
+        network.addCustomer(new Customer("Anna", "2"));
+        Assertions.assertNotNull(network.getCustomer("2"));
     }
 
     @Test
     void getNetworkInfo() {
+        Assertions.assertEquals("\n" +
+                "\t\tNetwork info:\n" +
+                "Company name: test1\n" +
+                "e-mail: test01\n" +
+                "number: 1", network.getNetworkInfo());
     }
 
     @Test
-    void getNumberAvailableTariffs() {
-    }
+    void archiveAllAvailableTariffs() {
+        network.addTariff(new StartTariff("Angst",17,
+                300, 90, "1"));
+        Assertions.assertFalse(network.isListTariffsEmpty());
+        Assertions.assertTrue(network.getArchivedTariffs().isEmpty());
 
-    @Test
-    void getNumberArchivedTariffs() {
-    }
-
-    @Test
-    void getNumberCustomers() {
-    }
-
-    @Test
-    void getNumberMobileNumbers() {
-    }
-
-    @Test
-    void getNumberAbroad() {
-    }
-
-    @Test
-    void getAvailableTariffs() {
-    }
-
-    @Test
-    void getArchivedTariffs() {
-    }
-
-    @Test
-    void getListAbroad() {
-    }
-
-    @Test
-    void getListMobileNumbers() {
-    }
-
-    @Test
-    void isListTariffsEmpty() {
-    }
-
-    @Test
-    void isListCustomersEmpty() {
-    }
-
-    @Test
-    void isListMobileNumbersEmpty() {
-    }
-
-    @Test
-    void isTariffAvailableExists() {
+        network.archiveAllAvailableTariffs();
+        Assertions.assertTrue(network.isListTariffsEmpty());
+        Assertions.assertFalse(network.getArchivedTariffs().isEmpty());
     }
 
     @Test
     void isTariffAlreadyExists() {
+        network.archiveTariff(new StartTariff("Angst",17,
+                300, 90, "1"));
+        Assertions.assertTrue(network.isTariffAlreadyExists("1"));
     }
 
     @Test
     void isMobileNumberAlreadyExist() {
+        network.addMobileNumber(new MobileNumber("1212", "1414", "17", 11.5));
+        Assertions.assertTrue(network.isMobileNumberAlreadyExist("1212"));
     }
 
-    @Test
-    void isCustomerAlreadyExist() {
-    }
 }
