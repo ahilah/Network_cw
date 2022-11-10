@@ -2,6 +2,8 @@ package hileta.com.menu.command.fromfile;
 
 import hileta.com.network.Abroad;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +13,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RED;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 public class FileAbroad extends FileCommand {
-
+    private static Logger logger = LogManager.getLogger(FileAbroad.class);
     public FileAbroad(Network network) {
         super(network);
     }
@@ -24,12 +26,15 @@ public class FileAbroad extends FileCommand {
 
     @Override
     public void execute() {
+        logger.info("Read abroad data from file was executed");
         int numberAbroad = network.getNumberAbroad();
         try { // open file
             readData();
+            logger.info("Dta was successfully read");
             showAddedAbroad(numberAbroad);
         }
         catch (IOException e) {
+            logger.error("Can't open: " + filePath);
             System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
         }
     }
@@ -49,7 +54,10 @@ public class FileAbroad extends FileCommand {
                 isFileNotCorrect = false;
                 buff.close();
             } catch (IOException e) {
+                logger.error("Can't open: " + filePath);
                 System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
+                logger.warn("Get new file path");
+                filePath = super.getFilePath();
             }
         }
     }

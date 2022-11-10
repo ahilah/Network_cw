@@ -3,6 +3,8 @@ package hileta.com.menu.command.fromfile;
 import hileta.com.Tariff.BaseTariff;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,7 +15,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 public class FileMobileNumber extends FileCommand {
     //private Network network;
-
+    private static Logger logger = LogManager.getLogger(FileMobileNumber.class);
     public FileMobileNumber(Network network) {
         super(network);
     }
@@ -26,6 +28,7 @@ public class FileMobileNumber extends FileCommand {
     public void execute() {
         //super.execute();
         if (network.isListCustomersEmpty() || network.isListTariffsEmpty()) {
+            logger.fatal("List of tariffs or customers is empty");
             System.out.println(ANSI_RED +
                     "List of tariffs or customers is empty. Create at least one object of both!"
                     + ANSI_RESET);
@@ -34,31 +37,44 @@ public class FileMobileNumber extends FileCommand {
         int sizeMobileNumbers = network.getNumberMobileNumbers();
         try {
             readData();
+            logger.info("Dta was successfully read");
             showAddedNumbers(sizeMobileNumbers);
         }
         catch (IOException e) {
+            logger.error("Can't open: " + filePath);
             System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
         }
     }
 
     private void readData() throws IOException {
-        // open file
-        buff = new BufferedReader(new FileReader(filePath));
-        MobileNumber newMobileNumber;
-        String[] mobileNumberInfo;
-        String line = buff.readLine();
-        while(line != null) {
-            mobileNumberInfo = line.split(" ");
-            newMobileNumber = getNewMobileNumber(mobileNumberInfo);
-            if (newMobileNumber != null) {
-                network.addMobileNumber(newMobileNumber);
-                BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
-                tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
+        boolean isFileNotCorrect = true;
+        while(isFileNotCorrect) {
+            try {
+                // open file
+                buff = new BufferedReader(new FileReader(filePath));
+                MobileNumber newMobileNumber;
+                String[] mobileNumberInfo;
+                String line = buff.readLine();
+                while (line != null) {
+                    mobileNumberInfo = line.split(" ");
+                    newMobileNumber = getNewMobileNumber(mobileNumberInfo);
+                    if (newMobileNumber != null) {
+                        network.addMobileNumber(newMobileNumber);
+                        BaseTariff tariff = network.searchTariff(newMobileNumber.getTariffID());
+                        tariff.setNumberOfUsers(tariff.getNumberOfUsers() + 1);
+                    } else
+                        System.out.println(ANSI_RED + "\n\tLine " + line + " contains incorrect parameters." + ANSI_RESET);
+                    line = buff.readLine();
+                }
+                isFileNotCorrect = false;
+                buff.close();
+            } catch (IOException e) {
+                logger.error("Can't open: " + filePath);
+                System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
+                logger.warn("Get new file path");
+                filePath = super.getFilePath();
             }
-            else System.out.println(ANSI_RED + "\n\tLine " + line + " contains incorrect parameters." + ANSI_RESET);
-            line = buff.readLine();
         }
-        buff.close();
     }
 
     private MobileNumber getNewMobileNumber(String[] mobileNumberInfo) {

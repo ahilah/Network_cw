@@ -45,6 +45,7 @@ public class FileTariff extends FileCommand {
         int numberTariffs = network.getNumberAvailableTariffs();
         try { // open file
             readFile();
+            logger.info("Data was successfully read");
             showAddedTariffs(numberTariffs);
         }
         catch (IOException e) {

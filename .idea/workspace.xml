@@ -73,7 +73,7 @@
       <recent name="hileta.com.menu.command.commandable" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in Network_cw">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hileta.com.main.Main" />
       <module name="Network_cw" />
@@ -153,8 +153,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in Network_cw" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in Network_cw" />
         <item itemvalue="JUnit.NetworkTest.archiveAllAvailableTariffs" />
         <item itemvalue="JUnit.NetworkTest" />
         <item itemvalue="JUnit.NetworkTest.isMobileNumberAlreadyExist" />
