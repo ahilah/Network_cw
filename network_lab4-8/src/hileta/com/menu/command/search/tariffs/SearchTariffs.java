@@ -3,11 +3,14 @@ package hileta.com.menu.command.search.tariffs;
 import hileta.com.Tariff.BaseTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchTariffs implements MenuCommand {
+    private static Logger logger = LogManager.getLogger(SearchTariffs.class);
     private final Network network;
     private SpectrumParameters spectrum;
     private List<BaseTariff> tariffs;
@@ -19,26 +22,34 @@ public class SearchTariffs implements MenuCommand {
 
     @Override
     public void execute() {
+        logger.info("Search tariff command was executed");
         callSpectrum(1);
         List<BaseTariff> filteredBaseParameters = fillListTariffs();
         //tariffs = filterAdditionalParameters(filteredBaseParameters);
         System.out.println("\n\t\t Filtered tariffs: ");
         PrintTariffsHeadOfList();
         if (filteredBaseParameters.isEmpty()) {
+            logger.info("No tariffs with such inputted parameters");
             PrintEmptyTariffsList();
-        } else
+        } else {
+            logger.info("Tariffs with inputted parameters were searched");
             for (BaseTariff tariff : filteredBaseParameters) {
-            System.out.println(tariff.rowTable());
+                System.out.println(tariff.rowTable());
+            }
         }
     }
 
     public void callSpectrum (int i) {
-        if (i == 1) spectrum = new SpectrumParameters();
+        if (i == 1) {
+            logger.warn("Fill values of searching parameters");
+            spectrum = new SpectrumParameters();
+        }
         else spectrum = new SpectrumParameters(1, 100,
                 1, 200, 1, 300);
     }
 
     public List<BaseTariff> fillListTariffs() {
+        logger.info("Searching of tariffs with inputted parameters");
         List<BaseTariff> filteredBaseParameters = new ArrayList<>();
         for (int i = 0; i < network.getNumberAvailableTariffs(); i++) {
             BaseTariff tariff = network.getTariff(i);

@@ -2,7 +2,6 @@ package hileta.com.menu.command.add;
 
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.menu.command.fromfile.FromFile;
-import hileta.com.menu.management.MainCommand;
 import hileta.com.network.Network;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -14,7 +13,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RED;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 public class AddCommand {
-    private static Logger logger = LogManager.getLogger(MainCommand.class);
+    private static Logger logger = LogManager.getLogger(AddCommand.class);
     private final Map<String, MenuCommand> menuItems;
     public final Network network;
     public AddCommand(Network network) {

@@ -1,7 +1,6 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
-import hileta.com.menu.management.MainCommand;
 import hileta.com.network.Network;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -12,7 +11,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RED;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 public class Archive implements MenuCommand {
-    private static Logger logger = LogManager.getLogger(MainCommand.class);
+    private static Logger logger = LogManager.getLogger(Archive.class);
     public static final String ANSI_GREEN = "\u001b[32m";
     private final Network network;
     Scanner scanner;

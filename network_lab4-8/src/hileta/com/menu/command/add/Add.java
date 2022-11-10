@@ -1,7 +1,6 @@
 package hileta.com.menu.command.add;
 
 import hileta.com.menu.command.commandable.MenuCommand;
-import hileta.com.menu.management.MainCommand;
 import hileta.com.network.Network;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -13,7 +12,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 
 public class Add implements MenuCommand {
-    private static Logger logger = LogManager.getLogger(MainCommand.class);
+    private static Logger logger = LogManager.getLogger(Add.class);
     Scanner scanner;
     private final Network network;
     AddCommand addCommand;

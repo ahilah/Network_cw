@@ -1,7 +1,6 @@
 package hileta.com.menu.command.add;
 
 import hileta.com.menu.command.commandable.MenuCommand;
-import hileta.com.menu.management.MainCommand;
 import hileta.com.network.Abroad;
 import hileta.com.network.Network;
 import org.apache.log4j.LogManager;
@@ -10,7 +9,7 @@ import org.apache.log4j.Logger;
 import java.util.Scanner;
 
 public class AddAbroad implements MenuCommand {
-    private static Logger logger = LogManager.getLogger(MainCommand.class);
+    private static Logger logger = LogManager.getLogger(AddAbroad.class);
     Scanner scanner;
     private final Network network;
 

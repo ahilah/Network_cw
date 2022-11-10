@@ -52,24 +52,3 @@ public class Calculate implements MenuCommand {
         System.out.print(calculateAvailableTariffs.getSuperNetNumber() + calculateArchivedTariffs.getSuperNetNumber());
     }
 }
-
-/*
-    public String getCommandInfo() {
-        return COMMAND_INFO;
-    }
-    //private String COMMAND_INFO = "calculate general number of customers";
-
-    private int numberCustomers(int numberTariffs) {
-        int numberCustomers = 0;
-        for(int i = 0; i < numberTariffs; ++i) {
-            numberCustomers += network.getTariff(i).getNumberOfUsers();
-        }
-        return numberCustomers;
-    }
-
-    int numberCustomersInAvailableTariffs = numberCustomers(network.getNumberAvailableTariffs());
-        int numberCustomersInArchivedTariffs = numberCustomers(network.getNumberArchivedTariffs());
-        System.out.println("\nGeneral number of customers: ");
-        System.out.print(numberCustomersInArchivedTariffs + numberCustomersInAvailableTariffs);
-    */
-

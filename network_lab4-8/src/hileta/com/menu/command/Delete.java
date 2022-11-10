@@ -1,7 +1,6 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
-import hileta.com.menu.management.MainCommand;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
 import org.apache.log4j.LogManager;
@@ -14,7 +13,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 import static hileta.com.menu.management.MainMenu.scanner;
 
 public class Delete implements MenuCommand {
-    private static Logger logger = LogManager.getLogger(MainCommand.class);
+    private static Logger logger = LogManager.getLogger(Delete.class);
     private final Network network;
     public Delete(Network network) {
         this.network = network;

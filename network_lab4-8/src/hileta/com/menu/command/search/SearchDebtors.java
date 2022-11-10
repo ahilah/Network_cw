@@ -4,11 +4,14 @@ import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Customer;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SearchDebtors implements MenuCommand {
+    private static Logger logger = LogManager.getLogger(SearchDebtors.class);
     private final Network network;
     private Map<MobileNumber, Customer> debtors;
     public SearchDebtors(Network network) {
@@ -18,7 +21,9 @@ public class SearchDebtors implements MenuCommand {
 
     @Override
     public void execute() {
+        logger.info("Searching debtors command was executed");
         if(network.isListCustomersEmpty() || network.isListMobileNumbersEmpty() || network.isListTariffsEmpty()) {
+            logger.error("List of customers or mobile numbers or tariffs is empty");
             System.out.println("\n\tList of customers or mobile numbers or tariffs is empty. Please, fill data.");
             return;
         }
@@ -33,13 +38,16 @@ public class SearchDebtors implements MenuCommand {
     }
 
     public void clearDebtors() {
+        logger.warn("List of debtors was cleaned");
         debtors.clear();
     }
 
     public void fillDebtors() {
+        logger.info("Fill list of debtors");
         for (int i = 0; i < network.getNumberCustomers(); i++) {
             for (int j = 0; j < network.getNumberMobileNumbers(); j++) {
                 if (isNumberSearched(i, j) && isBalanceNotEnough(j)) {
+                    logger.info("Debtor was found");
                     debtors.put(network.getMobileNumber(j), network.getCustomer(i));
                 }
             }
@@ -60,6 +68,7 @@ public class SearchDebtors implements MenuCommand {
             if (network.getTariff(j).getTariffID().equals(searchedTariffID)) {
                 isTariffArchived = false;
                 tariffPrice = (network.getTariff(j).getPriceTariff());
+                logger.info("Customer has available tariff");
                 break;
             }
         }
@@ -68,6 +77,7 @@ public class SearchDebtors implements MenuCommand {
             for (int j = 0; j < network.getNumberArchivedTariffs(); j++) {
                 if (network.getArchivedTariff(j).getTariffID().equals(searchedTariffID)) {
                     tariffPrice = network.getArchivedTariff(j).getPriceTariff();
+                    logger.info("Customer has archived tariff");
                     break;
                 }
             }

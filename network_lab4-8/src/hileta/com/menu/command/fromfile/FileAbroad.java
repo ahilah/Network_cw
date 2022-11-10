@@ -35,15 +35,23 @@ public class FileAbroad extends FileCommand {
     }
 
     private void readData() throws IOException {
-        buff = new BufferedReader(new FileReader(filePath));
-        String[] abroadInfo;
-        String line = buff.readLine();
-        while(line != null) {
-            abroadInfo = line.split(" ");
-            network.addAbroad(getNewAbroad(abroadInfo));
-            line = buff.readLine();
+        boolean isFileNotCorrect = true;
+        while (isFileNotCorrect) {
+            try {
+                buff = new BufferedReader(new FileReader(filePath));
+                String[] abroadInfo;
+                String line = buff.readLine();
+                while (line != null) {
+                    abroadInfo = line.split(" ");
+                    network.addAbroad(getNewAbroad(abroadInfo));
+                    line = buff.readLine();
+                }
+                isFileNotCorrect = false;
+                buff.close();
+            } catch (IOException e) {
+                System.out.println(ANSI_RED + "\n\t\tCan't open: " + filePath + ANSI_RESET);
+            }
         }
-        buff.close();
     }
 
     private Abroad getNewAbroad(String[] abroadInfo) {

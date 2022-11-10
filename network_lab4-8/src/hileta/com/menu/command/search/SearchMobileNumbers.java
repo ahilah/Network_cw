@@ -3,13 +3,18 @@ package hileta.com.menu.command.search;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static hileta.com.menu.management.MainCommand.ANSI_RED;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 import static hileta.com.menu.management.MainMenu.scanner;
 
 public class SearchMobileNumbers implements MenuCommand {
+    private static Logger logger = LogManager.getLogger(SearchMobileNumbers.class);
     private final Network network;
     private List<MobileNumber> customerNumbers;
     public SearchMobileNumbers(Network network) {
@@ -19,6 +24,7 @@ public class SearchMobileNumbers implements MenuCommand {
 
     @Override
     public void execute() {
+        logger.info("Searching mobile numbers was executed");
         String customerID = getCustomerID();
         if(!customerNumbers.isEmpty()) {
             System.out.println("\n\t\t Mobile numbers of customer " + network.getCustomer(customerID).getName());
@@ -46,7 +52,13 @@ public class SearchMobileNumbers implements MenuCommand {
         System.out.println("\n\tChoose customer ID: ");
         network.showCustomers();
         System.out.println("Type here: ");
-        return scanner.nextLine();
+        String ID = scanner.nextLine();
+        if (!network.isCustomerAlreadyExist(ID)) {
+            logger.error("Customer with ID " + ID + " does not exist");
+            System.out.println(ANSI_RED + "Customer with ID " + ID + " does not exist" + ANSI_RESET);
+            ID = null;
+        }
+        return ID;
     }
 
     public List<MobileNumber> getCustomerNumbers() {
