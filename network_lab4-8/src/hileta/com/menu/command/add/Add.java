@@ -1,7 +1,10 @@
 package hileta.com.menu.command.add;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.management.MainCommand;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
@@ -10,6 +13,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 
 
 public class Add implements MenuCommand {
+    private static Logger logger = LogManager.getLogger(MainCommand.class);
     Scanner scanner;
     private final Network network;
     AddCommand addCommand;
@@ -22,6 +26,7 @@ public class Add implements MenuCommand {
     }
 
     public void execute() {
+        logger.info("Add command is executed");
         while (true) {
             System.out.println("\n\n\tPres " + ANSI_RED + "0 " + ANSI_RESET +
                     "for end adding new items.\n\tAvailable commands: ");
@@ -31,12 +36,14 @@ public class Add implements MenuCommand {
                 int command = Integer.parseInt(scanner.nextLine());
                 if (command != 0) addCommand.execute(command);
                 else {
+                    logger.info("Input data is over");
                     System.out.println(ANSI_PURPLE + "\n\tInput data was successfully over!" + ANSI_RESET);
                     return;
                 }
             }
-            catch (NumberFormatException e){
-                    System.out.println("Wrong input line!");
+            catch (NumberFormatException e) {
+                logger.fatal("Wrong input format (not int)");
+                System.out.println("Wrong input line!");
             }
         }
     }

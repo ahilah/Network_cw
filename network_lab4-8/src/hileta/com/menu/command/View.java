@@ -3,12 +3,15 @@ package hileta.com.menu.command;
 import hileta.com.Tariff.BaseTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import static hileta.com.menu.management.MainCommand.ANSI_RED;
 import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 import static hileta.com.menu.management.MainMenu.scanner;
 
 public class View implements MenuCommand {
+    private static Logger logger = LogManager.getLogger(View.class);
     private final Network network;
 
     public View (Network network) {
@@ -17,6 +20,7 @@ public class View implements MenuCommand {
 
     @Override
     public void execute() {
+        logger.info("View command executed");
         while (true) {
             switch (getUserDecisionObject()) {
                 case 0 -> {
@@ -34,7 +38,10 @@ public class View implements MenuCommand {
                 }
                 case 5 -> showAbroad();
                 case 6 -> System.out.println(network.getNetworkInfo());
-                default -> System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
+                default -> {
+                    logger.error("Incorrect command");
+                    System.out.println(ANSI_RED + "Incorrect command! Try again." + ANSI_RESET);
+                }
             }
         }
     }
@@ -54,6 +61,7 @@ public class View implements MenuCommand {
             return Integer.parseInt(scanner.nextLine()); //scanner.nextInt();
         }
         catch (NumberFormatException e){
+            logger.error("Wrong input command (not int)");
             System.out.println("Wrong input line!");
             return 666;
         }

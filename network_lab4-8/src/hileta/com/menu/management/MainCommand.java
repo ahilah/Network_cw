@@ -6,11 +6,15 @@ import hileta.com.menu.command.calculate.Calculate;
 import hileta.com.menu.command.commandable.MenuCommand;
 import hileta.com.menu.command.search.Search;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+
 public class MainCommand {
+    private static Logger logger = LogManager.getLogger(MainCommand.class);
     private final Map<String, MenuCommand> menuItems;
     private final Network operatorNetwork;
 
@@ -30,6 +34,7 @@ public class MainCommand {
     }
 
     private void fillMenuItems() {
+        logger.info("Fill menu items");
         menuItems.put("Add new object.", new Add(operatorNetwork));
         //menuItems.put("Edit object.", new Edit(operatorNetwork));
         menuItems.put("View object.", new View(operatorNetwork));
@@ -51,9 +56,11 @@ public class MainCommand {
             position++;
         }
         System.out.println(ANSI_RED + "\n\tIncorrect command! Try again." + ANSI_RESET);
+        logger.warn("Incorrect command: " + numberOfCommand);
     }
 
     public void showAvailableCommands() {
+        logger.info("Show all commands");
         int nCommand = 1;
         for (String nameCommand : menuItems.keySet()) {
             System.out.println(nCommand + ". " + nameCommand);

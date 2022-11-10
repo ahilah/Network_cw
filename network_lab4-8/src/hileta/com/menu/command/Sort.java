@@ -2,10 +2,14 @@ package hileta.com.menu.command;
 
 import hileta.com.Tariff.BaseTariff;
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.management.MainCommand;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 public class Sort implements MenuCommand {
     //private String COMMAND_INFO = "sort tariffs of their price";
+    private static Logger logger = LogManager.getLogger(MainCommand.class);
     private Network network;
 
     public Sort(Network network) {
@@ -13,11 +17,16 @@ public class Sort implements MenuCommand {
     }
 
     public void execute() {
+        logger.info("Sort command executed");
         network.sortAvailableTariffs();
         System.out.println("\n\t\t Sorted tariffs by price: ");
         PrintTariffsHeadOfList();
-        if (network.isListTariffsEmpty()) PrintEmptyTariffsList();
+        if (network.isListTariffsEmpty()) {
+            logger.warn("Try to sort empty list");
+            PrintEmptyTariffsList();
+        }
         else {
+            logger.info("Sorting by price was successful");
             for(BaseTariff tariff : network.getAvailableTariffs())
                 System.out.println(tariff.rowTable());
         }

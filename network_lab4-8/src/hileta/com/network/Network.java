@@ -1,6 +1,9 @@
 package hileta.com.network;
 
 import hileta.com.Tariff.BaseTariff;
+import hileta.com.menu.management.MainCommand;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Network {
+    private static Logger logger = LogManager.getLogger(MainCommand.class);
     private static Network network;
     private final String companyName;
     private final String companyNumber;
@@ -20,6 +24,7 @@ public class Network {
 
     public static Network getNetwork(String companyName, String companyNumber, String companyEmail) {
         if (network == null) {
+            logger.info("Create new Network: "  + companyName + " " + companyNumber);
             network = new Network(companyName, companyNumber, companyEmail);
         }
         return network;
@@ -31,6 +36,7 @@ public class Network {
         CreateLists();
     }
     private void CreateLists() {
+        logger.info("Create new lists");
         AvailableTariffs = new ArrayList<>();
         ArchivedTariffs = new ArrayList<>();
         Customers = new ArrayList<>();

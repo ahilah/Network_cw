@@ -1,8 +1,11 @@
 package hileta.com.menu.command;
 
 import hileta.com.menu.command.commandable.MenuCommand;
+import hileta.com.menu.management.MainCommand;
 import hileta.com.network.MobileNumber;
 import hileta.com.network.Network;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
@@ -11,6 +14,7 @@ import static hileta.com.menu.management.MainCommand.ANSI_RESET;
 import static hileta.com.menu.management.MainMenu.scanner;
 
 public class Delete implements MenuCommand {
+    private static Logger logger = LogManager.getLogger(MainCommand.class);
     private final Network network;
     public Delete(Network network) {
         this.network = network;
@@ -18,6 +22,7 @@ public class Delete implements MenuCommand {
     public void execute() {
         int tariffNumber = getNumberOfTariff();
         if (network.getTariff(tariffNumber).getNumberOfUsers() != 0) {
+            logger.warn("Try to delete tariff that has users");
             System.out.print("\n\n\tThis tariff has users. Choose another tariff to connect them to it: ");
             /*network.showTariffs();
             System.out.print("\nType here: ");*/
@@ -25,13 +30,17 @@ public class Delete implements MenuCommand {
             try {
                 anotherTariff = Integer.parseInt(scanner.nextLine());
                 --anotherTariff;
+                logger.info("User chooses tariff");
             }
             catch (NumberFormatException e){
+                logger.fatal("Incorrect input line (not int or incorrect tariff ID)");
                 System.out.println("Wrong input line!");
                 anotherTariff = 0;
             }
         changeTariffsAfterRemoving(tariffNumber, anotherTariff);
+            logger.info("Change users tariff in order to delete previous");
         }
+        logger.info("Delete tariff: " + network.getTariff(tariffNumber).getTariffID());
         network.deleteTariff(tariffNumber);
         System.out.println(ANSI_GREEN + "\n\t\tTariff was successfully deleted!" + ANSI_RESET);
     }
@@ -44,6 +53,7 @@ public class Delete implements MenuCommand {
                 mobileNumber.setTariffID(newTariffID);
             }
         }
+        logger.info("Removing tariff was successful");
     }
 
     private int getNumberOfTariff() {
@@ -56,7 +66,8 @@ public class Delete implements MenuCommand {
             --numberOfTariff;
             return numberOfTariff;
         }
-        catch (NumberFormatException e){
+        catch (NumberFormatException e) {
+            logger.fatal("Incorrect input line (not int)");
             System.out.println("Wrong input line!");
             return  0;
         }

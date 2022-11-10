@@ -10,6 +10,7 @@ public class Calculate implements MenuCommand {
         this.network = network;
     }
 
+
     @Override
     public void execute() {
         System.out.println("\n\n\t\tNetwork company info: ");
