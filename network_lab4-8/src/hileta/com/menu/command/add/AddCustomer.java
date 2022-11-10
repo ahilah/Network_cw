@@ -8,6 +8,9 @@ import org.apache.log4j.Logger;
 
 import java.util.Scanner;
 
+import static hileta.com.menu.management.MainCommand.ANSI_RED;
+import static hileta.com.menu.management.MainCommand.ANSI_RESET;
+
 public class AddCustomer implements MenuCommand {
     private static Logger logger = LogManager.getLogger(AddCustomer.class);
     Scanner scanner;
@@ -24,7 +27,7 @@ public class AddCustomer implements MenuCommand {
         String name = getName();
         String ID = getID();
         if (ID == null) {
-            System.out.println("Incorrect input parameters. Try again!");
+            System.out.println(ANSI_RED + "\tIncorrect input parameters. Try again!" + ANSI_RESET);
             return;
         }
 
@@ -45,7 +48,7 @@ public class AddCustomer implements MenuCommand {
         String ID = scanner.nextLine().replaceAll("\\s","");
         if (network.isCustomerAlreadyExist(ID)) {
             logger.error("Attempt to add existing user");
-            System.out.println("User with ID " + ID + "already exists");
+            System.out.println(ANSI_RED + "\n\tUser with ID " + ID + " already exists" + ANSI_RESET);
             ID = null;
         }
         return ID;

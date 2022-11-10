@@ -70,10 +70,11 @@
       <recent name="hileta.com.menu.command" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="message" />
       <recent name="hileta.com.menu.command.commandable" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in Network_cw">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hileta.com.main.Main" />
       <module name="Network_cw" />
@@ -153,8 +154,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in Network_cw" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.NetworkTest.archiveAllAvailableTariffs" />
         <item itemvalue="JUnit.NetworkTest" />
         <item itemvalue="JUnit.NetworkTest.isMobileNumberAlreadyExist" />
@@ -214,7 +215,7 @@
     <SUITE FILE_PATH="coverage/Network_cw$NetworkTest_isTariffAlreadyExists.ic" NAME="NetworkTest.isTariffAlreadyExists Coverage Results" MODIFIED="1668023002563" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.network.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Network_cw$All_in_Network_cw.ic" NAME="All in Network_cw Coverage Results" MODIFIED="1668111905465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Network_cw$All_in_Network_cw.ic" NAME="All in Network_cw Coverage Results" MODIFIED="1668117646546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Network_cw$FileCustomerTest.ic" NAME="FileCustomerTest Coverage Results" MODIFIED="1668012248729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hileta.com.menu.command.fromfile.*</FILTER>
     </SUITE>
