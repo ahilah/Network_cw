@@ -32,8 +32,8 @@ class SearchTariffsTest {
         tariffs = new ArrayList<>(4);
         BaseTariff tariff4 = new StartTariff("Angst",17,
                 300, 90, "1");
-        BaseTariff tariff2 = new StartTariff("Pile",20 ,
-                200, 45, "2");
+        BaseTariff tariff2 = new StartTariff("Pile",100 ,
+                200, 300, "2");
         BaseTariff tariff3 = new SuperTariff("Hayloft",300 ,
                 200, 75, "3",
                 120, 50);

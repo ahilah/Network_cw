@@ -1,0 +1,13 @@
+Algeria 35
+Albania 20
+Belgium 20
+Bulgaria 20
+England 10
+Georgia 20
+Estonia 15
+Latvia 15
+Monaco 20
+Poland 1
+USA 1
+Finland 20
+Switzerland 1

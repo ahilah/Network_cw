@@ -1,0 +1,19 @@
+<appender name="mailAppender" class="org.apache.log4j.net.SMTPAppender">
+<!--  Email Configuration  -->
+<param name="BufferSize" value="512"/>
+<param name="SMTPProtocol" value="smtps"/>
+<param name="SMTPHost" value="smtp.gmail.com"/>
+<param name="SMTPPort" value="465"/>
+<param name="SMTPUsername" value="email"/>
+<param name="SMTPPassword" value="password"/>
+<param name="From" value="email"/>
+<param name="To" value="email"/>
+<param name="Subject" value="Insurance program notification"/>
+<layout class="org.apache.log4j.PatternLayout">
+<param name="ConversionPattern" value="%-7p %d [%t] %c %x - %m%n"/>
+</layout>
+<filter class="org.apache.log4j.varia.LevelRangeFilter">
+<param name="LevelMin" value="error"/>
+<param name="LevelMax" value="fatal"/>
+</filter>
+</appender>

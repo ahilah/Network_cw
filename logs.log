@@ -1,0 +1,91 @@
+INFO    2022-11-11 15:57:03,056 [main] hileta.com.main.Main  - Start program
+INFO    2022-11-11 15:57:03,080 [main] hileta.com.menu.management.MainCommand  - Create network command is executed
+INFO    2022-11-11 15:57:05,478 [main] hileta.com.menu.management.MainCommand  - Create new Network: 1 1
+INFO    2022-11-11 15:57:05,478 [main] hileta.com.menu.management.MainCommand  - Create new lists
+INFO    2022-11-11 15:57:05,478 [main] hileta.com.menu.management.MainCommand  - Fill menu items
+INFO    2022-11-11 15:57:05,479 [main] hileta.com.menu.command.add.AddCommand  - fill add menu items
+INFO    2022-11-11 15:57:05,483 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Fill file reading commands
+INFO    2022-11-11 15:57:05,484 [main] hileta.com.menu.command.fromfile.FileCommand  - Get file path was executed
+INFO    2022-11-11 15:57:06,061 [main] hileta.com.menu.command.fromfile.FileCommand  - Get file path was executed
+INFO    2022-11-11 15:57:06,645 [main] hileta.com.menu.command.fromfile.FileCommand  - Get file path was executed
+INFO    2022-11-11 15:57:07,291 [main] hileta.com.menu.command.fromfile.FileCommand  - Get file path was executed
+INFO    2022-11-11 15:57:08,035 [main] hileta.com.menu.command.search.SearchCommand  - Fill searching menu items
+INFO    2022-11-11 15:57:08,039 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 15:57:10,324 [main] hileta.com.menu.command.Sort  - Sort command executed
+WARN    2022-11-11 15:57:10,324 [main] hileta.com.menu.command.Sort  - Try to sort empty list
+INFO    2022-11-11 15:57:10,325 [main] hileta.com.menu.management.MainCommand  - Show all commands
+WARN    2022-11-11 15:57:15,058 [main] hileta.com.menu.management.MainCommand  - Incorrect command: 9
+INFO    2022-11-11 15:57:15,058 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 15:57:18,883 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 15:57:55,204 [main] hileta.com.menu.command.add.Add  - Add command is executed
+INFO    2022-11-11 15:57:55,204 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+INFO    2022-11-11 15:57:58,629 [main] hileta.com.menu.command.add.AddTariff  - Add tariff command is executed
+INFO    2022-11-11 15:57:58,630 [main] hileta.com.menu.command.add.AddTariff  - Show types of tariffs
+WARN    2022-11-11 15:58:04,503 [main] hileta.com.menu.command.add.AddTariff  - Tariffs contains unlim param
+ERROR   2022-11-11 15:58:04,503 [main] hileta.com.menu.command.add.AddTariff  - Not all parameters were inputted
+INFO    2022-11-11 15:58:04,503 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+ERROR   2022-11-11 15:58:12,427 [main] hileta.com.menu.command.add.AddCommand  - Incorrect number of command
+INFO    2022-11-11 15:58:12,427 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+INFO    2022-11-11 15:58:16,047 [main] hileta.com.menu.command.add.AddTariff  - Add tariff command is executed
+INFO    2022-11-11 15:58:16,047 [main] hileta.com.menu.command.add.AddTariff  - Show types of tariffs
+ERROR   2022-11-11 15:58:19,790 [main] hileta.com.menu.command.add.AddTariff  - Wrong input number
+INFO    2022-11-11 15:58:19,790 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+FATAL   2022-11-11 15:58:19,963 [main] hileta.com.menu.command.add.Add  - Wrong input format (not int)
+INFO    2022-11-11 15:58:19,963 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+INFO    2022-11-11 15:58:23,997 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Show available reading from file commands
+INFO    2022-11-11 15:58:28,402 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Reading from file command was found
+INFO    2022-11-11 15:58:28,402 [main] hileta.com.menu.command.fromfile.FileTariff  - Read tariffs from file command was executed
+ERROR   2022-11-11 15:58:28,403 [main] hileta.com.menu.command.fromfile.FileTariff  - Can't open: 1
+WARN    2022-11-11 15:58:28,403 [main] hileta.com.menu.command.fromfile.FileTariff  - Get new file path
+INFO    2022-11-11 15:58:28,404 [main] hileta.com.menu.command.fromfile.FileCommand  - Get file path was executed
+INFO    2022-11-11 15:59:03,489 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,490 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+WARN    2022-11-11 15:59:03,490 [main] hileta.com.menu.command.fromfile.FileTariff  - Attempt to add already existing tariff with ID 88888
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - New tariff was successfully added
+INFO    2022-11-11 15:59:03,499 [main] hileta.com.menu.command.fromfile.FileTariff  - Data was successfully read
+INFO    2022-11-11 15:59:03,504 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Show available reading from file commands
+INFO    2022-11-11 15:59:09,921 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Reading from file command was found
+INFO    2022-11-11 15:59:09,921 [main] hileta.com.menu.command.fromfile.FileCustomer  - Read customers data from file was executed
+ERROR   2022-11-11 15:59:09,922 [main] hileta.com.menu.command.fromfile.FileCustomer  - Can't open: 1
+WARN    2022-11-11 15:59:09,922 [main] hileta.com.menu.command.fromfile.FileCustomer  - Get new file path
+INFO    2022-11-11 15:59:09,922 [main] hileta.com.menu.command.fromfile.FileCommand  - Get file path was executed
+INFO    2022-11-11 15:59:21,250 [main] hileta.com.menu.command.fromfile.FileCustomer  - Dta was successfully read
+INFO    2022-11-11 15:59:21,250 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Show available reading from file commands
+FATAL   2022-11-11 15:59:23,894 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Command 7 does not exist
+INFO    2022-11-11 15:59:23,894 [main] hileta.com.menu.command.fromfile.FromFileCommand  - Show available reading from file commands
+INFO    2022-11-11 15:59:26,509 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+INFO    2022-11-11 15:59:28,821 [main] hileta.com.menu.command.add.Add  - Input data is over
+INFO    2022-11-11 15:59:28,822 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 15:59:33,109 [main] hileta.com.menu.command.search.Search  - Search command was executed
+INFO    2022-11-11 15:59:33,109 [main] hileta.com.menu.command.search.SearchCommand  - Show available searching commands
+ERROR   2022-11-11 15:59:36,556 [main] hileta.com.menu.command.search.SearchCommand  - Incorrect type of command
+INFO    2022-11-11 15:59:36,556 [main] hileta.com.menu.command.search.SearchCommand  - Show available searching commands
+INFO    2022-11-11 15:59:41,188 [main] hileta.com.menu.command.search.SearchMobileNumbers  - Searching mobile numbers was executed
+INFO    2022-11-11 15:59:48,052 [main] hileta.com.menu.command.search.SearchCommand  - Command was found
+INFO    2022-11-11 15:59:48,052 [main] hileta.com.menu.command.search.SearchCommand  - Show available searching commands
+INFO    2022-11-11 16:00:00,199 [main] hileta.com.menu.command.search.SearchDebtors  - Searching debtors command was executed
+ERROR   2022-11-11 16:00:00,200 [main] hileta.com.menu.command.search.SearchDebtors  - List of customers or mobile numbers or tariffs is empty
+INFO    2022-11-11 16:00:00,200 [main] hileta.com.menu.command.search.SearchCommand  - Command was found
+INFO    2022-11-11 16:00:00,200 [main] hileta.com.menu.command.search.SearchCommand  - Show available searching commands
+ERROR   2022-11-11 16:00:04,862 [main] hileta.com.menu.command.search.SearchCommand  - Incorrect type of command
+INFO    2022-11-11 16:00:04,862 [main] hileta.com.menu.command.search.SearchCommand  - Show available searching commands
+INFO    2022-11-11 16:00:06,482 [main] hileta.com.menu.command.search.Search  - Searching data was over
+INFO    2022-11-11 16:00:06,482 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 16:00:14,691 [main] hileta.com.menu.command.calculate.CalculateNumberTariff  - Calculate number tariffs types was executed
+INFO    2022-11-11 16:00:14,692 [main] hileta.com.menu.command.calculate.CalculateNumberTariff  - Calculate number tariffs types was executed
+INFO    2022-11-11 16:00:14,692 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 16:00:26,173 [main] hileta.com.menu.command.add.Add  - Add command is executed
+INFO    2022-11-11 16:00:26,173 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+INFO    2022-11-11 16:00:28,552 [main] hileta.com.menu.command.add.AddCustomer  - Add customer command was executed
+ERROR   2022-11-11 16:00:31,983 [main] hileta.com.menu.command.add.AddCustomer  - Attempt to add existing user
+INFO    2022-11-11 16:00:31,984 [main] hileta.com.menu.command.add.AddCommand  - Show list od adding command
+INFO    2022-11-11 16:00:37,622 [main] hileta.com.menu.command.add.Add  - Input data is over
+INFO    2022-11-11 16:00:37,622 [main] hileta.com.menu.management.MainCommand  - Show all commands
+WARN    2022-11-11 16:00:39,245 [main] hileta.com.menu.management.MainCommand  - Incorrect command: 0
+INFO    2022-11-11 16:00:39,246 [main] hileta.com.menu.management.MainCommand  - Show all commands
+INFO    2022-11-11 16:00:41,242 [main] hileta.com.menu.command.Exit  - End of program
